@@ -1,0 +1,33 @@
+<div class="center">
+  <div class="code-box">
+  <title class="title">{{exerciseTitle}}</title>
+
+    <div class="content">
+      <p id="context">SOME TEXT</p>
+    </div>
+
+    <div class="code-text">
+<!--      <textarea type="code" class="code-area" id="editor" [(ngModel)]="value"></textarea>-->
+      <h2>Monaco Editor Sample</h2>
+      <div id="container" style="width: 800px; height: 600px; border: 1px solid grey"></div>
+
+      <script src="monaco-editor/min/vs/loader.js"></script>
+      <script>
+        require.config({ paths: { vs: 'monaco-editor/min/vs' } });
+        require(['vs/editor/editor.main'], function () {
+          var editor = monaco.editor.create(document.getElementById('container'), {
+            value: ['function x() {', '\tconsole.log("Hello world!");', '}'].join('\n'),
+            language: 'javascript'
+          });
+        });
+      </script>
+    </div>
+
+    <div class="code-output">
+      <p>output</p>
+    </div>
+
+    <button (click)="printText()" class="button-box">Test code!</button>
+
+  </div>
+</div>

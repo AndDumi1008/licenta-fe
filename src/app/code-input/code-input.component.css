@@ -1,0 +1,26 @@
+
+
+#context {
+  alignment: left;
+}
+
+#code-text {
+  alignment: right;
+}
+
+.code-box {
+  background-color: #E7E9EB;
+  border-radius: 5px;
+  padding: 8px 20px;
+  margin: 24px -20px;
+}
+
+.code-area {
+  resize: none;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
