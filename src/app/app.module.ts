@@ -7,6 +7,8 @@ import { CodeInputComponent } from './code-input/code-input.component';
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
+import {CodemirrorModule} from "@ctrl/ngx-codemirror";
+import {CommonModule} from "@angular/common";
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import {MatCardModule} from "@angular/material/card";
     BrowserAnimationsModule,
     MatInputModule,
     FormsModule,
-    MatCardModule
+    MatCardModule,
+    CommonModule,
+    CodemirrorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

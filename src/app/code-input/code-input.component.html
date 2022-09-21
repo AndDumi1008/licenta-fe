@@ -1,26 +1,19 @@
 <div class="center">
   <div class="code-box">
-  <title class="title">{{exerciseTitle}}</title>
 
     <div class="content">
-      <p id="context">SOME TEXT</p>
+      <h1 class="title">{{ exerciseTitle }}</h1>
+      <p id="context"> {{ question }}</p>
     </div>
 
-    <div class="code-text">
+    <div class="code-area">
 <!--      <textarea type="code" class="code-area" id="editor" [(ngModel)]="value"></textarea>-->
-      <h2>Monaco Editor Sample</h2>
-      <div id="container" style="width: 800px; height: 600px; border: 1px solid grey"></div>
-
-      <script src="monaco-editor/min/vs/loader.js"></script>
-      <script>
-        require.config({ paths: { vs: 'monaco-editor/min/vs' } });
-        require(['vs/editor/editor.main'], function () {
-          var editor = monaco.editor.create(document.getElementById('container'), {
-            value: ['function x() {', '\tconsole.log("Hello world!");', '}'].join('\n'),
-            language: 'javascript'
-          });
-        });
-      </script>
+      <h2> Code me - CodeMirror Editor </h2>
+      <ngx-codemirror
+                      [options]="codeMirrorOptions"
+                      [(ngModel)]="query"
+                      (ngModelChange)="setEditorContent($event)">
+      </ngx-codemirror>
     </div>
 
     <div class="code-output">

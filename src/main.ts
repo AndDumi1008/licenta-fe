@@ -4,6 +4,10 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { AppModule } from './app/app.module';
 import { environment } from './environments/environment';
 
+import 'codemirror/lib/codemirror';
+import 'codemirror/mode/clike/clike';
+import 'codemirror/addon/edit/matchbrackets';
+
 if (environment.production) {
   enableProdMode();
 }
