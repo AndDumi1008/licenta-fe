@@ -9,11 +9,15 @@ import {FormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
 import {CodemirrorModule} from "@ctrl/ngx-codemirror";
 import {CommonModule} from "@angular/common";
+import { MenuListComponent } from './menu-list/menu-list.component';
+import { TopBarComponent } from './top-bar/top-bar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CodeInputComponent,
+    MenuListComponent,
+    TopBarComponent,
   ],
   imports: [
     BrowserModule,
