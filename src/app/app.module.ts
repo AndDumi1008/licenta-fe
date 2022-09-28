@@ -39,7 +39,7 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    // Add an icon to the library for convenient access in other components
+    // Add an icon to the library for convenient access in other components'
     // library.addIcons(faCircleInfo, faCoffee);
     library.addIconPacks(fas, far, fab);
   }

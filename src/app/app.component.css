@@ -4,14 +4,16 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  z-index: -100;
 }
 
 app-top-bar {
   position: fixed;
   box-sizing: border-box;
   top: 0;
+  z-index: 100;
 
-  height: 3%;
+  /*height: 100%;*/
   width: 100%;
 
   border: 1px solid #000000;
@@ -20,6 +22,7 @@ app-top-bar {
 footer {
   background-color: #8655ff;
   box-sizing: border-box;
+  z-index: 100;
 
   position: absolute;
   left: 0;
@@ -33,6 +36,7 @@ footer {
 app-menu-list {
   position: absolute;
   box-sizing: border-box;
+  z-index: 99;
 
   bottom: 0;
   left: 0;
@@ -44,20 +48,22 @@ app-menu-list {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-app-code-input add{
+app-code-input {
   position: absolute;
   box-sizing: border-box;
+
+  right: 20%;
+  left: 35%;
+  top: calc(50% - 707px/2 + 8.5px);
+  z-index: 2;
+
   width: 50%;
+
   padding: 8px 20px;
   margin: 24px -20px;
   max-width: 1200px;
 
   background: #D9D9D9;
-  border-radius: 20px;
-
-  height: 707px;
-  right: 20%;
-  left: 35%;
-  top: calc(50% - 707px/2 + 8.5px);
-
+  border: 1px solid black;
+  border-radius: 8px;
 }
