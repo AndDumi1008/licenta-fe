@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 
 
 @Component({
   selector: 'app-code-input',
   templateUrl: './code-input.component.html',
-  styleUrls: ['./code-input.component.css']
+  styleUrls: ['./code-input.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class CodeInputComponent implements OnInit {
 
@@ -24,6 +25,7 @@ export class CodeInputComponent implements OnInit {
     autoCloseBrackets: true,
     matchBrackets: true,
     lint: true,
+    viewportMargin: Infinity
   };
 
   question?: string;

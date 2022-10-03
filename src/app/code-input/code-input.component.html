@@ -1,26 +1,24 @@
-<div class="center">
-  <div class="code-box">
+<main>
 
-    <div class="content">
-      <h1 class="title">{{ exerciseTitle }}</h1>
-      <p id="context"> {{ question }}</p>
-    </div>
-
-    <div class="code-area">
-<!--      <textarea type="code" class="code-area" id="editor" [(ngModel)]="value"></textarea>-->
-      <h2> Code me - CodeMirror Editor </h2>
-      <ngx-codemirror
-                      [options]="codeMirrorOptions"
-                      [(ngModel)]="query"
-                      (ngModelChange)="setEditorContent($event)">
-      </ngx-codemirror>
-    </div>
-
-    <div class="code-output">
-      <p>output</p>
-    </div>
-
-    <button class="button-submit" (click)="printText()"><span class="text">Test code!</span></button>
-
+  <div class="container">
+  <div class="content">
+    <h1 class="title">{{ exerciseTitle }}</h1>
+    <p id="context"> {{ question }}</p>
   </div>
-</div>
+
+  <div class="code-area">
+    <h2> Code me - CodeMirror Editor </h2>
+    <ngx-codemirror
+                    [options]="codeMirrorOptions"
+                    [(ngModel)]="query"
+                    (ngModelChange)="setEditorContent($event)">
+    </ngx-codemirror>
+  </div>
+
+  <!--<div class="code-output">-->
+  <!--  <p>output</p>-->
+  <!--</div>-->
+
+  <button class="button-submit" (click)="printText()"><span class="text">Test code!</span></button>
+  </div>
+</main>
