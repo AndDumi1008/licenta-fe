@@ -28,7 +28,7 @@ main {
   background-size: cover;
   background-attachment: fixed;
 }
-p#context {
+p.context {
   font-size: 16px
 }
 
