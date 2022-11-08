@@ -12,7 +12,7 @@ main {
 }
 
 .container{
-  width: 90%;
+  width: 85%;
 
   margin: 5px 5px;
   padding: 5px 5px;
@@ -27,6 +27,9 @@ main {
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+}
+p.context {
+  font-size: 16px
 }
 
 .button-submit {
@@ -55,7 +58,6 @@ main {
 .button-submit:hover {
   outline: 0;
 }
-
 .button-submit span {
   background-color: rgb(5, 6, 45);
   padding: 16px 24px;
@@ -63,7 +65,6 @@ main {
   height: 100%;
   transition: 300ms;
 }
-
 .button-submit:hover span {
   background: none;
 }

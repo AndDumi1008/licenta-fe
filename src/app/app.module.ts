@@ -42,5 +42,6 @@ export class AppModule {
     // Add an icon to the library for convenient access in other components'
     // library.addIcons(faCircleInfo, faCoffee);
     library.addIconPacks(fas, far, fab);
+
   }
 }
