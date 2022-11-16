@@ -7,16 +7,16 @@
 }
 
 app-top-bar {
+  position: sticky;
   grid-area: header;
   box-sizing: border-box;
   top: 0;
   z-index: 100;
-
   width: 100%;
-
-  border: 1px solid #000000;
 }
-
+.app-body-container {
+  margin-top: 44px;
+}
 footer {
   background-color: #8655ff;
   box-sizing: border-box;
@@ -31,18 +31,22 @@ footer {
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+app-top-bar {
+  /*grid-area: header;*/
+}
+
 app-menu-list {
-  grid-area: menu;
+  width: 300px;
 }
 
 app-code-input {
-  grid-area: main;
+  /*grid-area: main;*/
 }
 
-.grid-container {
-  display: grid;
-  grid-template-areas:
-    'header header header header header header'
-    'menu main main main main main'
-    'menu footer footer footer footer footer';
-}
+/*.grid-container {*/
+/*  display: grid;*/
+/*  grid-template-areas:*/
+/*    'header header header header header header'*/
+/*    'menu main main main main main'*/
+/*    'menu footer footer footer footer footer';*/
+/*}*/

@@ -15,6 +15,16 @@ import {FaIconLibrary, FontAwesomeModule} from "@fortawesome/angular-fontawesome
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
+import { AppRoutingModule } from './app-routing.module';
+import { BodyComponentComponent } from './body-component/body-component.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { UserMainComponent } from './user/user-main/user-main.component';
+import { UserFeedComponent } from './user/user-feed/user-feed.component';
+import { UserSidebarComponent } from './user/user-sidebar/user-sidebar.component';
+import { MediumCourseComponent } from './course/medium-course/medium-course.component';
+import { CompactCourseComponent } from './course/compact-course/compact-course.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
 
 
 @NgModule({
@@ -23,6 +33,13 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
     CodeInputComponent,
     MenuListComponent,
     TopBarComponent,
+    BodyComponentComponent,
+    UserProfileComponent,
+    UserMainComponent,
+    UserFeedComponent,
+    UserSidebarComponent,
+    MediumCourseComponent,
+    CompactCourseComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +49,10 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
     MatCardModule,
     CommonModule,
     CodemirrorModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    AppRoutingModule,
+    MatSidenavModule,
+    MatProgressBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
