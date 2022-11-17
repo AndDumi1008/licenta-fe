@@ -1,0 +1,19 @@
+<div class="user-page">
+
+  <mat-sidenav-container class="profile-container">
+    <mat-sidenav
+      #sidenav
+      mode="side"
+      opened
+      class="user-sidebar"
+      [fixedInViewport]="true"
+    >
+<!--      <app-user-sidebar></app-user-sidebar>-->
+      <app-menu-list></app-menu-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <app-user-main></app-user-main>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+
+</div>

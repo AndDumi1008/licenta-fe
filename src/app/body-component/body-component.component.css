@@ -1,0 +1,15 @@
+/*app-menu-list {*/
+/*  position:sticky;*/
+/*  top:0px;*/
+/*  height: 100%;*/
+/*  width: 300px;*/
+/*}*/
+
+.example-sidenav {
+  margin-top: 40px;
+  overflow-y: hidden;
+}
+
+.example-container {
+  background-color: transparent !important;
+}
