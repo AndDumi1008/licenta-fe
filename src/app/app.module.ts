@@ -16,7 +16,7 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { AppRoutingModule } from './app-routing.module';
-import { BodyComponentComponent } from './body-component/body-component.component';
+import { BodyComponentComponent } from './course/body-component/body-component.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { UserProfileComponent } from './user-profile/body/user-profile/user-profile.component';
 import { UserMainComponent } from './user-profile/body/user-main/user-main.component';
@@ -26,8 +26,7 @@ import { MediumCourseComponent } from './user-profile/body/utils/course/medium-c
 import { CompactCourseComponent } from './user-profile/body/utils/course/compact-course/compact-course.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { SidenavCourseTreeComponent } from './course/sidenav-course-tree/sidenav-course-tree.component';
-import { StepperTopnavComponent } from './course/header/stepper-topnav/stepper-topnav.component';
-
+import { QuestionInputComponent } from './course/body/utils/question-input/question-input.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +42,7 @@ import { StepperTopnavComponent } from './course/header/stepper-topnav/stepper-t
     MediumCourseComponent,
     CompactCourseComponent,
     SidenavCourseTreeComponent,
-    StepperTopnavComponent,
+    QuestionInputComponent,
   ],
   imports: [
     BrowserModule,

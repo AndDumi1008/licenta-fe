@@ -1,0 +1,37 @@
+<div class="body-component">
+  <mat-sidenav-container class="example-container">
+    <mat-sidenav
+      #sidenav
+      mode="side"
+      opened
+      class="example-sidenav"
+      [fixedInViewport]="true"
+    >
+      <app-menu-list></app-menu-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <div class="flex justify-center place-items-center">
+        <div class="container flex flex-col w-4/5  h-fit p-6">
+          <div class="content gap-32">
+            <h1 class="" style="font-weight: 500">{{ exerciseTitle }}</h1>
+            <p class="p-4"> {{ lecture }}</p>
+            <h2 class="py-2">{{ exerciseSubtitle }}</h2>
+            <p class="p-4" *ngIf="isInput">{{ exercise }}</p>
+          </div>
+
+
+          <ng-template [ngIf]="this.type === 'code-input'">
+            <app-code-input></app-code-input>
+          </ng-template>
+
+          <ng-template [ngIf]="this.type === 'question-input'">
+            <app-question-input></app-question-input>
+          </ng-template>
+
+        </div>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <!--  <app-code-input></app-code-input>-->
+
+</div>

@@ -6,3 +6,13 @@
 .example-container {
   background-color: transparent !important;
 }
+
+.container{
+  padding: 24px;
+  margin: 24px 0 24px;
+
+  /* White */
+
+  background: #FFFFFF;
+  border-radius: 16px;
+}

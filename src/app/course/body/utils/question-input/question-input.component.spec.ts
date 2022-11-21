@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { StepperTopnavComponent } from './stepper-topnav.component';
+import { QuestionInputComponent } from './question-input.component';
 
-describe('StepperTopnavComponent', () => {
-  let component: StepperTopnavComponent;
-  let fixture: ComponentFixture<StepperTopnavComponent>;
+describe('QuestionInputComponent', () => {
+  let component: QuestionInputComponent;
+  let fixture: ComponentFixture<QuestionInputComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StepperTopnavComponent ]
+      declarations: [ QuestionInputComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(StepperTopnavComponent);
+    fixture = TestBed.createComponent(QuestionInputComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

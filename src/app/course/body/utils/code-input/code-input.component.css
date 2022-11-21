@@ -7,18 +7,3 @@
   cursor: text;
   min-height: 147px; /* prevents collapsing before first draw */
 }
-
-.container{
-  padding: 24px;
-  margin: 24px 0 24px;
-
-  /* White */
-
-  background: #FFFFFF;
-  border-radius: 16px;
-}
-
-.button {
-  color: #00ACC1;
-
-}
