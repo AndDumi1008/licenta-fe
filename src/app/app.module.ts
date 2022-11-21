@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CodeInputComponent } from './code-input/code-input.component';
+import { CodeInputComponent } from './course/body/utils/code-input/code-input.component';
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
@@ -18,13 +18,15 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
 import { AppRoutingModule } from './app-routing.module';
 import { BodyComponentComponent } from './body-component/body-component.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
-import { UserProfileComponent } from './user/user-profile/user-profile.component';
-import { UserMainComponent } from './user/user-main/user-main.component';
-import { UserFeedComponent } from './user/user-feed/user-feed.component';
-import { UserSidebarComponent } from './user/user-sidebar/user-sidebar.component';
-import { MediumCourseComponent } from './course/medium-course/medium-course.component';
-import { CompactCourseComponent } from './course/compact-course/compact-course.component';
+import { UserProfileComponent } from './user-profile/body/user-profile/user-profile.component';
+import { UserMainComponent } from './user-profile/body/user-main/user-main.component';
+import { UserFeedComponent } from './user-profile/body/utils/user-feed/user-feed.component';
+import { UserSidebarComponent } from './user-profile/body/user-sidebar/user-sidebar.component';
+import { MediumCourseComponent } from './user-profile/body/utils/course/medium-course/medium-course.component';
+import { CompactCourseComponent } from './user-profile/body/utils/course/compact-course/compact-course.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { SidenavCourseTreeComponent } from './course/sidenav-course-tree/sidenav-course-tree.component';
+import { StepperTopnavComponent } from './course/header/stepper-topnav/stepper-topnav.component';
 
 
 @NgModule({
@@ -40,6 +42,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     UserSidebarComponent,
     MediumCourseComponent,
     CompactCourseComponent,
+    SidenavCourseTreeComponent,
+    StepperTopnavComponent,
   ],
   imports: [
     BrowserModule,

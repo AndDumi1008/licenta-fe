@@ -1,0 +1,32 @@
+<div class="flex justify-center place-items-center">
+
+<!--  <div class="w-4/5 py-3 px-4">-->
+  <div class="container flex flex-col w-4/5  h-fit p-6">
+    <div class="content gap-32">
+      <h1 class="" style="font-weight: 500">{{ exerciseTitle }}</h1>
+      <p class="p-4"> {{ lecture }}</p>
+      <h2 class="py-2">{{ exerciseSubtitle }}</h2>
+      <p class="p-4">{{ exercise }}</p>
+    </div>
+
+    <div class="code-area">
+      <h2 class="py-2"> Try to code! </h2>
+      <div class="border border-slate-100">
+      <ngx-codemirror
+                      [options]="codeMirrorOptions"
+                      [(ngModel)]="query"
+                      (ngModelChange)="setEditorContent($event)">
+      </ngx-codemirror>
+      </div>
+    </div>
+
+  <!--<div class="code-output">-->
+  <!--  <p>output</p>-->
+  <!--</div>-->
+
+    <div class="grid grid-cols-2 gap-90 pt-5">
+      <button class="button w-32 place-self-start">Test code</button>
+      <button class="button w-32 place-self-end">Submit</button>
+    </div>
+  </div>
+</div>

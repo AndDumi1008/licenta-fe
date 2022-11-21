@@ -1,0 +1,49 @@
+.profile-container {
+  padding: 24px;
+  margin: 24px 0 24px;
+
+
+  gap: 32px;
+
+  height: fit-content;
+
+  /* White */
+
+  background: #FFFFFF;
+  border-radius: 16px;
+}
+
+h1 {
+
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+
+}
+
+app-medium-course {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+
+  /*width: 1052px;*/
+  height: fit-content;
+
+  /* White */
+
+  background: #FFFFFFEB;
+  border: 1px solid #e7e7e7;
+  border-radius: 16px;
+}
+
+app-compact-course {
+  display: flex;
+  flex-direction: row;
+  padding: 24px;
+
+  width: 209px;
+
+  background: #FFFFFFEB;
+  border: 1px solid #e7e7e7;
+  border-radius: 16px;
+}

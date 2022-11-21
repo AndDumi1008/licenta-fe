@@ -1,0 +1,57 @@
+<div class="flex justify-center">
+  <div class="profile-container flex flex-col w-4/5">
+    <h1>Continue course</h1>
+    <ng-container *ngFor="let course of courses">
+      <app-medium-course  [title]="course.title"
+                          [author]="course.author"
+                          [last_read]="course.last_read"
+                          [progress]="course.progress"
+                          [steps]="course.steps"
+      ></app-medium-course>
+    </ng-container>
+  </div>
+</div>
+
+<div class="flex justify-center">
+
+  <div class="profile-container w-4/5">
+    <h1>Semester I</h1>
+
+    <div class=" overflow-auto">
+      <div class="flex flex-row gap-4 ">
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="flex justify-center ">
+
+  <div class="profile-container w-4/5">
+    <h1>Semester II</h1>
+
+    <div class=" overflow-auto">
+      <div class="flex flex-row gap-4">
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+        <app-compact-course></app-compact-course>
+      </div>
+    </div>
+  </div>
+</div>

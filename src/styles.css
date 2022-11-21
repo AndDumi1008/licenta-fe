@@ -19,7 +19,15 @@ body { margin: 0;}
 }
 * {font-family: 'Inter', sans-serif;font-style: normal;}
 
-h1,h2,p {color: #212121;}
+h1,h2,p,a {color: #212121;}
+
+.mat-body p, .mat-body-1 p, .mat-typography .mat-body p, .mat-typography .mat-body-1 p, .mat-typography p {
+  margin: 0 !important;
+}
+
+.mat-h2, .mat-title, .mat-typography .mat-h2, .mat-typography .mat-title, .mat-typography h2 {
+  margin: 0 !important;
+}
 
 .mat-progress-bar-buffer {
   background-color: #e7e7e7 !important;
