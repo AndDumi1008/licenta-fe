@@ -1,4 +1,4 @@
-<div class="user-page">
+<div *ngIf="loggedIn">
 
   <mat-sidenav-container class="profile-container">
     <mat-sidenav
@@ -9,11 +9,40 @@
       [fixedInViewport]="true"
     >
       <app-user-sidebar></app-user-sidebar>
-<!--      <app-menu-list></app-menu-list>-->
+      <!--      <app-menu-list></app-menu-list>-->
     </mat-sidenav>
     <mat-sidenav-content>
       <app-user-main></app-user-main>
     </mat-sidenav-content>
   </mat-sidenav-container>
 
+</div>
+
+<div *ngIf="!loggedIn">
+
+  <div class="h-full">
+    <div class="flex justify-center mt-44">
+
+      <asl-google-signin-button type='standard' size='large'> Connect with Google! </asl-google-signin-button>
+
+      <!--        <div id="g_id_onload"-->
+<!--             data-client_id="373949061902-8509uero15rr1p63e89rt1kh0bim7p8r.apps.googleusercontent.com"-->
+<!--             data-context="signin"-->
+<!--             data-ux_mode="redirect"-->
+<!--             data-login_uri="http://localhost:4200"-->
+<!--             data-callback="http://localhost:4200"-->
+<!--             data-auto_prompt="false">-->
+<!--        </div>-->
+
+<!--        <div class="g_id_signin"-->
+<!--             data-type="standard"-->
+<!--             data-shape="pill"-->
+<!--             data-theme="filled_blue"-->
+<!--             data-text="continue_with"-->
+<!--             data-size="large"-->
+<!--             data-locale="en-US"-->
+<!--             data-logo_alignment="left">-->
+<!--        </div>-->
+    </div>
+  </div>
 </div>

@@ -27,6 +27,9 @@ import { CompactCourseComponent } from './user-profile/body/utils/course/compact
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { SidenavCourseTreeComponent } from './course/sidenav-course-tree/sidenav-course-tree.component';
 import { QuestionInputComponent } from './course/body/utils/question-input/question-input.component';
+import { GoogleAuthComponent } from './user-profile/login/google-auth/google-auth.component';
+import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from '@abacritt/angularx-social-login';
+
 
 @NgModule({
   declarations: [
@@ -43,6 +46,7 @@ import { QuestionInputComponent } from './course/body/utils/question-input/quest
     CompactCourseComponent,
     SidenavCourseTreeComponent,
     QuestionInputComponent,
+    GoogleAuthComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,15 +59,31 @@ import { QuestionInputComponent } from './course/body/utils/question-input/quest
     FontAwesomeModule,
     AppRoutingModule,
     MatSidenavModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    SocialLoginModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '373949061902-8509uero15rr1p63e89rt1kh0bim7p8r.apps.googleusercontent.com'
+            )
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
   constructor(library: FaIconLibrary) {
-    // Add an icon to the library for convenient access in other components'
-    // library.addIcons(faCircleInfo, faCoffee);
     library.addIconPacks(fas, far, fab);
 
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GoogleLoginProvider, SocialAuthService, SocialUser} from "@abacritt/angularx-social-login";
 
 @Component({
   selector: 'app-user-profile',
@@ -7,9 +8,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor() { }
+  constructor(private authService: SocialAuthService) { }
+
+  user?: SocialUser;
+  loggedIn?: boolean;
 
   ngOnInit(): void {
+
+    this.authService.authState.subscribe((user) => {
+      this.user = user;
+      this.loggedIn = (user != null);
+    });
+  }
+
+  loginWithGoogle(): void {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID);
+  }
+  logOut(): void {
+    this.authService.signOut();
   }
 
 }
