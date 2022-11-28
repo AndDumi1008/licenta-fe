@@ -19,7 +19,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { BodyComponentComponent } from './course/body-component/body-component.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { UserProfileComponent } from './user-profile/body/user-profile/user-profile.component';
-import { UserMainComponent } from './user-profile/body/user-main/user-main.component';
 import { UserFeedComponent } from './user-profile/body/utils/user-feed/user-feed.component';
 import { UserSidebarComponent } from './user-profile/body/user-sidebar/user-sidebar.component';
 import { MediumCourseComponent } from './user-profile/body/utils/course/medium-course/medium-course.component';
@@ -39,7 +38,6 @@ import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 
     TopBarComponent,
     BodyComponentComponent,
     UserProfileComponent,
-    UserMainComponent,
     UserFeedComponent,
     UserSidebarComponent,
     MediumCourseComponent,
