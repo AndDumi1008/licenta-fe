@@ -28,6 +28,7 @@ import { SidenavCourseTreeComponent } from './course/sidenav-course-tree/sidenav
 import { QuestionInputComponent } from './course/body/utils/question-input/question-input.component';
 import { GoogleAuthComponent } from './user-profile/login/google-auth/google-auth.component';
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import {HttpClientModule} from "@angular/common/http";
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from 
     AppRoutingModule,
     MatSidenavModule,
     MatProgressBarModule,
-    SocialLoginModule
+    SocialLoginModule,
+    HttpClientModule
   ],
   providers: [
     {

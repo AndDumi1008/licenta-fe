@@ -12,7 +12,7 @@ export class UserProfileComponent implements OnInit {
   }
 
   user?: SocialUser;
-  @Input() loggedIn = false;
+  @Input() loggedIn = true;
   @Output() toogle = new EventEmitter();
 
   ngOnInit(): void {
