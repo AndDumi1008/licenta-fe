@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 
 
 @Component({
@@ -17,7 +17,7 @@ export class CodeInputComponent implements OnInit {
     smartIndent: true,
     lineNumbers: true,
     lineWrapping: false,
-    extraKeys: { "Ctrl-Space": "autocomplete" },
+    extraKeys: {"Ctrl-Space": "autocomplete"},
     gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
     autoCloseBrackets: true,
     matchBrackets: true,
@@ -25,19 +25,13 @@ export class CodeInputComponent implements OnInit {
     viewportMargin: Infinity
   };
 
-  query?: string;
+  @Input() code?: string;
 
-  ngOnInit() {
-    this.query = `public class Simple {
-  public static void main(String args[]) {
+  ngOnInit() {}
 
-  System.out.println("hello samurai, Ready for some java?");
-  }
-}`;
-
-  }
-  setEditorContent(event:any) {
-    console.log(this.query);
+  // TODO: this will make POST of code to see execution
+  setEditorContent(event: any) {
+    // console.log(this.query);
   }
 
 }

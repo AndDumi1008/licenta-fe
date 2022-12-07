@@ -1,6 +1,11 @@
 .example-sidenav {
   margin-top: 40px;
   overflow-y: hidden;
+  width: 276px;
+}
+
+.mat-drawer{
+  background-color: rgba(48, 48, 48, 0.1);
 }
 
 .example-container {
@@ -15,4 +20,8 @@
 
   background: #FFFFFF;
   border-radius: 16px;
+}
+
+ul {
+  padding: 3rem!important;
 }

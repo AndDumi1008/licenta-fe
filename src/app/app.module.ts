@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CodeInputComponent } from './course/body/utils/code-input/code-input.component';
+import { CodeInputComponent } from './courseview/body/utils/code-input/code-input.component';
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
@@ -16,7 +16,7 @@ import { fas } from "@fortawesome/free-solid-svg-icons";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fab } from "@fortawesome/free-brands-svg-icons";
 import { AppRoutingModule } from './app-routing.module';
-import { BodyComponentComponent } from './course/body-component/body-component.component';
+import { BodyComponentComponent } from './courseview/body-component/body-component.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
 import { UserProfileComponent } from './user-profile/body/user-profile/user-profile.component';
 import { UserFeedComponent } from './user-profile/body/utils/user-feed/user-feed.component';
@@ -24,11 +24,15 @@ import { UserSidebarComponent } from './user-profile/body/user-sidebar/user-side
 import { MediumCourseComponent } from './user-profile/body/utils/course/medium-course/medium-course.component';
 import { CompactCourseComponent } from './user-profile/body/utils/course/compact-course/compact-course.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
-import { SidenavCourseTreeComponent } from './course/sidenav-course-tree/sidenav-course-tree.component';
-import { QuestionInputComponent } from './course/body/utils/question-input/question-input.component';
+import { SidenavCourseTreeComponent } from './courseview/sidenav-course-tree/sidenav-course-tree.component';
+import { QuestionInputComponent } from './courseview/body/utils/question-input/question-input.component';
 import { GoogleAuthComponent } from './user-profile/login/google-auth/google-auth.component';
 import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import {HttpClientModule} from "@angular/common/http";
+import {MatDividerModule} from "@angular/material/divider";
+import {HighlightService} from "./services/highlight.service";
+import { CoursePageComponent } from './courseview/course-page/course-page.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 
 
 @NgModule({
@@ -46,6 +50,7 @@ import {HttpClientModule} from "@angular/common/http";
     SidenavCourseTreeComponent,
     QuestionInputComponent,
     GoogleAuthComponent,
+    CoursePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,7 +65,9 @@ import {HttpClientModule} from "@angular/common/http";
     MatSidenavModule,
     MatProgressBarModule,
     SocialLoginModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDividerModule,
+    MatProgressSpinnerModule
   ],
   providers: [
     {
@@ -79,7 +86,9 @@ import {HttpClientModule} from "@angular/common/http";
           console.error(err);
         }
       } as SocialAuthServiceConfig,
-    }],
+    },
+    HighlightService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

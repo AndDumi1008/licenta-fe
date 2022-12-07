@@ -1,6 +1,6 @@
 import {ILaboratory} from "./ILaboratory";
 
-export interface ICourse {
+export interface ICourseDetails {
   id: string,
   title: string,
   author: string,

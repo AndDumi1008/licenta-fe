@@ -1,9 +1,9 @@
 <div class="code-area">
-  <h2 class="py-2"> Try to code! </h2>
+  <h2 class="py-2"> Code </h2>
   <div class="border border-slate-100">
   <ngx-codemirror
                   [options]="codeMirrorOptions"
-                  [(ngModel)]="query"
+                  [(ngModel)]="code"
                   (ngModelChange)="setEditorContent($event)">
   </ngx-codemirror>
   </div>

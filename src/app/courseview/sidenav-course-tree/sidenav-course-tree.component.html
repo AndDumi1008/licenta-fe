@@ -1,0 +1,13 @@
+<div class="flex flex-col">
+  <div class="py-3 pl-1">
+    <p class="text-xl text-black"> {{ this.title }} </p>
+  </div>
+
+  <ng-container *ngFor="let lab of labs">
+
+    <button class="lab text-left" (click)="goToPage(lab.id)">
+      <mat-divider style="background-color: rgba(33,33,33,0.39)"></mat-divider>
+      <a class="text-base py-1 pl-8 text-slate-700"  routerLink="/coursePage/{{ this.id }}/lab/{{ lab.id }}" routerLinkActive="lab">{{ lab.title }}</a>
+    </button>
+  </ng-container>
+</div>

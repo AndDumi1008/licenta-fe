@@ -5,6 +5,8 @@
 @import 'tailwindcss/base.css';
 @import 'tailwindcss/components.css';
 @import 'tailwindcss/utilities.css';
+@import "~prismjs/plugins/toolbar/prism-toolbar.css";
+@import "~prismjs/themes/prism.css";
 
 html, body { height: 100%; }
 body { margin: 0;}
@@ -19,6 +21,12 @@ body { margin: 0;}
   font-size: 16px !important;
   line-height: 24px !important;
 }
+
+.button:hover {
+  background-color: #00ACC1;
+  color: #FFFFFF;
+}
+
 * {font-family: 'Inter', sans-serif;font-style: normal;}
 
 h1,h2,p,a {color: #212121;}
@@ -37,4 +45,9 @@ h1,h2,p,a {color: #212121;}
 
 .mat-progress-bar-fill::after {
   background-color: #00ACC1 !important;
+}
+
+ul {
+  list-style-type: disc;
+  padding: 4vh;
 }

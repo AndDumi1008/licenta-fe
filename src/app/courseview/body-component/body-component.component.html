@@ -1,0 +1,28 @@
+<div *ngIf="laboratory; else elseBlock">
+  <div class="flex flex-row">
+    <div class="basis-56 h-screen sticky top-11 bg-gray-200	">
+      <app-sidenav-course-tree></app-sidenav-course-tree>
+    </div>
+
+    <div class="flex justify-center h-full">
+      <div class="container flex flex-col w-4/5  h-fit">
+        <div class="gap-32" style="color:#212121">
+          <div [innerHTML]="laboratory!.content"></div>
+          <div class="p-4" [innerHTML]="laboratory!.exercise.content"></div>
+        </div>
+
+        <app-code-input [code]="laboratory!.exercise.data"></app-code-input>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<ng-template #elseBlock>
+  <div class="grid h-screen">
+    <mat-spinner class="place-self-center"></mat-spinner>
+  </div>
+</ng-template>

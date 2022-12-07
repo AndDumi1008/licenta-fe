@@ -4,7 +4,9 @@
 
 export const environment = {
   production: false,
-  apiUrl: "http://localhost:8080/api"
+  // localApiUrl below
+  apiUrl: "http://localhost:5000/api",
+  // apiUrl: "http://codexamapi.eu-central-1.elasticbeanstalk.com/api"
 };
 
 /*

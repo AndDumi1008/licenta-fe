@@ -1,6 +1,6 @@
-// import { ICourse } from "../interfaces/ICourse";
+// import { ICourseSummary } from "../interfaces/ICourseSummary";
 //
-// export const mockCourses : ICourse [] = [
+// export const mockCourses : ICourseSummary [] = [
 //     {
 //       id: 1234,
 //       title: "Programming basics",

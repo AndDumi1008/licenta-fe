@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CourseService} from "../../../../services/course.service";
-import {ICourse} from "../../../../interfaces/ICourse";
+import {ICourseSummary} from "../../../../interfaces/ICourseSummary";
 
 @Component({
   selector: 'app-user-feed',
@@ -9,7 +9,7 @@ import {ICourse} from "../../../../interfaces/ICourse";
 })
 export class UserFeedComponent implements OnInit {
 
-  courses?: ICourse[];
+  courses?: ICourseSummary[];
 
   constructor(private readonly courseService: CourseService) { }
 

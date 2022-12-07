@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-medium-course',
@@ -8,17 +9,25 @@ import {Component, Input, OnInit} from '@angular/core';
 export class MediumCourseComponent implements OnInit {
 
   @Input() title?: string
-  // @Input() last_read?: string
   @Input() author?: string
+  @Input() id?: string
+
+
+  // TODO: should be take from User DB
+  // @Input() last_read?: string
   // @Input() progress?: number
   // @Input() steps?: number
-  // procent?: number
+  // percent?: number
 
-  constructor() {
+  constructor(private router: Router) {
   }
 
   ngOnInit(): void {
-    // this.procent = (this.progress!  / this.steps!) * 100
+    // this.percent = (this.progress!  / this.steps!) * 100
+  }
+
+  goToPage(pageName: string) {
+    this.router.navigate([`${pageName}/${this.id}`]);
   }
 
 }
