@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {UserProfileComponent} from "./user-profile/body/user-profile/user-profile.component";
+import {UserProfileComponent} from "./_components/user-profile/user-profile.component";
 
 @Component({
   selector: 'app-root',

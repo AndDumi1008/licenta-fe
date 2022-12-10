@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import {ICourseSummary} from "../interfaces/ICourseSummary";
+import {ICourseSummary} from "../_interfaces/ICourseSummary";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
-import {ICourseDetails} from "../interfaces/ICourseDetails";
+import {ICourseDetails} from "../_interfaces/ICourseDetails";
 
 @Injectable({
   providedIn: 'root'

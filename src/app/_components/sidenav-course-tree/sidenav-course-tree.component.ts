@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {ILaboratorySummary} from "../../interfaces/ILaboratorySummary";
-import {LabSummaryService} from "../../services/lab-summary.service";
+import {ILaboratorySummary} from "../../_interfaces/ILaboratorySummary";
+import {LabSummaryService} from "../../_services/lab-summary.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {CourseService} from "../../services/course.service";
+import {CourseService} from "../../_services/course.service";
 
 @Component({
   selector: 'app-sidenav-course-tree',
@@ -25,12 +25,8 @@ export class SidenavCourseTreeComponent implements OnInit {
 
     this.labSummaryService.getLabSummary(this.id).subscribe(data => {
       this.labs = data;
-      console.log(this.labs![0].id  )
     })
-
     this.getCourseName(this.id);
-
-    console.log(this.id)
   }
 
   goToPage(id: string) {
@@ -43,5 +39,4 @@ export class SidenavCourseTreeComponent implements OnInit {
       this.title = data.title
     })
   }
-
 }

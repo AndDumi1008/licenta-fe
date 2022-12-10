@@ -1,8 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {UserProfileComponent} from "./user-profile/body/user-profile/user-profile.component";
-import {BodyComponentComponent} from "./courseview/body-component/body-component.component";
-import {CoursePageComponent} from "./courseview/course-page/course-page.component";
+import {UserProfileComponent} from "./_components/user-profile/user-profile.component";
+import {BodyComponentComponent} from "./_pages/courseview/body-component/body-component.component";
+import {CoursePageComponent} from "./_pages/course-page/course-page.component";
 
 const routes: Routes = [
   {path: 'coursePage/:id/lab/:id', component: BodyComponentComponent},
