@@ -1,0 +1,12 @@
+.course-img {
+  /* Rectangle 1 */
+
+
+  width: 161px;
+  height: 120px;
+
+  /* Extra Light Gray */
+
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), #000000;
+  border-radius: 8px;
+}

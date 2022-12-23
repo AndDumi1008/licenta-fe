@@ -1,28 +1,62 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
 
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { CodeInputComponent } from './code-input/code-input.component';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CodeInputComponent} from './_features/code-input/code-input.component';
 import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatCardModule} from "@angular/material/card";
 import {CodemirrorModule} from "@ctrl/ngx-codemirror";
 import {CommonModule} from "@angular/common";
-import { MenuListComponent } from './menu-list/menu-list.component';
-import { TopBarComponent } from './top-bar/top-bar.component';
-import {FaIconLibrary, FontAwesomeModule} from "@fortawesome/angular-fontawesome";
-import { fas } from "@fortawesome/free-solid-svg-icons";
-import { far } from "@fortawesome/free-regular-svg-icons";
-import { fab } from "@fortawesome/free-brands-svg-icons";
+import {TopBarComponent} from './_components/top-bar/top-bar.component';
+import {AppRoutingModule} from './app-routing.module';
+import {CourseviewPageComponent} from './_pages/courseview-page/courseview-page.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {UserFeedComponent} from './_components/user-feed/user-feed.component';
+import {MediumCourseComponent} from './_components/course/medium-course/medium-course.component';
+import {CompactCourseComponent} from './_components/course/compact-course/compact-course.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {SidenavCourseTreeComponent} from './_components/sidenav-course-tree/sidenav-course-tree.component';
+import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from '@abacritt/angularx-social-login';
+import {HttpClientModule} from "@angular/common/http";
+import {MatDividerModule} from "@angular/material/divider";
+import {HighlightService} from "./_services/highlight.service";
+import {CoursePageComponent} from './_pages/course-page/course-page.component';
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {LoginComponent} from './_pages/login-page/login.component';
+import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+import {environment} from '../environments/environment';
+import {getAuth, provideAuth} from '@angular/fire/auth';
+import {AngularFireModule} from "@angular/fire/compat";
+import {LearningBodyComponent} from './_components/learning-body/learning-body.component';
+import {MatIconModule} from "@angular/material/icon";
+import {RegisterPageComponent} from './_pages/register-page/register-page.component';
+import {ProfilePageComponent} from './_pages/profile-page/profile-page.component';
+import {SidenavUserProfileComponent} from './_components/sidenav-user-profile/sidenav-user-profile.component';
+import {MatListModule} from "@angular/material/list";
+import {HomePageComponent} from "./_pages/home-page/home.component";
+import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CodeInputComponent,
-    MenuListComponent,
     TopBarComponent,
+    CourseviewPageComponent,
+    UserFeedComponent,
+    MediumCourseComponent,
+    CompactCourseComponent,
+    SidenavCourseTreeComponent,
+    CoursePageComponent,
+    LoginComponent,
+    CourseviewPageComponent,
+    LearningBodyComponent,
+    RegisterPageComponent,
+    ProfilePageComponent,
+    SidenavUserProfileComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,16 +66,44 @@ import { fab } from "@fortawesome/free-brands-svg-icons";
     MatCardModule,
     CommonModule,
     CodemirrorModule,
-    FontAwesomeModule
+    AppRoutingModule,
+    MatSidenavModule,
+    MatProgressBarModule,
+    SocialLoginModule,
+    HttpClientModule,
+    MatDividerModule,
+    MatProgressSpinnerModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
+    AngularFireModule.initializeApp(environment.firebase),
+    MatIconModule,
+    ReactiveFormsModule,
+    MatListModule,
+    NgbCarouselModule,
   ],
-  providers: [],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '373949061902-8509uero15rr1p63e89rt1kh0bim7p8r.apps.googleusercontent.com'
+            )
+          }
+        ],
+        onError: (err) => {
+          console.error(err);
+        }
+      } as SocialAuthServiceConfig,
+    },
+    HighlightService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {
-  constructor(library: FaIconLibrary) {
-    // Add an icon to the library for convenient access in other components'
-    // library.addIcons(faCircleInfo, faCoffee);
-    library.addIconPacks(fas, far, fab);
-
+  constructor() {
   }
 }
