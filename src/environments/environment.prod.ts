@@ -1,4 +1,6 @@
 export const environment = {
+  apiUrl: "http://codexamapi.eu-central-1.elasticbeanstalk.com/api",
+
   firebase: {
     projectId: 'codexam-a9bc6',
     appId: '1:409610493792:web:4f33943223b27a00ae4805',
