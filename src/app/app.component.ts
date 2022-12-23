@@ -1,5 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {UserProfileComponent} from "./_components/user-profile/user-profile.component";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +7,4 @@ import {UserProfileComponent} from "./_components/user-profile/user-profile.comp
 })
 export class AppComponent {
   title = 'Code-Exam';
-  loggedIn = false;
-
-
 }

@@ -12,13 +12,6 @@ export class MediumCourseComponent implements OnInit {
   @Input() author?: string
   @Input() id?: string
 
-
-  // TODO: should be take from User DB
-  // @Input() last_read?: string
-  // @Input() progress?: number
-  // @Input() steps?: number
-  // percent?: number
-
   constructor(private router: Router) {
   }
 

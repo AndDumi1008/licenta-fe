@@ -14,7 +14,7 @@
 
 .container{
   padding: 24px;
-  margin: 24px 0 24px;
+  margin: 24px 0 24px 70px!important;
 
   /* White */
 
@@ -24,4 +24,8 @@
 
 ul {
   padding: 3rem!important;
+}
+
+.nav {
+  height: calc(100vh - 60px);
 }

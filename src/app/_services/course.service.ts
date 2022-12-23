@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {ICourseSummary} from "../_interfaces/ICourseSummary";
-import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {HttpClient} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {Observable} from "rxjs";
 import {ICourseDetails} from "../_interfaces/ICourseDetails";
+import {GlobalVariableService} from "./global-variable.service";
 
 @Injectable({
   providedIn: 'root'
@@ -12,19 +13,16 @@ export class CourseService {
 
   private readonly apiUrl = environment.apiUrl;
 
-  httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
-  };
-
-  constructor(
-    private http: HttpClient
-  ) { }
-
-  getCourses() : Observable<ICourseSummary[]> {
-    return this.http.get<ICourseSummary[]>(`${this.apiUrl}/course`)
+  constructor(private http: HttpClient,
+              private header: GlobalVariableService) {
   }
 
-  getCourse(id?: string) : Observable<ICourseDetails> {
-    return this.http.get<ICourseDetails>(`${this.apiUrl}/course/${id}`)
+  getCourses(): Observable<ICourseSummary[]> {
+    console.log('Header: ', this.header.getHeaderOptions())
+    return this.http.get<ICourseSummary[]>(`${this.apiUrl}/course`, {headers: this.header.getHeaderOptions()})
+  }
+
+  getCourse(id?: string): Observable<ICourseDetails> {
+    return this.http.get<ICourseDetails>(`${this.apiUrl}/course/${id}`, {headers: this.header.getHeaderOptions()})
   }
 }

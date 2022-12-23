@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {ILaboratorySummary} from "../../_interfaces/ILaboratorySummary";
-import {LabSummaryService} from "../../_services/lab-summary.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CourseService} from "../../_services/course.service";
+import {LaboratoryService} from "../../_services/laboratory.service";
 
 @Component({
   selector: 'app-sidenav-course-tree',
@@ -15,15 +15,18 @@ export class SidenavCourseTreeComponent implements OnInit {
   id?: string;
   title?: string;
 
-  constructor(private readonly labSummaryService: LabSummaryService,
+  constructor(private readonly laboratoryService: LaboratoryService,
               private readonly route: ActivatedRoute,
               private router: Router,
-              private readonly courseService: CourseService) { }
+              private readonly courseService: CourseService) {
+  }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.url[1].path
+    this.id = this.route.snapshot.params['id'];
 
-    this.labSummaryService.getLabSummary(this.id).subscribe(data => {
+    console.log()
+
+    this.laboratoryService.getLabSummary(this.id).subscribe(data => {
       this.labs = data;
     })
     this.getCourseName(this.id);
@@ -34,8 +37,7 @@ export class SidenavCourseTreeComponent implements OnInit {
   }
 
   getCourseName(courseId?: string) {
-    return this.courseService.getCourse(courseId).subscribe((data) =>
-    {
+    return this.courseService.getCourse(courseId).subscribe((data) => {
       this.title = data.title
     })
   }

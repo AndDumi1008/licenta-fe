@@ -1,11 +1,18 @@
-<div class="icon-bar">
-  <nav>
-    <a class="active" href="/profile">  <fa-icon [icon]="['fas', 'house']"></fa-icon></a>
-    <a href="/courseview"><fa-icon [icon]="['fas', 'coffee']"></fa-icon></a>
+<div class="top-bar ">
+  <div class="logo ">
+    <a href="/"><img src="../../../assets/images/logo-dark.svg" alt="Logo"></a>
 
-    <a class="align-right" href="/profile"><fa-icon [icon]="['fas', 'right-to-bracket']"></fa-icon></a>
-  </nav>
+    <div class="pl-3">
+      <a href="/browse" class="text-lg !text-white80 hover:!text-white transition duration-200 ">Browse</a>
+    </div>
+  </div>
+  <div class="top-nav pr-4 text-lg" *ngIf="getUserState() == true">
+    <a href="/profile/dashboard" class="text-lg !text-white80 hover:!text-white transition duration-200 ">Profile</a>
+    <a href="/" (click)="logout()" class="text-lg !text-white80 hover:!text-white transition duration-200 ">Logout</a>
+  </div>
+
+  <div class="top-nav pr-3 text-lg" *ngIf="getUserState() == false">
+    <a href="/about" class="text-lg !text-white80 hover:!text-white transition duration-200 ">About</a>
+    <a href="/login" class="text-lg !text-white80 hover:!text-white transition duration-200 ">Login</a>
+  </div>
 </div>
-
-
-

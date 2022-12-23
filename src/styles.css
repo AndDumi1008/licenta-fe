@@ -7,8 +7,12 @@
 @import 'tailwindcss/utilities.css';
 @import "~prismjs/plugins/toolbar/prism-toolbar.css";
 @import "~prismjs/themes/prism.css";
+@import "~bootstrap/dist/css/bootstrap.css";
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+  background: #f5f5f5;
+}
 body { margin: 0;}
 .button {
   border: 1px solid #00ACC1;
@@ -24,7 +28,7 @@ body { margin: 0;}
 
 .button:hover {
   background-color: #00ACC1;
-  color: #FFFFFF;
+  color: #FFFFFF !important;
 }
 
 * {font-family: 'Inter', sans-serif;font-style: normal;}
@@ -50,4 +54,8 @@ h1,h2,p,a {color: #212121;}
 ul {
   list-style-type: disc;
   padding: 4vh;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #00ACC1!important;
 }
