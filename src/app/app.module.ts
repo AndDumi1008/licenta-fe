@@ -13,9 +13,7 @@ import {TopBarComponent} from './_components/top-bar/top-bar.component';
 import {AppRoutingModule} from './app-routing.module';
 import {CourseviewPageComponent} from './_pages/courseview-page/courseview-page.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
-import {UserProfileComponent} from './_components/user-profile/user-profile.component';
 import {UserFeedComponent} from './_components/user-feed/user-feed.component';
-import {UserSidebarComponent} from './_components/user-sidebar/user-sidebar.component';
 import {MediumCourseComponent} from './_components/course/medium-course/medium-course.component';
 import {CompactCourseComponent} from './_components/course/compact-course/compact-course.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
@@ -47,9 +45,7 @@ import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
     CodeInputComponent,
     TopBarComponent,
     CourseviewPageComponent,
-    UserProfileComponent,
     UserFeedComponent,
-    UserSidebarComponent,
     MediumCourseComponent,
     CompactCourseComponent,
     SidenavCourseTreeComponent,

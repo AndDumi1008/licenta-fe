@@ -33,7 +33,7 @@ body { margin: 0;}
 
 * {font-family: 'Inter', sans-serif;font-style: normal;}
 
-h1,h2,p,a {color: #212121;}
+h1,h2,p,a {color: #505050;}
 
 .mat-body p, .mat-body-1 p, .mat-typography .mat-body p, .mat-typography .mat-body-1 p, .mat-typography p {
   margin: 0 !important;
