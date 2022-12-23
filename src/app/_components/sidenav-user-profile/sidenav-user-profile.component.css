@@ -1,0 +1,46 @@
+.active-list-item {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.84)), #00ACC1;
+  border-radius: 8px;
+}
+
+.filter-cyan {
+  filter: invert(54%) sepia(43%) saturate(5408%) hue-rotate(153deg) brightness(97%) contrast(101%);
+}
+.text-filter-cyan {
+  color: #00ACC1!important;
+}
+
+mat-list-item :hover {
+  border: #00ACC1 1px;
+  border-radius: 8px;
+}
+
+mat-label p {
+  color: #4e4e4e;
+}
+
+.profile-button {
+  display: inline-flex;
+
+  height: 42px;
+
+  font-weight: 500 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+}
+
+
+.icon {
+  width: 75px;
+  height: 75px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), #000000;
+  border: 1px #4e4e4e;
+}
+
+h3 {
+  color: #000000;
+}
+
+p {
+  color: #505050;
+}

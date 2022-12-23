@@ -1,0 +1,14 @@
+.course-container {
+  padding: 24px;
+  margin: 24px 0 24px;
+
+
+  gap: 12px;
+
+  height: fit-content;
+
+  /* White */
+
+  background: #FFFFFF;
+  border-radius: 16px;
+}

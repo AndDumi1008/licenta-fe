@@ -1,0 +1,52 @@
+<div class="flex justify-center py-12 h-screen">
+  <div class="container p-6 h-fit w-1/2">
+    <div class="flex justify-center">
+      <h1>Register</h1>
+    </div>
+
+    <div class="flex flex-col self-center px-4">
+      <form [formGroup]="registerForm">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="user@gmail.com" formControlName="email" required
+                 (keydown.enter)="register()">
+          <div matSuffix>
+            <mat-icon><img alt="Mail icon" src="assets/icons/mail.svg"></mat-icon>
+          </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput formControlName="password" [type]="hide ? 'password' : 'text'" required
+                 (keydown.enter)="register()">
+          <div matSuffix>
+            <mat-icon><img alt="Lock icon" src="assets/icons/lock.svg"></mat-icon>
+          </div>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Confirm password</mat-label>
+          <input matInput formControlName="confirmPassword" [type]="hide ? 'password' : 'text'" required
+                 (keydown.enter)="register()">
+        </mat-form-field>
+      </form>
+
+
+      <div id="login" (click)="goLogin()">
+        <a> Already have an account? Go login. </a>
+      </div>
+      <br>
+
+
+      <div class="flex justify-center">
+        <button class="button w-1/3" (click)="register()">Register</button>
+      </div>
+    </div>
+
+    <div class="flex justify-center pt-6" *ngIf="isError">
+      <div class="w-2/3	bg-red-300 rounded-lg">
+        <h4 class="text-center"> Password doesn't match. </h4>
+      </div>
+    </div>
+  </div>
+</div>

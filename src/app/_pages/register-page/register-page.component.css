@@ -1,0 +1,21 @@
+.container {
+  background: #fdfdfd;
+  border-radius: 16px;
+  width: 506px;
+}
+
+mat-label {
+  color: #000000!important;
+}
+
+mat-form-field {
+  width: 426px;
+}
+
+a {
+  color: #00ACC1;
+}
+
+#login {
+  cursor: pointer;
+}
