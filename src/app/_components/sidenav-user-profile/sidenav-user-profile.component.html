@@ -1,0 +1,41 @@
+<div class="flex flex-col h-full items-center">
+  <div class="flex justify-center py-5 gap-3">
+    <div class="rounded-full icon mr-0">
+      <img [src]="this.getLocalStorage('photoUrl')" alt="Profile photo" class="rounded-full">
+    </div>
+
+    <div >
+      <h3> {{this.getLocalStorage('userName')}} </h3>
+      <p class="text-center">Student</p>
+    </div>
+  </div>
+</div>
+
+  <mat-nav-list class="pl-5 pr-5">
+
+    <mat-list-item class="profile-button " routerLink="/profile/dashboard" routerLinkActive="active-list-item">
+        <img alt="Dashboard icon" routerLinkActive="filter-cyan" src="assets/icons/grid.svg">
+        <mat-label class="pl-4"><p routerLinkActive="text-filter-cyan"><a href="/profile/dashboard"> Dashboard </a></mat-label>
+    </mat-list-item>
+
+    <mat-list-item class="profile-button " routerLink="/profile/courses" routerLinkActive="active-list-item">
+        <img alt="Courses icon" routerLinkActive="filter-cyan" src="assets/icons/book.svg">
+        <mat-label class="pl-4"><p routerLinkActive="text-filter-cyan"><a href="/profile/courses"> Courses </a></p></mat-label>
+    </mat-list-item>
+
+    <mat-list-item class="profile-button " routerLink="/profile/graph" routerLinkActive="active-list-item">
+      <img alt="Stats icon" routerLinkActive="filter-cyan" src="assets/icons/trending-up.svg">
+      <mat-label class="pl-4"><p routerLinkActive="text-filter-cyan"><a href="/profile/graph"> Stats </a></p></mat-label>
+    </mat-list-item>
+
+    <mat-list-item class="profile-button " routerLink="/profile/settings" routerLinkActive="active-list-item">
+      <img alt="Settings icon" routerLinkActive="filter-cyan" src="assets/icons/settings.svg">
+      <mat-label class="pl-4"><p routerLinkActive="text-filter-cyan"><a href="/profile/settings"> Settings </a></p></mat-label>
+    </mat-list-item>
+
+    <mat-list-item class="profile-button ">
+      <img alt="Logout icon" src="assets/icons/log-out.svg">
+      <mat-label class="pl-4" (click)="logOut()"><a href="/"><p> Log Out </p></a></mat-label>
+    </mat-list-item>
+
+  </mat-nav-list>

@@ -1,0 +1,21 @@
+<div class="flex justify-center h-screen">
+  <div class="course-container flex flex-col w-4/5">
+
+    <div class="flex justify-center">
+      <h1>{{ this.course?.title }}</h1>
+    </div>
+
+    <div class="flex justify-center">
+      <h3>Author: {{ this.course?.author }}</h3>
+    </div>
+
+    <p>{{ this.course?.description }}</p>
+
+    <h2>Courses:</h2>
+
+    <ng-container *ngFor="let lab of this.course?.labs">
+      <button class="button rounded-full flex justify-center w-full" (click)="this.goToPage(lab.id)">{{ lab.title }}</button>
+    </ng-container>
+
+  </div>
+</div>

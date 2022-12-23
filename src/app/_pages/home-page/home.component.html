@@ -1,0 +1,47 @@
+<!--<div class="flex justify-center h-screen pt-7">-->
+<div class="grid grid-cols-6 grid-rows-none place-items-center">
+  <div class="col-start-2 col-end-4 pl-10 py-10">
+      <ngb-carousel
+        class="img-container"
+        #carousel
+        [interval]="10000"
+        [pauseOnHover]="pauseOnHover"
+        [pauseOnFocus]="pauseOnFocus"
+        (slide)="onSlide($event)">
+
+        <ng-template ngbSlide>
+            <img class="img-container" alt="Home photo" src="assets/images/home-page/christin-hume-slbqShqAhEo-unsplash.jpg">
+        </ng-template>
+        <ng-template ngbSlide>
+            <img class="img-container" alt="Home photo" src="assets/images/home-page/desola-lanre-ologun-7d4LREDSPyQ-unsplash.jpg">
+        </ng-template>
+        <ng-template ngbSlide>
+            <img class="img-container" alt="Home photo" src="assets/images/home-page/mimi-thian-BYGLQ32Wjx8-unsplash.jpg">
+        </ng-template>
+        <ng-template ngbSlide>
+            <img class="img-container" alt="Home photo" src="assets/images/home-page/thomas-lefebvre-gp8BLyaTaA0-unsplash.jpg">
+        </ng-template>
+        <ng-template ngbSlide>
+            <img class="img-container" alt="Home photo" src="assets/images/home-page/wes-hicks-4-EeTnaC1S4-unsplash.jpg">
+        </ng-template>
+      </ngb-carousel>
+  </div>
+
+  <div class="col-start-4 col-span-6 z-10 py-10">
+    <div class="features-container min-w-xl	">
+      <div class="py-5 px-5">
+        <h1> Codexam - About</h1>
+
+        <br/><h2> Learn & Test</h2>
+        <p> Students can learn and test their skills. </p>
+
+        <br/><h2> Stats </h2>
+        <p> Professors can check how well their students achive new knowledge. </p>
+        <p> Even Students can see their own stats. </p>
+
+        <br/><h2> Keep track </h2>
+        <p> For professors and even learners it is easy to keep an eye on their track and look over their improvements </p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -18,7 +18,7 @@ import {MediumCourseComponent} from './_components/course/medium-course/medium-c
 import {CompactCourseComponent} from './_components/course/compact-course/compact-course.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {SidenavCourseTreeComponent} from './_components/sidenav-course-tree/sidenav-course-tree.component';
-import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from '@abacritt/angularx-social-login';
+import {SocialLoginModule} from '@abacritt/angularx-social-login';
 import {HttpClientModule} from "@angular/common/http";
 import {MatDividerModule} from "@angular/material/divider";
 import {HighlightService} from "./_services/highlight.service";
@@ -82,23 +82,6 @@ import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
     NgbCarouselModule,
   ],
   providers: [
-    {
-      provide: 'SocialAuthServiceConfig',
-      useValue: {
-        autoLogin: false,
-        providers: [
-          {
-            id: GoogleLoginProvider.PROVIDER_ID,
-            provider: new GoogleLoginProvider(
-              '373949061902-8509uero15rr1p63e89rt1kh0bim7p8r.apps.googleusercontent.com'
-            )
-          }
-        ],
-        onError: (err) => {
-          console.error(err);
-        }
-      } as SocialAuthServiceConfig,
-    },
     HighlightService
   ],
   bootstrap: [AppComponent]

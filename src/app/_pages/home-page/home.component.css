@@ -1,0 +1,15 @@
+.img-container {
+  width: 908px;
+  height: 653px;
+  border-radius: 3%;
+}
+
+.features-container {
+  height: 532px;
+  border-radius: 3%;
+  background: #FFFFFF;
+}
+
+h2 {
+  color: #000000;
+}
