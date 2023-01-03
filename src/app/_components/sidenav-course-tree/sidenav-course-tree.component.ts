@@ -26,7 +26,7 @@ export class SidenavCourseTreeComponent implements OnInit {
 
     console.log()
 
-    this.laboratoryService.getLabSummary(this.id).subscribe(data => {
+    this.laboratoryService.getLabList(this.id).subscribe(data => {
       this.labs = data;
     })
     this.getCourseName(this.id);

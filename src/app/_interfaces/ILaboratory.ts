@@ -1,10 +1,8 @@
-import {IExercise} from "./IExercise";
-
 export interface ILaboratory {
   id: string,
-  exercise: IExercise,
-
   title: string,
   content: string,
-  labNumber: string
+  exercise: string,
+  codeInput: string,
+  codeOutput: string
 }

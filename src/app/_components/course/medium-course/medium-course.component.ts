@@ -11,11 +11,13 @@ export class MediumCourseComponent implements OnInit {
   @Input() title?: string
   @Input() author?: string
   @Input() id?: string
+  @Input() img?: string
 
   constructor(private router: Router) {
   }
 
   ngOnInit(): void {
+    console.log("img ", this.img)
     // this.percent = (this.progress!  / this.steps!) * 100
   }
 

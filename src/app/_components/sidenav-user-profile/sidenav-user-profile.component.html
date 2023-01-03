@@ -1,12 +1,12 @@
 <div class="flex flex-col h-full items-center">
   <div class="flex justify-center py-5 gap-3">
-    <div class="rounded-full icon mr-0">
+    <div class="rounded-full icon mr-0" *ngIf="this.getLocalStorage('photoUrl')!; else defaultUserIcon">
       <img [src]="this.getLocalStorage('photoUrl')" alt="Profile photo" class="rounded-full">
     </div>
 
     <div >
-      <h3> {{this.getLocalStorage('userName')}} </h3>
-      <p class="text-center">Student</p>
+      <h3> {{this.getLocalStorage('name')}} </h3>
+      <p class="text-center">{{this.getLocalStorage('USER_ROLE')}}</p>
     </div>
   </div>
 </div>
@@ -39,3 +39,9 @@
     </mat-list-item>
 
   </mat-nav-list>
+
+<ng-template #defaultUserIcon>
+  <div class="rounded-full icon mr-0">
+    <img src="assets/icons/defaultIcons/studentUser.png" alt="Profile photo" class="rounded-full">
+  </div>
+</ng-template>

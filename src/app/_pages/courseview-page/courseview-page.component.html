@@ -8,10 +8,10 @@
       <div class="container flex flex-col w-4/5  h-fit">
         <div class="gap-32" style="color:#212121">
           <div [innerHTML]="laboratory!.content"></div>
-          <div class="p-4" [innerHTML]="laboratory!.exercise.content"></div>
+          <div class="p-4" [innerHTML]="laboratory!.exercise"></div>
         </div>
 
-        <app-code-input [code]="laboratory!.exercise.data"></app-code-input>
+        <app-code-input [code]="laboratory!.codeInput"></app-code-input>
       </div>
     </div>
   </div>

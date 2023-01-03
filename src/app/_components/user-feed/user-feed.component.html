@@ -6,6 +6,7 @@
                           [id]="course.id"
                           [title]="course.title"
                           [author]="course.author"
+                          [img]="course.img"
       ></app-medium-course>
     </ng-container>
   </div>
@@ -21,6 +22,7 @@
         <ng-container *ngFor="let courses of courses">
           <app-compact-course [title]="courses.title"
                               [author]="courses.author"
+                              [img]="courses.img"
                               ></app-compact-course>
         </ng-container>
       </div>

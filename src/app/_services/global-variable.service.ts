@@ -9,6 +9,13 @@ export class GlobalVariableService {
 
   constructor() { }
 
+  getBaseHeaderOptions() {
+    return new HttpHeaders({
+      'Access-Control-Allow-Origin': '*',
+      'Content-Type': 'application/json',
+    });
+  }
+
   getHeaderOptions() {
     return new HttpHeaders({
       'Access-Control-Allow-Origin': '*',

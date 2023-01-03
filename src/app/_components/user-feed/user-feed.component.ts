@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {CourseService} from "../../_services/course.service";
+import {Component, OnInit} from '@angular/core';
 import {ICourseSummary} from "../../_interfaces/ICourseSummary";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {GlobalVariableService} from "../../_services/global-variable.service";
+import {UserService} from "../../_services/user.service";
 
 @Component({
   selector: 'app-user-feed',
@@ -13,13 +13,14 @@ export class UserFeedComponent implements OnInit {
 
   courses?: ICourseSummary[];
 
-  constructor(private readonly courseService: CourseService,
-              public auth: AngularFireAuth,
-              public headers: GlobalVariableService) { }
+  constructor(public auth: AngularFireAuth,
+              public headers: GlobalVariableService,
+              public userService: UserService) {
+  }
 
   ngOnInit(): void {
-    this.courseService.getCourses().subscribe(data => {
-      this.courses = data;
+    this.userService.getUser(localStorage.getItem('uid')!).subscribe((data) => {
+      this.courses = data.courseArr;
     });
   }
 

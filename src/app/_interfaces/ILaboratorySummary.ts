@@ -1,4 +1,6 @@
 export interface ILaboratorySummary {
   id: string,
-  title: string
+  title: string,
+  course: string,
+  priority: number
 }

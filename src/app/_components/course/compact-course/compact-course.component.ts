@@ -9,6 +9,7 @@ export class CompactCourseComponent implements OnInit {
 
   @Input() title?: string
   @Input() author?: string
+  @Input() img?: string
   constructor() { }
 
   ngOnInit(): void {

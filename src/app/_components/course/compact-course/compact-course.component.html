@@ -3,20 +3,18 @@
   <div class="inner-container gap-2">
     <div class="course-img">
       <!--TODO: Place IMG Course here-->
+      <img [src]="img">
     </div>
 
     <div class="flex flex-col gap-3">
 
       <h2>{{ title }}</h2>
-<!--      <p>{{ last_read }}</p> -->
-      <h2>title</h2>
-      <p>by: {{ author }}</p>
-
-<!--      <div class="flex flex-row gap-2">-->
-<!--        <div class="prof-img">-->
-<!--          &lt;!&ndash;TODO: Place IMG Prof here&ndash;&gt;-->
-<!--        </div>-->
-<!--        <a>{{ author }}</a>-->
+      <div class="flex flex-row gap-2">
+        <div class="prof-img">
+          <!--TODO: Place IMG Prof here-->
+        </div>
+        <a>{{ author }}</a>
+      </div>
     </div>
   </div>
 </div>

@@ -20,7 +20,7 @@ export class LaboratoryService {
     return this.http.get<ILaboratory>(`${this.apiUrl}/lab/${labId}`, {headers: this.header.getHeaderOptions()})
   }
 
-  getLabSummary(courseId?: string): Observable<ILaboratorySummary[]> {
+  getLabList(courseId?: string): Observable<ILaboratorySummary[]> {
     return this.http.get<ILaboratorySummary[]>(`${this.apiUrl}/lab/course=${courseId}`, {headers: this.header.getHeaderOptions()})
   }
 }

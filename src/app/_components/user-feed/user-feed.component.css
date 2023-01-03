@@ -39,9 +39,9 @@ app-medium-course {
 app-compact-course {
   display: flex;
   flex-direction: row;
-  padding: 24px;
+  padding: 22px;
 
-  width: 209px;
+  width: 244px;
 
   background: #FFFFFFEB;
   border: 1px solid #e7e7e7;

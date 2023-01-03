@@ -1,19 +1,7 @@
-.course-img {
-  /* Rectangle 1 */
+img {
   width: 200px;
   height: 120px;
-
-  /* Extra Light Gray */
-
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), #000000;
   border-radius: 8px;
-
-  /* Inside auto layout */
-
-  flex: none;
-  order: 0;
-  align-self: stretch;
-  flex-grow: 0;
 }
 
 .prof-img {

@@ -13,10 +13,14 @@ export class RegisterPageComponent implements OnInit {
   hide: boolean = true;
 
   registerForm = new FormGroup({
+    name: new FormControl(''),
     email: new FormControl(''),
     password: new FormControl(''),
     confirmPassword: new FormControl(''),
+    uid: new FormControl(''),
+    userRole: new FormControl('Student'),
   });
+
 
 
   constructor(private router: Router,
@@ -30,8 +34,8 @@ export class RegisterPageComponent implements OnInit {
 
   register() {
     if (this.registerForm.value.password === this.registerForm.value.confirmPassword) {
-      if (this.userService.userRegister(this.registerForm.value.email!, this.registerForm.value.password!)) {
-        this.router.navigate([`/profile`]);
+      if (this.userService.userRegister(this.registerForm)) {
+        // this.userService.saveUser()
       }
     } else {
       this.isError = true;
