@@ -4,6 +4,7 @@ import {CourseService} from "../../_services/course.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {LaboratoryService} from "../../_services/laboratory.service";
 import {ILaboratorySummary} from "../../_interfaces/ILaboratorySummary";
+import {UserService} from "../../_services/user.service";
 
 @Component({
   selector: 'app-course-page',
@@ -17,23 +18,25 @@ export class CoursePageComponent implements OnInit {
   labs?: ILaboratorySummary[];
 
   id?: string;
+  author?: string;
 
   constructor(private readonly courseService: CourseService,
               private readonly labService: LaboratoryService,
               private route: ActivatedRoute,
+              private userService: UserService,
               private router: Router) {
   }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
 
-    this.courseService.getCourse(this.id).subscribe((data) => {
-      this.course = data;
+    this.courseService.getCourse(this.id).subscribe(course => {
+      this.course = course
+      this.userService.getUser(course.author).subscribe(user => this.author = user.name);
     });
 
-    this.labService.getLabList(this.id).subscribe((data) => {
-      this.labs = data;
-    });
+    this.labService.getLabList(this.id).subscribe(data => this.labs = data);
+
   }
 
   goToPage(labId: string) {

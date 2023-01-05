@@ -33,7 +33,7 @@ body { margin: 0;}
 
 * {font-family: 'Inter', sans-serif;font-style: normal;}
 
-h1,h2,p,a {color: #505050;}
+h1,h2,p {color: #505050;}
 
 .mat-body p, .mat-body-1 p, .mat-typography .mat-body p, .mat-typography .mat-body-1 p, .mat-typography p {
   margin: 0 !important;
@@ -58,4 +58,24 @@ ul {
 
 .mat-form-field-appearance-outline .mat-form-field-outline {
   color: #00ACC1!important;
+}
+
+.course-img {
+  width: 200px;
+  height: 120px;
+  border-radius: 8px;
+}
+
+.prof-img {
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+}
+
+.no-img {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), #000000;
+}
+
+.container {
+  background: #FFFFFF;
 }

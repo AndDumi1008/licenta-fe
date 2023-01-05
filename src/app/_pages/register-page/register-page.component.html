@@ -10,6 +10,9 @@
           <mat-label>Full name</mat-label>
           <input matInput placeholder="John Snow" formControlName="name" required
                  (keydown.enter)="register()">
+          <div matSuffix>
+            <mat-icon><img alt="User icon" src="assets/icons/user.svg"></mat-icon>
+          </div>
         </mat-form-field>
 
         <mat-form-field appearance="outline">
@@ -34,11 +37,14 @@
           <mat-label>Confirm password</mat-label>
           <input matInput formControlName="confirmPassword" [type]="hide ? 'password' : 'text'" required
                  (keydown.enter)="register()">
+          <div matSuffix>
+            <mat-icon><img alt="Lock icon" src="assets/icons/lock.svg"></mat-icon>
+          </div>
         </mat-form-field>
       </form>
 
 
-      <div id="login" (click)="goLogin()">
+      <div class="pointer" (click)="goLogin()">
         <a> Already have an account? Go login. </a>
       </div>
       <br>

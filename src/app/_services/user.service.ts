@@ -79,6 +79,7 @@ export class UserService {
                 uniqueId: uid,
                 name: name,
                 userRole: userRole,
+                photoURL: '',
               }).subscribe((data) => {
                 console.log(data)
               })

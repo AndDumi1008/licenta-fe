@@ -13,9 +13,9 @@ mat-form-field {
 }
 
 a {
-  color: #00ACC1;
+  color: #00ACC1 !important;
 }
 
-#login {
+.pointer {
   cursor: pointer;
 }

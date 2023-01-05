@@ -1,58 +1,41 @@
 <div class="flex justify-center">
-  <div class="profile-container flex flex-col w-4/5">
+  <div class="container flex flex-col w-4/5 h-fit	p-6 my-6 gap-8 rounded-2xl">
     <h1>Continue course</h1>
-    <ng-container *ngFor="let course of courses; index as i">
-      <app-medium-course  *ngIf="i<2"
-                          [id]="course.id"
-                          [title]="course.title"
-                          [author]="course.author"
-                          [img]="course.img"
-      ></app-medium-course>
-    </ng-container>
+    <div class="flex flex-col gap-4 px-3">
+      <ng-container *ngFor="let course of courses; index as i">
+        <app-medium-course *ngIf="i<2"
+                           [id]="course.id"
+                           [title]="course.title"
+                           [uid]="course.author"
+                           [img]="course.img"
+        ></app-medium-course>
+      </ng-container>
+    </div>
   </div>
 </div>
 
 <div class="flex justify-center">
 
-  <div class="profile-container w-4/5">
+  <div class="container w-4/5 h-fit my-6 p-6 gap-8 rounded-2xl">
     <h1>Courses</h1>
 
-    <div class=" overflow-auto">
-      <div class="flex flex-row gap-4 ">
-        <ng-container *ngFor="let courses of courses">
-          <app-compact-course [title]="courses.title"
-                              [author]="courses.author"
-                              [img]="courses.img"
-                              ></app-compact-course>
-        </ng-container>
-      </div>
+    <div class="flex flex-row gap-4 px-3">
+      <ng-container *ngFor="let courses of courses">
+        <app-compact-course [title]="courses.title"
+                            [uid]="courses.author"
+                            [img]="courses.img"
+        ></app-compact-course>
+      </ng-container>
     </div>
   </div>
 </div>
 
-<div class="flex justify-center ">
-
-  <div class="profile-container w-4/5">
+<div class="flex justify-center">
+  <div class="container w-4/5 h-fit my-6 p-6 gap-8 rounded-2xl">
     <h1>Graph</h1>
-
-    <div class=" overflow-auto">
+    <div class="overflow-auto">
       <div class="flex flex-row gap-4">
-        <app-compact-course></app-compact-course>
-        <app-compact-course></app-compact-course>
-        <app-compact-course></app-compact-course>
-        <app-compact-course></app-compact-course>
-        <app-compact-course></app-compact-course>
-        <app-compact-course></app-compact-course>
-        <app-compact-course></app-compact-course>
-        <app-compact-course></app-compact-course>
-        <app-compact-course></app-compact-course>
-        <app-compact-course></app-compact-course>
-        <app-compact-course></app-compact-course>
-        <app-compact-course></app-compact-course>
-        <app-compact-course></app-compact-course>
-        <app-compact-course></app-compact-course>
-        <app-compact-course></app-compact-course>
-        <app-compact-course></app-compact-course>
+        <!--TODO: place stats about user/class-->
       </div>
     </div>
   </div>

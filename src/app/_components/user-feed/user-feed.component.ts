@@ -23,5 +23,4 @@ export class UserFeedComponent implements OnInit {
       this.courses = data.courseArr;
     });
   }
-
 }

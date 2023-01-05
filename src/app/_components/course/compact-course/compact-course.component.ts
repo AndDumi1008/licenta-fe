@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {UserService} from "../../../_services/user.service";
 
 @Component({
   selector: 'app-compact-course',
@@ -8,11 +9,17 @@ import {Component, Input, OnInit} from '@angular/core';
 export class CompactCourseComponent implements OnInit {
 
   @Input() title?: string
-  @Input() author?: string
+  @Input() uid?: string
   @Input() img?: string
-  constructor() { }
+  authorName?: string
+  authorPhoto?: string
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.userService.getUser(this.uid!).subscribe((data) => {
+      this.authorName = data.name;
+      this.authorPhoto = data.photoURL;
+    })
   }
 
 }
