@@ -1,6 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {AngularFireAuth} from "@angular/fire/compat/auth";
-import {Router} from "@angular/router";
 import {UserService} from "../../_services/user.service";
 import {FormControl, FormGroup} from "@angular/forms";
 
@@ -20,9 +18,7 @@ export class LoginComponent implements OnInit {
   });
 
 
-  constructor(public afAuth: AngularFireAuth,
-              private router: Router,
-              private userService: UserService
+  constructor(public userService: UserService
   ) {
   }
 
@@ -36,11 +32,6 @@ export class LoginComponent implements OnInit {
     } else {
       this.isError = true;
     }
-
-  }
-
-  goRegister() {
-    this.router.navigate([`/register`])
   }
 
 }

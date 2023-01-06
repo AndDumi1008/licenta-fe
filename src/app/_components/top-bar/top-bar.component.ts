@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/compat/auth";
+import {UserService} from "../../_services/user.service";
 
 @Component({
   selector: 'app-top-bar',
@@ -8,7 +9,8 @@ import {AngularFireAuth} from "@angular/fire/compat/auth";
 })
 export class TopBarComponent implements OnInit {
 
-  constructor(public afAuth: AngularFireAuth) {
+  constructor(public afAuth: AngularFireAuth,
+              public userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -20,7 +22,6 @@ export class TopBarComponent implements OnInit {
   }
 
   logout() {
-    this.afAuth.signOut();
-    localStorage.clear();
+    this.userService.userLogout();
   }
 }

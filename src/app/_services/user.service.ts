@@ -22,7 +22,7 @@ export class UserService {
   }
 
   userLogin(username: string, password: string): boolean {
-    let ok: boolean = true;
+    let ok: boolean = false;
 
     setTimeout(() => {
       this.afAuth.signInWithEmailAndPassword(username, password)
@@ -47,6 +47,7 @@ export class UserService {
               })
             }
           })
+          ok = true;
         })
         .catch(() => {
           ok = false;
@@ -58,7 +59,6 @@ export class UserService {
 
   userRegister(registerForm: FormGroup): boolean {
     let ok: boolean = true;
-
 
     let uid: any, name: any, userRole: any;
 
@@ -94,12 +94,25 @@ export class UserService {
     return ok;
   }
 
+  userLogout() {
+    this.afAuth.signOut();
+    localStorage.clear();
+  }
+
   getUser(uid: string): Observable<IUser> {
-    return this.http.get<IUser>(`${this.apiUrl}/user/${uid}`, {headers: this.header.getBaseHeaderOptions()})
+    return this.http.get<IUser>(`${this.apiUrl}/user/${uid}`, {headers: this.header.getHeaderOptions()})
   }
 
   saveUser(user: IUser): Observable<IUser> {
     return this.http.post<IUser>(`${this.apiUrl}/user/save`, user, {headers: this.header.getHeaderOptions()})
+  }
+
+  redirectTo(url: string) {
+    this.router.navigate([url]);
+  }
+
+  getLocalStorage(keyValue: string) {
+    return localStorage.getItem(keyValue)
   }
 
 }

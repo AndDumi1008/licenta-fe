@@ -1,12 +1,12 @@
 <div class="flex flex-col h-full items-center">
   <div class="flex justify-center py-5 gap-3">
-    <div class="rounded-full icon mr-0" *ngIf="this.getLocalStorage('photoUrl')!; else defaultUserIcon">
-      <img [src]="this.getLocalStorage('photoUrl')" alt="Profile photo" class="rounded-full">
+    <div class="rounded-full icon mr-0" *ngIf="this.userService.getLocalStorage('photoUrl')!; else defaultUserIcon">
+<!--      <img [src]="this.getLocalStorage('photoUrl')" alt="Profile photo" class="rounded-full">-->
+      <img [src]="this.userService.getLocalStorage('photoUrl')" alt="Profile photo" class="rounded-full">
     </div>
-
-    <div >
-      <h3> {{this.getLocalStorage('name')}} </h3>
-      <p class="text-center">{{this.getLocalStorage('USER_ROLE')}}</p>
+    <div>
+      <h3> {{this.userService.getLocalStorage('name')}} </h3>
+      <p class="text-center">{{this.userService.getLocalStorage('USER_ROLE')}}</p>
     </div>
   </div>
 </div>
@@ -35,7 +35,7 @@
 
     <mat-list-item class="profile-button ">
       <img alt="Logout icon" src="assets/icons/log-out.svg">
-      <mat-label class="pl-4" (click)="logOut()"><a href="/"><p> Log Out </p></a></mat-label>
+      <mat-label class="pl-4" (click)="this.userService.userLogout()"><a href="/"><p> Log Out </p></a></mat-label>
     </mat-list-item>
 
   </mat-nav-list>

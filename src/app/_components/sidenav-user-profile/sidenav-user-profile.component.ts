@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/compat/auth";
+import {UserService} from "../../_services/user.service";
 
 @Component({
   selector: 'app-sidenav-user-profile',
@@ -10,19 +11,11 @@ export class SidenavUserProfileComponent implements OnInit {
 
   user?: any
 
-  constructor(public afAuth: AngularFireAuth) {
+  constructor(public afAuth: AngularFireAuth,
+              public userService: UserService) {
   }
 
   ngOnInit(): void {
-  }
-
-  logOut() {
-    this.afAuth.signOut();
-    localStorage.clear();
-  }
-
-  getLocalStorage(keyValue: string) {
-    return localStorage.getItem(keyValue)
   }
 
 }

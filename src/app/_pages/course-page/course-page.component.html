@@ -14,7 +14,7 @@
     <h2>Courses:</h2>
 
     <ng-container *ngFor="let lab of this.labs">
-      <button class="button rounded-full flex justify-center w-full" (click)="this.goToPage(lab.id)">{{ lab.title }}</button>
+      <button class="button rounded-full flex justify-center w-full" (click)="this.userService.redirectTo('coursePage/'+ this.id +'/lab/' + this.lab.id)">{{ lab.title }}</button>
     </ng-container>
 
   </div>

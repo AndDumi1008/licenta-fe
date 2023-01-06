@@ -1,5 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
 import {UserService} from "../../../_services/user.service";
 
 @Component({
@@ -16,8 +15,7 @@ export class MediumCourseComponent implements OnInit {
   authorName?: string;
   authorPhoto?: string;
 
-  constructor(private router: Router,
-              private userService: UserService) {
+  constructor(public userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -28,7 +26,4 @@ export class MediumCourseComponent implements OnInit {
     })
   }
 
-  goToPage(pageName: string) {
-    this.router.navigate([`${pageName}/${this.id}`]);
-  }
 }

@@ -24,7 +24,7 @@
   </div>
 
   <div class="grid place-content-center">
-    <button class="button" (click)="goToPage('/coursePage')">Continue course</button>
+    <button class="button" (click)="this.userService.redirectTo('/coursePage/' + this.id)">Continue course</button>
   </div>
 </div>
 

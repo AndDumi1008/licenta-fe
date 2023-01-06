@@ -4,9 +4,16 @@
   </div>
 
   <ng-container *ngFor="let lab of labs">
-    <button class="lab text-left" (click)="goToPage(lab.id)" routerLinkActive="active-link">
+    <button class="lab text-left" (click)="this.userService.redirectTo('coursePage/' + this.id + '/' + lab.id)" routerLinkActive="active-link">
       <mat-divider></mat-divider>
       <p class="text-base py-1 pl-8 text-slate-700" routerLink="/coursePage/{{this.id}}/lab/{{lab.id}}">{{ lab.title }}</p>
     </button>
   </ng-container>
+
+  <div class="dev fixed bottom-0 left-0 h-20 w-72 ">
+    <button class="button" >
+      ACADEA ITI DAU CAPACE
+    </button>
+  </div>
+
 </div>

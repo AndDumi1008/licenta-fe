@@ -1,18 +1,20 @@
 button:hover {
-  color: rgba(225,227,232,0);
-  background-color: rgba(33,33,33,0.39) !important;
+  @apply bg-grey30 !important;
 }
 
 button {
-  /*color: rgba(225,227,232,0);*/
-  background-color: rgb(230, 231, 235) !important;
+  /*background-color: transparent !important;*/
 }
 
 .active-link {
-  background-color: rgba(33,33,33,0.39) !important;
-
+  @apply bg-grey20 !important;
 }
 
 .mat-divider {
-  background-color: rgba(33,33,33,0.39)
+  @apply bg-grey30;
 }
+
+.dev {
+  background: #18182D;
+}
+

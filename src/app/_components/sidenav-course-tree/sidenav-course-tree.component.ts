@@ -3,6 +3,7 @@ import {ILaboratorySummary} from "../../_interfaces/ILaboratorySummary";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CourseService} from "../../_services/course.service";
 import {LaboratoryService} from "../../_services/laboratory.service";
+import {UserService} from "../../_services/user.service";
 
 @Component({
   selector: 'app-sidenav-course-tree',
@@ -17,23 +18,17 @@ export class SidenavCourseTreeComponent implements OnInit {
 
   constructor(private readonly laboratoryService: LaboratoryService,
               private readonly route: ActivatedRoute,
+              public userService: UserService,
               private router: Router,
               private readonly courseService: CourseService) {
   }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-
-    console.log()
-
-    this.laboratoryService.getLabList(this.id).subscribe(data => {
+    this.laboratoryService.getLabList(this.id).subscribe((data) => {
       this.labs = data;
-    })
+    });
     this.getCourseName(this.id);
-  }
-
-  goToPage(id: string) {
-    this.router.navigate([`coursePage/${this.id}/lab/${id}`]);
   }
 
   getCourseName(courseId?: string) {

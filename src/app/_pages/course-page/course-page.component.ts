@@ -23,7 +23,7 @@ export class CoursePageComponent implements OnInit {
   constructor(private readonly courseService: CourseService,
               private readonly labService: LaboratoryService,
               private route: ActivatedRoute,
-              private userService: UserService,
+              public userService: UserService,
               private router: Router) {
   }
 

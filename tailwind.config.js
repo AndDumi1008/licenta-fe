@@ -6,6 +6,8 @@ module.exports = {
       colors: {
         'white': '#FFFFFF',
         'white80': '#FFFFFFCC',
+        'grey20': '#00000033',
+        'grey30': '#0000004D',
       }
     },
   },

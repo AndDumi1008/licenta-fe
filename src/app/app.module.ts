@@ -18,16 +18,15 @@ import {MediumCourseComponent} from './_components/course/medium-course/medium-c
 import {CompactCourseComponent} from './_components/course/compact-course/compact-course.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {SidenavCourseTreeComponent} from './_components/sidenav-course-tree/sidenav-course-tree.component';
-import {SocialLoginModule} from '@abacritt/angularx-social-login';
 import {HttpClientModule} from "@angular/common/http";
 import {MatDividerModule} from "@angular/material/divider";
 import {HighlightService} from "./_services/highlight.service";
 import {CoursePageComponent} from './_pages/course-page/course-page.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {LoginComponent} from './_pages/login-page/login.component';
-import {initializeApp, provideFirebaseApp} from '@angular/fire/app';
+import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
 import {environment} from '../environments/environment';
-import {getAuth, provideAuth} from '@angular/fire/auth';
+import {getAuth, provideAuth} from "@angular/fire/auth";
 import {AngularFireModule} from "@angular/fire/compat";
 import {LearningBodyComponent} from './_components/learning-body/learning-body.component';
 import {MatIconModule} from "@angular/material/icon";
@@ -69,7 +68,6 @@ import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
     AppRoutingModule,
     MatSidenavModule,
     MatProgressBarModule,
-    SocialLoginModule,
     HttpClientModule,
     MatDividerModule,
     MatProgressSpinnerModule,
