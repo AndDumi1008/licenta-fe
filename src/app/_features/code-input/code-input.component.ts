@@ -1,4 +1,5 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
+import {Judge0Service} from "../../_services/judge0.service";
 
 
 @Component({
@@ -25,13 +26,46 @@ export class CodeInputComponent implements OnInit {
     viewportMargin: Infinity
   };
 
-  @Input() code?: string;
+  codeMirrorOptions2: any = {
+    mode: null,
+    readOnly: "nocursor",
+    gutters: false
+  }
 
-  ngOnInit() {}
+  // TODO: Terminal output after Test/Submit
+  readOnlyArea: string = `This area is read only!
+HEHEHE`
+
+  @Input() code: string = "";
+
+  constructor(private judge0: Judge0Service) {
+  }
+
+  ngOnInit() {
+  }
 
   // TODO: this will make POST of code to see execution
-  setEditorContent(event: any) {
-    // console.log(this.query);
+  compileCode() {
+    let jsonToken: { token: string; };
+    let jsonOutput: {
+      stdout: string | null,
+      stderr: string | null,
+      status_id: number,
+      language_id: number
+    };
+
+    this.judge0.postSubmision(62, this.code, "").subscribe((token) => {
+      jsonToken = token
+    }, null, () => {
+      this.judge0.getSubmision(jsonToken.token).subscribe((data: any) => {
+        jsonOutput = data
+        console.log("this is data: ", jsonOutput)
+
+        if (typeof jsonOutput.stdout === "string") {
+          this.readOnlyArea = atob(jsonOutput.stdout)
+        }
+      });
+    })
   }
 
 }

@@ -1,19 +1,25 @@
-<div class="code-area">
-  <h2 class="py-2"> Code </h2>
-  <div class="border border-slate-100">
-  <ngx-codemirror
-                  [options]="codeMirrorOptions"
-                  [(ngModel)]="code"
-                  (ngModelChange)="setEditorContent($event)">
-  </ngx-codemirror>
+<h2 class="py-2"> Code </h2>
+<div class="grid grid-cols-2 divide-x border border-gray-300 ">
+    <div class="code-area">
+      <ngx-codemirror
+                      [options]="codeMirrorOptions"
+                      [(ngModel)]="code">
+<!--                      (ngModelChange)="setEditorContent($event)">-->
+      </ngx-codemirror>
+    </div>
+    <div class="output-area">
+      <ngx-codemirror
+        [options]="codeMirrorOptions2"
+        [(ngModel)]="readOnlyArea">
+      </ngx-codemirror>
+    </div>
   </div>
-</div>
 
 <!--<div class="code-output">-->
 <!--  <p>output</p>-->
 <!--</div>-->
 
 <div class="grid grid-cols-2 gap-90 pt-5">
-  <button class="button w-32 place-self-start">Test code</button>
+  <button class="button w-32 place-self-start" (click)="compileCode()">Test code</button>
   <button class="button w-32 place-self-end">Submit</button>
 </div>

@@ -2,11 +2,22 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import {HttpHeaders} from "@angular/common/http";
+
 export const environment = {
   production: false,
   // localApiUrl below
   // apiUrl: "http://localhost:5000/api",
   apiUrl: "http://codexamapi.eu-central-1.elasticbeanstalk.com/api",
+
+  judge0: {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'X-RapidAPI-Key': '6924b33edbmsh11c66cad7c53da9p1f6c29jsn90ff413d49f1',
+      'X-RapidAPI-Host': 'judge0-ce.p.rapidapi.com'
+    }),
+    url: "https://judge0-ce.p.rapidapi.com"
+  },
 
   firebase: {
     projectId: 'codexam-a9bc6',

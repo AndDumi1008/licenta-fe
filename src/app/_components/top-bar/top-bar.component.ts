@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import {AngularFireAuth} from "@angular/fire/compat/auth";
+import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../_services/user.service";
 
 @Component({
@@ -9,16 +8,23 @@ import {UserService} from "../../_services/user.service";
 })
 export class TopBarComponent implements OnInit {
 
-  constructor(public afAuth: AngularFireAuth,
-              public userService: UserService) {
+  constructor(public userService: UserService) {
   }
 
   ngOnInit(): void {
     this.getUserState()
+    this.userService.getUser(localStorage.getItem('uid')!).subscribe(() => {
+      },
+      () => {
+        if (this.getUserState()) {
+          this.userService.userLogout();
+          this.userService.redirectTo("/")
+        }
+      });
   }
 
   getUserState() {
-    return localStorage.getItem('isLoggedin') == 'true';
+    return this.userService.getLocalStorage('isLoggedin') == 'true';
   }
 
   logout() {
