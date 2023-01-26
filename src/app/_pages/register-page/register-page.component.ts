@@ -34,8 +34,8 @@ export class RegisterPageComponent implements OnInit {
 
   register() {
     if (this.registerForm.value.password === this.registerForm.value.confirmPassword) {
-      if (this.userService.userRegister(this.registerForm)) {
-        // this.userService.saveUser()
+      if (!this.userService.userRegister(this.registerForm)) {
+        // this.userService.saveUser(null)
       }
     } else {
       this.isError = true;

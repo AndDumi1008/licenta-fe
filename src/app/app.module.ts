@@ -36,6 +36,7 @@ import {SidenavUserProfileComponent} from './_components/sidenav-user-profile/si
 import {MatListModule} from "@angular/material/list";
 import {HomePageComponent} from "./_pages/home-page/home.component";
 import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 
 @NgModule({
@@ -78,9 +79,10 @@ import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
     ReactiveFormsModule,
     MatListModule,
     NgbCarouselModule,
+    MatSnackBarModule,
   ],
   providers: [
-    HighlightService
+    HighlightService,
   ],
   bootstrap: [AppComponent]
 })

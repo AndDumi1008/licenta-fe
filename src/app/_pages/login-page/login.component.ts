@@ -19,19 +19,15 @@ export class LoginComponent implements OnInit {
 
 
   constructor(public userService: UserService
-  ) {
-  }
+  ) {}
 
-  ngOnInit(): void {
-    this.isError = false;
-  }
+  ngOnInit(): void {}
 
   login() {
-    if (this.userService.userLogin(this.loginForm.value.email!, this.loginForm.value.password!)) {
-      this.isLogged = true;
-    } else {
+    if (!this.userService.userLogin(this.loginForm.value.email!, this.loginForm.value.password!)) {
       this.isError = true;
+    } else {
+      this.isLogged = true;
     }
   }
-
 }
