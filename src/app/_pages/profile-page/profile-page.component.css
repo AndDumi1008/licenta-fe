@@ -1,9 +1,5 @@
-.nav {
+#sidenav {
   height: calc(100vh - 60px);
   @apply sticky;
-  @apply bg-gray-200;
-}
-
-#sidenav {
-  background: #FFFFFF!important;
+  @apply top-15;
 }
