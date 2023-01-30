@@ -22,9 +22,6 @@ export class Judge0Service {
   }
 
   postSubmision(languageId: number, sourceCode: string, codeInput: string): Observable<any> {
-    // const encodedSourceCode: string = Buffer.from(sourceCode, 'utf8').toString('base64');
-    // const encodedCodeInput: string = Buffer.from(codeInput, 'utf8').toString('base64');
-
     const encodedSourceCode: string = btoa(sourceCode);
     const encodedCodeInput: string = btoa(codeInput);
     return this.http.post<any>(

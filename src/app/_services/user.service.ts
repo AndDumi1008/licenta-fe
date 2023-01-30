@@ -100,13 +100,19 @@ export class UserService {
   }
 
   refreshUserToken() {
+    // localStorage.setItem('refresh_token',"AOkPPWQxPhsE_rZe-3kGTJppiqpKwDpiVmpIE39WyNBnB6JEEtYFzlg-gWClu0Yoe5OH6BdhaCdtKsX0XT1smLg4hlJUqIuyJfs_bbvCCtdx6-EslbRdrpko6NO57fO2C_g8k2xGvT0TZWTeEEsG6Yn0vejmG1PS2Tf5PAJISCVp9mZ3b1QqKSa4LpGGsR2gjKnaweiB_MY2vDk4BRy926wAjOwUCdzVuQ")
     return this.http.post(`https://securetoken.googleapis.com/v1/token?key=${environment.firebase.apiKey}`,
       {grant_type: 'refresh_token',
         refresh_token: `${localStorage.getItem('refresh_token')}`
       },
-      {headers: new HttpHeaders({"Content-Type": "application/json"})})
-      .subscribe( user => {
-    })
+      {headers: new HttpHeaders({"Content-Type": "application/json"})}).toPromise()
+      .then(res => {
+        if(res != undefined) {
+          // Value [0] should stand for access token
+          localStorage.setItem('access_token', Object.values(res)[0])
+          // console.log("test: ", Object.values(res)[0])
+        }
+      })
   }
 
   saveUser(user: IUser): Observable<IUser> {

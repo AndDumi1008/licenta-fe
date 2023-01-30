@@ -8,6 +8,7 @@
 @import "~prismjs/plugins/toolbar/prism-toolbar.css";
 @import "~prismjs/themes/prism.css";
 @import "~bootstrap/dist/css/bootstrap.css";
+@import '~quill/dist/quill.snow.css';
 
 html, body {
   height: 100%;

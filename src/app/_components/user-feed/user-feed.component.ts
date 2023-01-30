@@ -20,8 +20,9 @@ export class UserFeedComponent implements OnInit {
       },
       () => {
         // TODO: session expired error
-        this.userService.userLogout();
-        this.userService.redirectTo("/")
+        // this.userService.userLogout();
+        // this.userService.redirectTo("/")
+      //   No more valid as it will take the new token using refresh token now
       });
   }
 }

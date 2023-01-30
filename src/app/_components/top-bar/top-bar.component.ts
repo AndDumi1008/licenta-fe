@@ -14,12 +14,6 @@ export class TopBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-  // .subscribe((user) => {
-  //     },
-  //     () => {
-  //       this.refreshUserToken()
-  //     });
     this.userService.refreshUserToken();
     this.userService.getUser(localStorage.getItem('uid')!).subscribe(() => {
       },
