@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {ILaboratorySummary} from "../../_interfaces/ILaboratorySummary";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CourseService} from "../../_services/course.service";
@@ -15,6 +15,8 @@ export class SidenavCourseTreeComponent implements OnInit {
   labs?: ILaboratorySummary[];
   id?: string;
   title?: string;
+  @Output() emitterEdit = new EventEmitter<boolean>();
+  @Input() isEditing?: boolean;
 
   constructor(private readonly laboratoryService: LaboratoryService,
               private readonly route: ActivatedRoute,
@@ -35,5 +37,9 @@ export class SidenavCourseTreeComponent implements OnInit {
     return this.courseService.getCourse(courseId).subscribe((data) => {
       this.title = data.title
     })
+  }
+
+  changeEditingState() {
+    this.emitterEdit.emit(!this.isEditing);
   }
 }
