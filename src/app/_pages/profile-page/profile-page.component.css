@@ -1,5 +1,0 @@
-#sidenav {
-  height: calc(100vh - 60px);
-  @apply sticky;
-  @apply top-15;
-}

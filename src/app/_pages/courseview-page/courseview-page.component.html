@@ -1,6 +1,6 @@
 <div *ngIf="laboratory; else elseBlock">
   <div class="flex flex-row">
-    <div class="nav top-14 fixed left-0 bg-gray-200">
+    <div class="bg-gray-200" id="sidenav">
       <app-sidenav-course-tree [isEditing]="isEditing" (emitterEdit)="enterEdit(!isEditing)"></app-sidenav-course-tree>
     </div>
 

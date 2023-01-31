@@ -1,7 +1,6 @@
 <div class="flex flex-col h-full items-center">
   <div class="flex justify-center py-5 gap-3">
     <div class="rounded-full icon mr-0" *ngIf="this.userService.getLocalStorage('photoUrl')!; else defaultUserIcon">
-<!--      <img [src]="this.getLocalStorage('photoUrl')" alt="Profile photo" class="rounded-full">-->
       <img [src]="this.userService.getLocalStorage('photoUrl')" alt="Profile photo" class="rounded-full">
     </div>
     <div>

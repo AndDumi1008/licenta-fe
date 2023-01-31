@@ -1,10 +1,11 @@
 <div class="flex flex-row h-full">
-  <div class="relativ !bg-white" id="sidenav">
-    <div class="w-72 pl-1 sticky top-16">
-      <app-sidenav-user-profile></app-sidenav-user-profile>
+  <div class=" mt-16">
+    <div class="fixed top-14 fixed left-0 !bg-white" id="sidenav">
+      <div class="w-72 pl-1">
+        <app-sidenav-user-profile></app-sidenav-user-profile>
+      </div>
     </div>
   </div>
 
-  <app-user-feed class="flex flex-col h-fit w-full px-6"></app-user-feed>
-
+    <app-user-feed class="flex flex-col h-fit w-full px-6 mt-16"></app-user-feed>
 </div>

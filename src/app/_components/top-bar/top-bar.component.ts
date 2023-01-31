@@ -25,8 +25,6 @@ export class TopBarComponent implements OnInit {
       });
   }
 
-
-
   getUserState() {
     return this.userService.getLocalStorage('isLoggedin') == 'true';
   }
