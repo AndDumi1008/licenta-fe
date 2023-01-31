@@ -2,10 +2,6 @@ button:hover {
   @apply bg-grey30 !important;
 }
 
-button {
-  /*background-color: transparent !important;*/
-}
-
 .active-link {
   @apply bg-grey20 !important;
 }
@@ -13,8 +9,3 @@ button {
 .mat-divider {
   @apply bg-grey30;
 }
-
-.dev {
-  background: #18182D;
-}
-

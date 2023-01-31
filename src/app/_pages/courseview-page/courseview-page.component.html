@@ -1,21 +1,35 @@
 <div *ngIf="laboratory; else elseBlock">
   <div class="flex flex-row">
-    <div class="nav top-14 sticky bg-gray-200">
-      <app-sidenav-course-tree></app-sidenav-course-tree>
+    <div class="nav top-14 fixed left-0 bg-gray-200">
+      <app-sidenav-course-tree [isEditing]="isEditing" (emitterEdit)="enterEdit(!isEditing)"></app-sidenav-course-tree>
     </div>
 
-    <div class="flex justify-center h-full">
-      <div class="container flex flex-col w-4/5  h-fit">
-        <div class="gap-32" style="color:#212121">
-          <div [innerHTML]="laboratory!.content"></div>
-          <div class="p-4" [innerHTML]="laboratory!.exercise"></div>
-        </div>
+    <ng-container *ngIf="isEditing != true; else editingContainer">
+      <div class="flex mx-auto mt-20 h-full">
+        <div class="container flex flex-col w-4/5  h-fit">
+          <div class="gap-32" style="color:#212121">
+            <div [innerHTML]="laboratory!.content"></div>
+            <div class="p-4" [innerHTML]="laboratory!.exercise"></div>
+          </div>
 
-        <app-code-input [code]="laboratory!.codeInput"></app-code-input>
+          <app-code-input [code]="laboratory!.codeInput"></app-code-input>
+        </div>
+      </div>
+    </ng-container>
+
+  </div>
+</div>
+
+<ng-template #editingContainer>
+  <div class="flex mx-auto mt-20 h-full">
+    <div class="container flex flex-col w-4/5  h-fit">
+      <div class="gap-32" style="color:#212121">
+        <quill-editor [(ngModel)]="laboratory!.content" [sanitize]="true"></quill-editor>
+
       </div>
     </div>
   </div>
-</div>
+</ng-template>
 
 <ng-template #elseBlock>
   <div class="grid h-screen">

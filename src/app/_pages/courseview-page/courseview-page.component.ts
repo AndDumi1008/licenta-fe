@@ -12,8 +12,8 @@ import {LaboratoryService} from "../../_services/laboratory.service";
 export class CourseviewPageComponent implements OnInit {
 
   laboratory?: ILaboratory;
-
   labId?: string;
+  isEditing: boolean = false;
 
   constructor(private readonly labService: LaboratoryService,
               private highlightService: HighlightService,
@@ -30,6 +30,9 @@ export class CourseviewPageComponent implements OnInit {
     });
 
     this.highlightService.highlightAll();
+  }
+  enterEdit(newEditingState: boolean) {
+    this.isEditing =  newEditingState;
   }
 
 }

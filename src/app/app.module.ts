@@ -28,7 +28,6 @@ import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
 import {environment} from '../environments/environment';
 import {getAuth, provideAuth} from "@angular/fire/auth";
 import {AngularFireModule} from "@angular/fire/compat";
-import {LearningBodyComponent} from './_components/learning-body/learning-body.component';
 import {MatIconModule} from "@angular/material/icon";
 import {RegisterPageComponent} from './_pages/register-page/register-page.component';
 import {ProfilePageComponent} from './_pages/profile-page/profile-page.component';
@@ -37,6 +36,7 @@ import {MatListModule} from "@angular/material/list";
 import {HomePageComponent} from "./_pages/home-page/home.component";
 import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {QuillModule} from "ngx-quill";
 
 
 @NgModule({
@@ -52,7 +52,6 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     CoursePageComponent,
     LoginComponent,
     CourseviewPageComponent,
-    LearningBodyComponent,
     RegisterPageComponent,
     ProfilePageComponent,
     SidenavUserProfileComponent,
@@ -80,6 +79,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
     MatListModule,
     NgbCarouselModule,
     MatSnackBarModule,
+    QuillModule.forRoot(),
   ],
   providers: [
     HighlightService,
