@@ -14,15 +14,17 @@ export class TopBarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userService.refreshUserToken();
-    this.userService.getUser(localStorage.getItem('uid')!).subscribe(() => {
-      },
-      () => {
-        if (this.getUserState()) {
-          this._snackBar.open("Your session has expired. Please log in again!", "sus close");
+    if(this.getUserState()) {
+      this.userService.getUser(localStorage.getItem('uid')!).subscribe((user) => {
+          if (user.uniqueId != null) {
+            this.userService.refreshUserToken();
+          }
+        },
+        () => {
+          this._snackBar.open("Your session has expired. Please log in again!", "Close", {duration: 1000});
           this.userService.redirectTo("/")
-        }
-      });
+        });
+    }
   }
 
   getUserState() {

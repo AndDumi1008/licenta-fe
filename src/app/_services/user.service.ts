@@ -110,7 +110,6 @@ export class UserService {
         if(res != undefined) {
           // Value [0] should stand for access token
           localStorage.setItem('access_token', Object.values(res)[0])
-          // console.log("test: ", Object.values(res)[0])
         }
       })
   }
