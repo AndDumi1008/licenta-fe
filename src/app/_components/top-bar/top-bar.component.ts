@@ -22,7 +22,7 @@ export class TopBarComponent implements OnInit {
         },
         () => {
           this._snackBar.open("Your session has expired. Please log in again!", "Close", {duration: 1000});
-          this.userService.redirectTo("/")
+          this.userService.userLogout();
         });
     }
   }

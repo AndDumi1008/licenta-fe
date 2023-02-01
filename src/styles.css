@@ -81,6 +81,10 @@ ul {
   background: #FFFFFF;
 }
 
+.ql-container {
+  font-size: inherit !important
+}
+
 #sidenav {
   height: calc(100vh - 60px);
   @apply fixed;
