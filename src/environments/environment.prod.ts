@@ -12,6 +12,22 @@ export const environment = {
     url: "https://judge0-ce.p.rapidapi.com"
   },
 
+  codeMirrorOptions: {
+    // Find other language filters https://codemirror.net/5/mode/clike/
+    // at the bottom
+    mode: "text/x-java",
+    indentWithTabs: true,
+    smartIndent: true,
+    lineNumbers: true,
+    lineWrapping: false,
+    extraKeys: {"Ctrl-Space": "autocomplete"},
+    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+    autoCloseBrackets: true,
+    matchBrackets: true,
+    lint: true,
+    viewportMargin: Infinity
+  },
+
   firebase: {
     projectId: 'codexam-a9bc6',
     appId: '1:409610493792:web:4f33943223b27a00ae4805',

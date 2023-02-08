@@ -1,5 +1,6 @@
 import {Component, Input, OnInit, ViewEncapsulation} from '@angular/core';
 import {Judge0Service} from "../../_services/judge0.service";
+import {environment} from "../../../environments/environment";
 
 
 @Component({
@@ -10,21 +11,23 @@ import {Judge0Service} from "../../_services/judge0.service";
 })
 export class CodeInputComponent implements OnInit {
 
-  codeMirrorOptions: any = {
-    // Find other language filters https://codemirror.net/5/mode/clike/
-    // at the bottom
-    mode: "text/x-java",
-    indentWithTabs: true,
-    smartIndent: true,
-    lineNumbers: true,
-    lineWrapping: false,
-    extraKeys: {"Ctrl-Space": "autocomplete"},
-    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
-    autoCloseBrackets: true,
-    matchBrackets: true,
-    lint: true,
-    viewportMargin: Infinity
-  };
+  codeMirrorOptions = environment.codeMirrorOptions
+
+  // codeMirrorOptions: any = {
+  //   // Find other language filters https://codemirror.net/5/mode/clike/
+  //   // at the bottom
+  //   mode: "text/x-java",
+  //   indentWithTabs: true,
+  //   smartIndent: true,
+  //   lineNumbers: true,
+  //   lineWrapping: false,
+  //   extraKeys: {"Ctrl-Space": "autocomplete"},
+  //   gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+  //   autoCloseBrackets: true,
+  //   matchBrackets: true,
+  //   lint: true,
+  //   viewportMargin: Infinity
+  // };
 
   codeMirrorOptions2: any = {
     mode: null,

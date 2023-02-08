@@ -37,6 +37,7 @@ import {HomePageComponent} from "./_pages/home-page/home.component";
 import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {QuillModule} from "ngx-quill";
+import {MatSelectModule} from "@angular/material/select";
 
 
 @NgModule({
@@ -57,30 +58,31 @@ import {QuillModule} from "ngx-quill";
     SidenavUserProfileComponent,
     HomePageComponent,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    FormsModule,
-    MatCardModule,
-    CommonModule,
-    CodemirrorModule,
-    AppRoutingModule,
-    MatSidenavModule,
-    MatProgressBarModule,
-    HttpClientModule,
-    MatDividerModule,
-    MatProgressSpinnerModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    AngularFireModule.initializeApp(environment.firebase),
-    MatIconModule,
-    ReactiveFormsModule,
-    MatListModule,
-    NgbCarouselModule,
-    MatSnackBarModule,
-    QuillModule.forRoot(),
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        MatInputModule,
+        FormsModule,
+        MatCardModule,
+        CommonModule,
+        CodemirrorModule,
+        AppRoutingModule,
+        MatSidenavModule,
+        MatProgressBarModule,
+        HttpClientModule,
+        MatDividerModule,
+        MatProgressSpinnerModule,
+        provideFirebaseApp(() => initializeApp(environment.firebase)),
+        provideAuth(() => getAuth()),
+        AngularFireModule.initializeApp(environment.firebase),
+        MatIconModule,
+        ReactiveFormsModule,
+        MatListModule,
+        NgbCarouselModule,
+        MatSnackBarModule,
+        QuillModule.forRoot(),
+        MatSelectModule,
+    ],
   providers: [
     HighlightService,
   ],

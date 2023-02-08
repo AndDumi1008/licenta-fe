@@ -5,7 +5,7 @@
     </div>
 
     <ng-container *ngIf="isEditing != true; else editingContainer">
-      <div class="flex mx-auto mt-20 h-full">
+      <div class="flex pl-80 pr-10 mx-auto mt-20 h-full">
         <div class="container flex flex-col w-4/5  h-fit">
           <div class="gap-32" style="color:#212121">
             <div [innerHTML]="laboratory!.content"></div>
@@ -22,12 +22,23 @@
 
 <ng-template #editingContainer>
   <div class="flex mx-auto mt-20 h-full">
-    <div class="container flex flex-col w-4/5  h-fit">
-      <div class="gap-32" style="color:#212121">
-        <quill-editor [(ngModel)]="laboratory!.content" [sanitize]="true"></quill-editor>
-        <quill-editor [(ngModel)]="laboratory!.exercise" [sanitize]="true"></quill-editor>
-
+    <div class="container flex flex-col w-4/5 h-fit gap-10">
+      <quill-editor [(ngModel)]="laboratory!.content" [sanitize]="true"></quill-editor>
+      <quill-editor [(ngModel)]="laboratory!.exercise" [sanitize]="true"></quill-editor>
+      <div>
+        <mat-form-field appearance="fill">
+          <mat-label>Desired coding language</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let language of languages" [value]="language.id">
+              {{language.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div class="border border-gray-300">
+          <ngx-codemirror [(ngModel)]="laboratory!.codeInput" [options]="codeMirrorOptions"></ngx-codemirror>
+        </div>
       </div>
+
     </div>
   </div>
 </ng-template>

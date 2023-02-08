@@ -86,8 +86,8 @@ ul {
 }
 
 #sidenav {
-  height: calc(100vh - 60px);
+  height: calc(101vh - 60px);
   @apply fixed;
-  @apply top-14;
+  @apply top-15;
   @apply left-0;
 }
