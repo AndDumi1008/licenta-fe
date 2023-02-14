@@ -1,41 +1,35 @@
-<div class="flex justify-center">
-  <div class="container flex flex-col w-4/5 h-fit	p-6 my-6 gap-8 rounded-2xl">
-    <h1>Continue course</h1>
-    <div class="flex flex-col gap-4 px-3">
-      <ng-container *ngFor="let course of courses; index as i">
-        <app-medium-course *ngIf="i<1"
-                           [id]="course.id"
-                           [title]="course.title"
-                           [uid]="course.author"
-                           [img]="course.img"
-        ></app-medium-course>
-      </ng-container>
-    </div>
+<div class="bg-white flex flex-col h-fit p-6 rounded-2xl">
+  <h1>Continue course</h1>
+  <div class="flex flex-col gap-4 px-3">
+    <ng-container *ngFor="let course of courses; index as i">
+      <app-medium-course class="border" *ngIf="i<1"
+                         [id]="course.id"
+                         [title]="course.title"
+                         [uid]="course.author"
+                         [img]="course.img"
+      ></app-medium-course>
+    </ng-container>
   </div>
 </div>
 
-<div class="flex justify-center">
-
-  <div class="container w-4/5 h-fit my-6 p-6 gap-8 rounded-2xl">
-    <h1>Courses</h1>
-
-    <div class="flex flex-row gap-4 px-3">
-      <ng-container *ngFor="let courses of courses">
-        <app-compact-course [title]="courses.title"
-                            [uid]="courses.author"
-                            [img]="courses.img"
-        ></app-compact-course>
-      </ng-container>
-    </div>
+<div class="bg-white h-fit my-6 p-6 rounded-2xl">
+  <h1>Courses</h1>
+  <div class="flex flex-row justify-start gap-2 overflow-x-auto">
+    <ng-container *ngFor="let courses of courses">
+      <app-compact-course class="flex bg-white80 p-6 border w-fit"
+                          [title]="courses.title"
+                          [uid]="courses.author"
+                          [img]="courses.img"
+      ></app-compact-course>
+    </ng-container>
   </div>
 </div>
 
-<div class="flex justify-center">
-  <div class="container w-4/5 h-fit my-6 p-6 gap-8 rounded-2xl">
-    <h1>Graph</h1>
-      <div class="flex justify-center">
-        <!--TODO: place stats about user/class-->
-        <img alt="Mock-graph" src="assets/mock/graph-mock.svg">
-    </div>
+<div class="bg-white  h-fit my-6 p-6 gap-8 rounded-2xl">
+  <h1>Graph</h1>
+  <div class="flex justify-center">
+    <!--TODO: place stats about user/class-->
+    <img alt="Mock-graph" src="assets/mock/graph-mock.svg">
   </div>
 </div>
+

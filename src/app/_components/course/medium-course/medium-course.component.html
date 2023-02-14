@@ -1,6 +1,6 @@
-<div class="flex flex-row justify-between w-full">
+<div class="flex flex-row justify-between w-full p-4">
 
-  <div class="flex justify-content-evenly items-center gap-2">
+  <div class="flex justify-content-evenly items-center gap-2 ">
     <div *ngIf="img!; else noCoursePhoto">
       <img class="course-img" [src]="img">
     </div>
@@ -15,11 +15,6 @@
         </div>
         <a>{{ authorName }}</a>
       </div>
-
-<!--      <div class="flex flex-row items-center gap-2 w-60">-->
-<!--          <mat-progress-bar mode="determinate" value="{{ procent }}"></mat-progress-bar>-->
-<!--        <p>{{ progress }}/{{ steps}}</p>-->
-<!--      </div>-->
     </div>
   </div>
 

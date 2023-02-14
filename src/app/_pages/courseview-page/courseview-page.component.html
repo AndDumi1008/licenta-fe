@@ -6,7 +6,7 @@
 
     <ng-container *ngIf="isEditing != true; else editingContainer">
       <div class="flex pl-80 pr-10 mx-auto mt-20 h-full">
-        <div class="container flex flex-col w-4/5  h-fit">
+        <div class="container flex flex-col w-4/5 h-fit">
           <div class="gap-32" style="color:#212121">
             <div [innerHTML]="laboratory!.content"></div>
             <div class="p-4" [innerHTML]="laboratory!.exercise"></div>
