@@ -38,6 +38,7 @@ import {NgbCarouselModule} from "@ng-bootstrap/ng-bootstrap";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {QuillModule} from "ngx-quill";
 import {MatSelectModule} from "@angular/material/select";
+import { BrowsePageComponent } from './_pages/browse-page/browse-page.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import {MatSelectModule} from "@angular/material/select";
     ProfilePageComponent,
     SidenavUserProfileComponent,
     HomePageComponent,
+    BrowsePageComponent,
   ],
     imports: [
         BrowserModule,

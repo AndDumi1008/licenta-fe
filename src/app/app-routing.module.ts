@@ -7,6 +7,7 @@ import {RegisterPageComponent} from "./_pages/register-page/register-page.compon
 import {ProfilePageComponent} from "./_pages/profile-page/profile-page.component";
 import {SidenavUserProfileComponent} from "./_components/sidenav-user-profile/sidenav-user-profile.component";
 import {HomePageComponent} from "./_pages/home-page/home.component";
+import {BrowsePageComponent} from "./_pages/browse-page/browse-page.component";
 
 const routes: Routes = [
 
@@ -36,7 +37,7 @@ const routes: Routes = [
       },
       {
         path: 'courses',
-        component: SidenavUserProfileComponent
+        component: BrowsePageComponent
       },
       {
         path: 'graph',
@@ -48,9 +49,28 @@ const routes: Routes = [
       },
     ]
   },
-  {path: 'login', component: LoginComponent},
-  {path: 'register', component: RegisterPageComponent},
-  {path: '', component: HomePageComponent}
+  {
+    path: '',
+    children: [
+      {
+        path: '',
+        component: HomePageComponent
+      },
+      {
+        path: 'browse',
+        component: BrowsePageComponent
+      },
+      {
+        path: 'login',
+        component: LoginComponent
+      },
+      {
+        path: 'register',
+        component: RegisterPageComponent
+      },
+
+    ],
+  }
 ];
 
 
