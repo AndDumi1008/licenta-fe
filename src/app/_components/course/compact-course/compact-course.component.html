@@ -1,17 +1,17 @@
 <div class="flex flex-col justify-between gap-2">
   <div class="items-center" *ngIf="img!; else noCoursePhoto">
-    <img class="course-img" [src]="img">
+    <img class="course-img" alt="Course image" [src]="img">
   </div>
 
   <!--      TODO: make card look good-->
   <h2>{{ title }}</h2>
   <div class="flex flex-row gap-2">
     <div *ngIf="authorPhoto!; else noAuthorPhoto">
-      <img class="prof-img" [src]="authorPhoto">
+      <img class="prof-img" alt="Profile image" [src]="authorPhoto">
     </div>
     <a>{{ authorName }}</a>
   </div>
-  <button class="button "> Test</button>
+  <button class="button" (click)="this.redirectTo(id)"> Continue </button>
 </div>
 
 

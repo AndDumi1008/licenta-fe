@@ -16,13 +16,7 @@ export class UserFeedComponent implements OnInit {
 
   ngOnInit(): void {
     this.userService.getUser(localStorage.getItem('uid')!).subscribe((data) => {
-        this.courses = data.courseArr;
-      },
-      () => {
-        // TODO: session expired error
-        // this.userService.userLogout();
-        // this.userService.redirectTo("/")
-      //   No more valid as it will take the new token using refresh token now
-      });
+      this.courses = data.courseArr;
+    });
   }
 }

@@ -14,7 +14,11 @@ html, body {
   height: 100%;
   background: #f5f5f5;
 }
-body { margin: 0;}
+
+body {
+  margin: 0;
+}
+
 .button {
   border: 1px solid #00ACC1;
   color: #00ACC1;
@@ -32,9 +36,14 @@ body { margin: 0;}
   color: #FFFFFF !important;
 }
 
-* {font-family: 'Inter', sans-serif;font-style: normal;}
+* {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+}
 
-h1,h2,p {color: #505050;}
+h1, h2, p {
+  color: #505050;
+}
 
 .mat-body p, .mat-body-1 p, .mat-typography .mat-body p, .mat-typography .mat-body-1 p, .mat-typography p {
   margin: 0 !important;
@@ -58,19 +67,21 @@ ul {
 }
 
 .mat-form-field-appearance-outline .mat-form-field-outline {
-  color: #00ACC1!important;
+  color: #00ACC1 !important;
 }
 
 .course-img {
   width: 200px;
   height: 120px;
   border-radius: 8px;
+  min-width: 200px;
 }
 
 .prof-img {
   border-radius: 50%;
   width: 24px;
   height: 24px;
+  min-width: 100%;
 }
 
 .no-img {
@@ -86,6 +97,16 @@ ul {
   @apply fixed;
   @apply top-15;
   @apply left-0;
+}
+
+.top-bar {
+  background-color: #18182D;
+  @apply top-0;
+  @apply px-8;
+  @apply h-16;
+  @apply items-center;
+  @apply justify-between;
+  @apply flex;
 }
 
 .border {

@@ -40,6 +40,7 @@ export class SidenavCourseTreeComponent implements OnInit {
   }
 
   changeEditingState() {
+    // TODO: Check if user is author then show 'Enter edit mode'
     this.emitterEdit.emit(!this.isEditing);
   }
 }

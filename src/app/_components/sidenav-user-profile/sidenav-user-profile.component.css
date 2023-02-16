@@ -15,6 +15,10 @@ mat-list-item :hover {
   border-radius: 8px;
 }
 
+mat-list-item {
+  @apply !w-60;
+}
+
 mat-label p {
   color: #4e4e4e;
 }

@@ -8,9 +8,8 @@
       <p class="text-center">{{this.userService.getLocalStorage('USER_ROLE')}}</p>
     </div>
   </div>
-</div>
 
-  <mat-nav-list class="pl-5 pr-5">
+  <mat-nav-list class="mx-auto">
 
     <mat-list-item class="profile-button " routerLink="/profile/dashboard" routerLinkActive="active-list-item">
         <img alt="Dashboard icon" routerLinkActive="filter-cyan" src="assets/icons/grid.svg">
@@ -38,6 +37,7 @@
     </mat-list-item>
 
   </mat-nav-list>
+</div>
 
 <ng-template #defaultUserIcon>
   <div class="rounded-full icon mr-0">

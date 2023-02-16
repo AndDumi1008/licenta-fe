@@ -11,6 +11,8 @@ export class CompactCourseComponent implements OnInit {
   @Input() title?: string
   @Input() uid?: string
   @Input() img?: string
+  @Input() id?: string
+
   authorName?: string
   authorPhoto?: string
   constructor(private userService: UserService) { }
@@ -20,6 +22,10 @@ export class CompactCourseComponent implements OnInit {
       this.authorName = data.name;
       this.authorPhoto = data.photoURL;
     })
+  }
+
+  redirectTo(id:any) {
+    this.userService.redirectTo('/coursePage/' + id);
   }
 
 }
