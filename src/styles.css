@@ -29,10 +29,12 @@ body {
   font-weight: 500 !important;
   font-size: 16px !important;
   line-height: 24px !important;
+  @apply mx-auto my-auto;
 }
 
+/*TODO: Inherit bg-color from border*/
 .button:hover {
-  background-color: #00ACC1;
+  background-color: #00ACC1 !important;
   color: #FFFFFF !important;
 }
 
@@ -82,6 +84,14 @@ ul {
   width: 24px;
   height: 24px;
   min-width: 100%;
+}
+
+.container{
+  padding: 24px;
+  margin: 24px 0 24px 70px!important;
+
+  background: #FFFFFF;
+  border-radius: 16px;
 }
 
 .no-img {

@@ -1,0 +1,18 @@
+  <div class="container flex flex-col w-4/5 h-fit">
+    <quill-editor [(ngModel)]="laboratory!.content" [sanitize]="true"></quill-editor>
+    <quill-editor [(ngModel)]="laboratory!.exercise" [sanitize]="true"></quill-editor>
+    <div>
+      <mat-form-field appearance="fill">
+        <mat-label>Desired coding language</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let language of languages" [value]="language.id">
+            {{language.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="border border-gray-300">
+        <ngx-codemirror [(ngModel)]="laboratory!.codeInput" [options]="codeMirrorOptions"></ngx-codemirror>
+      </div>
+    </div>
+
+  </div>

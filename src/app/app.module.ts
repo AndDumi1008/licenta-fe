@@ -39,6 +39,7 @@ import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {QuillModule} from "ngx-quill";
 import {MatSelectModule} from "@angular/material/select";
 import { BrowsePageComponent } from './_pages/browse-page/browse-page.component';
+import { EditCourseComponent } from './_features/edit-course/edit-course.component';
 
 
 @NgModule({
@@ -59,6 +60,7 @@ import { BrowsePageComponent } from './_pages/browse-page/browse-page.component'
     SidenavUserProfileComponent,
     HomePageComponent,
     BrowsePageComponent,
+    EditCourseComponent,
   ],
     imports: [
         BrowserModule,
