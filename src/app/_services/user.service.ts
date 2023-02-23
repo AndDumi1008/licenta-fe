@@ -77,8 +77,8 @@ export class UserService {
               name: name,
               userRole: userRole,
               photoURL: '',
-            }).subscribe((data) => {
-              console.log(data)
+            }).subscribe(() => {
+              // console.log(data)
             })
           })
 
@@ -107,7 +107,7 @@ export class UserService {
       },
       {headers: new HttpHeaders({"Content-Type": "application/json"})}).toPromise()
       .then(res => {
-        console.log("res: ", res)
+        // console.log("res: ", res)
         if (res != undefined) {
           // Value [0] should stand for access token
           localStorage.setItem('access_token', Object.values(res)[0])
