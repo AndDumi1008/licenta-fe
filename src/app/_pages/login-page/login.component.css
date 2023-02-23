@@ -1,7 +1,8 @@
-.container {
+.container-login {
   background: #fdfdfd;
   border-radius: 16px;
-  width: 506px;
+  max-width: 506px;
+  width:100%;
 }
 
 mat-label {
@@ -9,7 +10,7 @@ mat-label {
 }
 
 mat-form-field {
-  width: 426px;
+  width: 100%;
 }
 
 a {

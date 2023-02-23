@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit {
 
   login() {
     if (!this.userService.userLogin(this.loginForm.value.email!, this.loginForm.value.password!)) {
-      this.isError = true;
-    } else {
       this.isLogged = true;
+    } else {
+      this.isError = true;
     }
   }
 }

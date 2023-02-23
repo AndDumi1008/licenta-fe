@@ -2,7 +2,7 @@
     <quill-editor [(ngModel)]="laboratory!.content" [sanitize]="true"></quill-editor>
     <quill-editor [(ngModel)]="laboratory!.exercise" [sanitize]="true"></quill-editor>
     <div>
-      <mat-form-field appearance="fill">
+      <mat-form-field class="mmt-1" appearance="fill">
         <mat-label>Desired coding language</mat-label>
         <mat-select>
           <mat-option *ngFor="let language of languages" [value]="language.id">
@@ -15,4 +15,7 @@
       </div>
     </div>
 
+    <button class="button !mt-1">
+      test
+    </button>
   </div>
