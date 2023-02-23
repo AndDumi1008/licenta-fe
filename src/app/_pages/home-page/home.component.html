@@ -1,33 +1,33 @@
-<div class="grid grid-cols-8 grid-rows-none self-center py-20">
-  <div class="col-start-2 col-end-4 pl-10 py-10">
-      <ngb-carousel
-        class="img-container"
-        #carousel
-        [interval]="10000"
-        [pauseOnHover]="pauseOnHover"
-        [pauseOnFocus]="pauseOnFocus"
-        (slide)="onSlide($event)">
+<div class="flex self-center items-center py-20 px-1 relative flex-col md:flex-row">
+  <ngb-carousel
+    class="img-container"
+    #carousel
+    [interval]="10000"
+    [pauseOnHover]="pauseOnHover"
+    [pauseOnFocus]="pauseOnFocus"
+    (slide)="onSlide($event)">
 
-        <ng-template ngbSlide>
-            <img class="img-container" alt="Home photo" src="assets/images/home-page/christin-hume-slbqShqAhEo-unsplash.jpg">
-        </ng-template>
-        <ng-template ngbSlide>
-            <img class="img-container" alt="Home photo" src="assets/images/home-page/desola-lanre-ologun-7d4LREDSPyQ-unsplash.jpg">
-        </ng-template>
-        <ng-template ngbSlide>
-            <img class="img-container" alt="Home photo" src="assets/images/home-page/mimi-thian-BYGLQ32Wjx8-unsplash.jpg">
-        </ng-template>
-        <ng-template ngbSlide>
-            <img class="img-container" alt="Home photo" src="assets/images/home-page/thomas-lefebvre-gp8BLyaTaA0-unsplash.jpg">
-        </ng-template>
-        <ng-template ngbSlide>
-            <img class="img-container" alt="Home photo" src="assets/images/home-page/wes-hicks-4-EeTnaC1S4-unsplash.jpg">
-        </ng-template>
-      </ngb-carousel>
-  </div>
+    <ng-template ngbSlide>
+      <img class="img-container" alt="Home photo" src="assets/images/home-page/christin-hume-slbqShqAhEo-unsplash.jpg">
+    </ng-template>
+    <ng-template ngbSlide>
+      <img class="img-container" alt="Home photo"
+           src="assets/images/home-page/desola-lanre-ologun-7d4LREDSPyQ-unsplash.jpg">
+    </ng-template>
+    <ng-template ngbSlide>
+      <img class="img-container" alt="Home photo" src="assets/images/home-page/mimi-thian-BYGLQ32Wjx8-unsplash.jpg">
+    </ng-template>
+    <ng-template ngbSlide>
+      <img class="img-container" alt="Home photo"
+           src="assets/images/home-page/thomas-lefebvre-gp8BLyaTaA0-unsplash.jpg">
+    </ng-template>
+    <ng-template ngbSlide>
+      <img class="img-container" alt="Home photo" src="assets/images/home-page/wes-hicks-4-EeTnaC1S4-unsplash.jpg">
+    </ng-template>
+  </ngb-carousel>
 
-  <div class="col-start-6 col-span-2 z-10 py-20 !px-auto">
-    <div class="features-container min-w-xl	">
+  <div class="lg:absolute lg:right-0 lg:-translate-x-1/4 mt-2 lg:mt-0 max-w-lg">
+    <div class="features-container ">
       <div class="py-5 px-5">
         <h1> Codexam - About</h1>
 
@@ -43,4 +43,5 @@
       </div>
     </div>
   </div>
+
 </div>

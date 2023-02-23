@@ -32,7 +32,6 @@ body {
   @apply mx-auto my-auto;
 }
 
-/*TODO: Inherit bg-color from border*/
 .button:hover {
   background-color: #00ACC1 !important;
   color: #FFFFFF !important;

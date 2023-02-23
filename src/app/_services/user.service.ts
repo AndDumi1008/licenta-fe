@@ -22,9 +22,7 @@ export class UserService {
   }
 
   async userLogin(username: string, password: string): Promise<boolean> {
-    let ok: boolean = false;
-
-    await this.afAuth.signInWithEmailAndPassword(username, password)
+    return await this.afAuth.signInWithEmailAndPassword(username, password)
       .then(() => {
         // code to handle successful login
         this.afAuth.authState.subscribe((user) => {
@@ -43,16 +41,14 @@ export class UserService {
 
             }).then(() => {
               this.router.navigate(['/profile/dashboard']);
-              ok = true;
             })
           }
         })
+        return true;
       })
       .catch(() => {
-        ok = false;
+        return false;
       });
-
-    return ok;
   }
 
   async userRegister(registerForm: FormGroup): Promise<boolean> {

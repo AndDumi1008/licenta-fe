@@ -1,11 +1,12 @@
 .img-container {
-  width: 908px;
-  height: 653px;
+  aspect-ratio: 4/3;
   border-radius: 3%;
+  max-height: 80vh;
+  margin: 0 auto;
+  object-fit: cover;
 }
 
 .features-container {
-  height: 532px;
   border-radius: 3%;
   background: #FFFFFF;
 }

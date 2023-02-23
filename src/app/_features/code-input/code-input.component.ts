@@ -36,8 +36,7 @@ export class CodeInputComponent implements OnInit {
   }
 
   // TODO: Terminal output after Test/Submit
-  readOnlyArea: string = `This area is read only!
-HEHEHE`
+  readOnlyArea: string = "Code output...";
 
   @Input() code: string = "";
 

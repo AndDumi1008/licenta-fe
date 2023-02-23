@@ -10,7 +10,7 @@
     </button>
   </ng-container>
 
-  <div class="flex fixed bottom-1 left-0 h-20 w-72">
+  <div class="flex fixed bottom-1 left-0 h-20 w-72" *ngIf="checkAuthor()">
     <button class="button mx-auto my-auto" *ngIf="isEditing == false; else newEditingState" (click)="this.changeEditingState()" #newEditingState>
       Enter edit mode
     </button>
@@ -20,7 +20,7 @@
 
 
 <ng-template #newEditingState>
-  <button class="button !border-rose-600 !text-rose-600" *ngIf="isEditing == true" (click)="this.changeEditingState()" #newEditingState>
+  <button class="button !border-rose-600 !text-rose-600 hover:!bg-rose-600"  *ngIf="isEditing == true" (click)="this.changeEditingState()" #newEditingState>
     Exit without change
   </button>
 </ng-template>

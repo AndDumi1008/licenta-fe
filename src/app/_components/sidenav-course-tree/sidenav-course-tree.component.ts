@@ -15,6 +15,7 @@ export class SidenavCourseTreeComponent implements OnInit {
   labs?: ILaboratorySummary[];
   id?: string;
   title?: string;
+  courseAuthor: string = "";
   @Output() emitterEdit = new EventEmitter<boolean>();
   @Input() isEditing?: boolean;
 
@@ -35,12 +36,17 @@ export class SidenavCourseTreeComponent implements OnInit {
 
   getCourseName(courseId?: string) {
     return this.courseService.getCourse(courseId).subscribe((data) => {
-      this.title = data.title
+      this.title = data.title;
+      this.userService.getUser(data.author).subscribe(data => this.courseAuthor = data.name);
     })
   }
 
   changeEditingState() {
     // TODO: Check if user is author then show 'Enter edit mode'
     this.emitterEdit.emit(!this.isEditing);
+  }
+
+  checkAuthor() {
+    return localStorage.getItem("name") == this.courseAuthor;
   }
 }

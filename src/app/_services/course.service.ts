@@ -25,5 +25,4 @@ export class CourseService {
   getCourse(id?: string): Observable<ICourseDetails> {
     return this.http.get<ICourseDetails>(`${this.apiUrl}/course/${id}`, {headers: this.header.getHeaderOptions()})
   }
-
 }
