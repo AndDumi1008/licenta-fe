@@ -4,5 +4,6 @@ export interface ILaboratory {
   content: string,
   exercise: string,
   codeInput: string,
-  codeOutput: string
+  codeOutput: string,
+  codeLanguage: string,
 }

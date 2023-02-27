@@ -17,6 +17,7 @@ export class EditCourseComponent implements OnInit {
 
   constructor(private judge0: Judge0Service) { }
 
+  // TODO: change highlight based on selected language
   ngOnInit(): void {
   }
 

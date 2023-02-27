@@ -21,7 +21,7 @@ export const environment = {
   codeMirrorOptions: {
     // Find other language filters https://codemirror.net/5/mode/clike/
     // at the bottom
-    mode: "text/x-c++src",
+    // mode: "text/x-c++src",
     indentWithTabs: true,
     smartIndent: true,
     lineNumbers: true,
