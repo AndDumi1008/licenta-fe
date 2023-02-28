@@ -6,7 +6,6 @@
 .logo {
   @apply flex;
   align-items: center;
-
 }
 
 .top-nav a {
@@ -16,5 +15,5 @@
 
 img {
   height: 38px;
-  @apply w-full;
+  min-width: 100px;
 }

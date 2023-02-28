@@ -1,8 +1,0 @@
-app-top-bar {
-  position: sticky;
-  grid-area: header;
-  box-sizing: border-box;
-  top: 0;
-  z-index: 100;
-  width: 100%;
-}

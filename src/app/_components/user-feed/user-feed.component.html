@@ -12,9 +12,9 @@
   </div>
 </div>
 
-<div class="bg-white h-fit my-6 p-6 rounded-2xl">
+<div class="bg-white h-fit my-6 p-6 rounded-2xl ">
   <h1>Courses</h1>
-  <div class="flex flex-row justify-start gap-2 overflow-auto">
+  <div class="flex gap-2">
     <ng-container *ngFor="let courses of courses">
       <app-compact-course class="flex bg-white80 p-6 border w-min"
                           [title]="courses.title"

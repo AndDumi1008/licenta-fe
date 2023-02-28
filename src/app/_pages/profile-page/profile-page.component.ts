@@ -6,10 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile-page.component.css']
 })
 export class ProfilePageComponent implements OnInit {
-
+  public isPanelVisible = window.innerWidth > 720
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public togglePanelVisible() {
+    this.isPanelVisible= !this.isPanelVisible
   }
 
 }

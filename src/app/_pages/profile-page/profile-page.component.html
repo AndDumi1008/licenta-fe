@@ -1,8 +1,11 @@
-<div class="flex   ">
-  <div class=" !bg-white w-72" id="sidenav">
-    <app-sidenav-user-profile></app-sidenav-user-profile>
+<div class="flex">
+  <div class="fixed md:!sticky top-[60px]" id="sidenav">
+    <app-sidenav-user-profile [isPanelVisible]="isPanelVisible"></app-sidenav-user-profile>
+    <button (click)="togglePanelVisible()" class="absolute md:!hidden left-0 bottom-0 bg-red-900 button" >
+      >>
+    </button>
   </div>
-  <div class="flex pl-80 pr-10 mx-auto mt-20 h-full ">
+  <div class="flex justify-center p-3">
     <app-user-feed ></app-user-feed>
   </div>
 </div>

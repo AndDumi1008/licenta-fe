@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import {UserService} from "../../_services/user.service";
 
@@ -8,7 +8,7 @@ import {UserService} from "../../_services/user.service";
   styleUrls: ['./sidenav-user-profile.component.css']
 })
 export class SidenavUserProfileComponent implements OnInit {
-
+  @Input('isPanelVisible') isPanelVisible = false
   user?: any
 
   constructor(public afAuth: AngularFireAuth,

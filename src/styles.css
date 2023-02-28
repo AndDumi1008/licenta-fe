@@ -102,10 +102,7 @@ ul {
 }
 
 #sidenav {
-  height: calc(101vh - 60px);
-  @apply fixed;
-  @apply top-15;
-  @apply left-0;
+  height: calc(100vh - 60px);
 }
 
 .top-bar {
