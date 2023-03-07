@@ -1,24 +1,22 @@
-<div class="px-32 ml-48 mt-28 h-full">
-  <div class="flex flex-wrap m-3 gap-2">
-    <ng-container *ngFor="let courses of courses">
-      <app-compact-course class="flex bg-white80 p-6 border w-min"
-                          [title]="courses.title"
-                          [uid]="courses.author"
-                          [img]="courses.img"
-                          [id]="courses.id"
-      ></app-compact-course>
-      <app-compact-course class="flex bg-white80 p-6 border w-min"
-                          [title]="courses.title"
-                          [uid]="courses.author"
-                          [img]="courses.img"
-                          [id]="courses.id"
-      ></app-compact-course>
-      <app-compact-course class="flex bg-white80 p-6 border w-min"
-                          [title]="courses.title"
-                          [uid]="courses.author"
-                          [img]="courses.img"
-                          [id]="courses.id"
-      ></app-compact-course>
-    </ng-container>
-  </div>
+<div class="grid testClass justify-center m-3 gap-2">
+  <ng-container *ngFor="let courses of courses">
+    <app-compact-course
+      [title]="courses.title"
+      [uid]="courses.author"
+      [img]="courses.img"
+      [id]="courses.id"
+    ></app-compact-course>
+    <app-compact-course
+      [title]="courses.title"
+      [uid]="courses.author"
+      [img]="courses.img"
+      [id]="courses.id"
+    ></app-compact-course>
+    <app-compact-course
+      [title]="courses.title"
+      [uid]="courses.author"
+      [img]="courses.img"
+      [id]="courses.id"
+    ></app-compact-course>
+  </ng-container>
 </div>
