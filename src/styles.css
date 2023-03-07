@@ -29,7 +29,7 @@ body {
   font-weight: 500 !important;
   font-size: 16px !important;
   line-height: 24px !important;
-  @apply mx-auto my-auto;
+  @apply mx-auto;
 }
 
 .button:hover {

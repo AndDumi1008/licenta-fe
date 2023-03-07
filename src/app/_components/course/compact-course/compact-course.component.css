@@ -1,0 +1,14 @@
+.course-card {
+  @apply flex;
+  @apply flex-col;
+  @apply justify-between;
+
+  @apply bg-white80;
+
+  @apply w-min;
+  @apply h-80;
+
+  @apply p-6;
+  @apply border;
+  @apply rounded-lg;
+}

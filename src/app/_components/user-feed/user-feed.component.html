@@ -16,7 +16,7 @@
   <h1>Courses</h1>
   <div class="flex flex-row justify-start gap-2 overflow-auto">
     <ng-container *ngFor="let courses of courses">
-      <app-compact-course class="flex bg-white80 p-6 border w-min"
+      <app-compact-course
                           [title]="courses.title"
                           [uid]="courses.author"
                           [img]="courses.img"
