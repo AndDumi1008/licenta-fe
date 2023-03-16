@@ -91,7 +91,7 @@ export class UserService {
     this.afAuth.signOut();
     localStorage.clear();
   }
-  
+
   getCurrentUser() {
     const uid = this.globalVariable.getUId();
 

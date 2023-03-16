@@ -1,20 +1,25 @@
 <h2 class="py-2"> Code </h2>
 <div class="grid grid-cols-2 divide-x border border-gray-300 ">
-    <div class="code-area">
-      <ngx-codemirror
-                      [options]="codeMirrorOptions"
-                      [(ngModel)]="laboratory.codeInput">
-      </ngx-codemirror>
-    </div>
-    <div class="output-area">
-      <ngx-codemirror
-        [options]="codeMirrorOptions2"
-        [(ngModel)]="readOnlyArea">
-      </ngx-codemirror>
-    </div>
+  <div class="code-area">
+    <ngx-codemirror
+      [options]="codeMirrorOptions"
+      [(ngModel)]="codeInput">
+    </ngx-codemirror>
   </div>
+  <div class="output-area">
+    <ngx-codemirror
+      [options]="codeMirrorOptions2"
+      [(ngModel)]="readOnlyArea">
+    </ngx-codemirror>
+  </div>
+</div>
 
 <div class="grid grid-cols-2 gap-90 pt-5">
-  <button class="button w-32 !ml-0 place-self-start" (click)="compileCode()">Test code</button>
-  <button class="button w-32 !mr-0 place-self-end">Submit</button>
+  <div class="place-items-start space-x-2">
+    <button class="button w-32 !ml-0" (click)="compileCode()">Test code</button>
+    <button class="button !border-rose-600 !text-rose-600 hover:!bg-rose-600" (click)="resetEditorToDefault()"> Reset
+    </button>
+  </div>
+
+  <button class="button w-32 !mr-0 place-self-end" (click)="submitAnswer()">Submit</button>
 </div>
