@@ -18,6 +18,7 @@ export class UserService {
   constructor(private afAuth: AngularFireAuth,
               private http: HttpClient,
               private header: GlobalVariableService,
+              private globalVariable: GlobalVariableService,
               private router: Router) {
   }
 
@@ -31,7 +32,7 @@ export class UserService {
               localStorage.setItem('access_token', accesToken);
               localStorage.setItem('refresh_token', user.refreshToken);
               localStorage.setItem('isLoggedin', "true");
-              localStorage.setItem('uid', user.uid);
+              this.globalVariable.setUId(user.uid);
 
               this.getUser(user.uid).subscribe((userData: IUser) => {
                 localStorage.setItem("photoUrl", userData.photoURL!);
@@ -89,6 +90,15 @@ export class UserService {
   userLogout() {
     this.afAuth.signOut();
     localStorage.clear();
+  }
+  
+  getCurrentUser() {
+    const uid = this.globalVariable.getUId();
+
+    if (uid != null) {
+      return this.http.get<IUser>(`${this.apiUrl}/user/${uid}`, {headers: this.header.getHeaderOptions()})
+    }
+    return null;
   }
 
   getUser(uid: string): Observable<IUser> {

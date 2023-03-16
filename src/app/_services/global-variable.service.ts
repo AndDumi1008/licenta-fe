@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpHeaders} from "@angular/common/http";
 
 @Injectable({
@@ -6,8 +6,10 @@ import {HttpHeaders} from "@angular/common/http";
 })
 export class GlobalVariableService {
 
+  private uId!: string;
 
-  constructor() { }
+  constructor() {
+  }
 
   getBaseHeaderOptions() {
     return new HttpHeaders({
@@ -22,5 +24,18 @@ export class GlobalVariableService {
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('access_token')
     });
+  }
+
+
+  setUId(uid: string) {
+    localStorage.setItem('uid', uid);
+    this.uId = uid;
+  }
+
+  getUId() {
+    if (this.uId != null) {
+      return this.uId;
+    }
+    return localStorage.getItem('uid');
   }
 }
