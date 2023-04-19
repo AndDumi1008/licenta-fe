@@ -15,12 +15,11 @@
       Enter edit mode
     </button>
   </div>
-
 </div>
 
 
 <ng-template #newEditingState>
-  <button class="button !border-rose-600 !text-rose-600 hover:!bg-rose-600"  *ngIf="isEditing == true" (click)="this.changeEditingState()" #newEditingState>
+  <button class="button mx-auto my-auto !border-rose-600 !text-rose-600 hover:!bg-rose-600"  *ngIf="isEditing == true" (click)="this.changeEditingState()" #newEditingState>
     Exit without change
   </button>
 </ng-template>

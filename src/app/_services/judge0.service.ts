@@ -12,42 +12,42 @@ export class Judge0Service {
     {
       "id": 50,
       "name": "C (GCC 9.2.0)",
-      "code-mirror-language": "text/x-csrc"
+      "language": "text/x-csrc"
     },
     {
       "id": 54,
       "name": "C++ (GCC 9.2.0)",
-      "code-mirror-language": "text/x-c++src"
+      "language": "text/x-c++src"
     },
     {
       "id": 61,
       "name": "Haskell (GHC 8.8.1)",
-      "code-mirror-language": "text/x-c++src"
+      "language": "text/x-c++src"
     },
     {
       "id": 62,
       "name": "Java (OpenJDK 13.0.1)",
-      "code-mirror-language": "text/x-java"
+      "language": "text/x-java"
     },
     {
       "id": 65,
       "name": "OCaml (4.09.0)",
-      "code-mirror-language": "text/x-ocaml"
+      "language": "text/x-ocaml"
     },
     {
       "id": 67,
       "name": "Pascal (FPC 3.0.4)",
-      "code-mirror-language": "text/x-pascal"
+      "language": "text/x-pascal"
     },
     {
       "id": 69,
       "name": "Prolog (GNU Prolog 1.4.5)",
-      "code-mirror-language": "text/x-python"
+      "language": "text/x-python"
     },
     {
       "id": 71,
       "name": "Python (3.8.1)",
-      "code-mirror-language": "text/x-python"
+      "language": "text/x-python"
     }
   ];
 

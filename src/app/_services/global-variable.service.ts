@@ -13,14 +13,14 @@ export class GlobalVariableService {
 
   getBaseHeaderOptions() {
     return new HttpHeaders({
-      'Access-Control-Allow-Origin': '*',
+      // 'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
     });
   }
 
   getHeaderOptions() {
     return new HttpHeaders({
-      'Access-Control-Allow-Origin': '*',
+      // 'Access-Control-Allow-Origin': '*',
       'Content-Type': 'application/json',
       'Authorization': 'Bearer ' + localStorage.getItem('access_token')
     });

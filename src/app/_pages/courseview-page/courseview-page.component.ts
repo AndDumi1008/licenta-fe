@@ -29,7 +29,9 @@ export class CourseviewPageComponent implements OnInit {
       this.laboratory = data
     });
 
-    this.highlightService.highlightAll();
+
+    //TODO: delete next line and its service if not needed anymore
+    // this.highlightService.highlightAll();
   }
 
   enterEdit(newEditingState: boolean) {

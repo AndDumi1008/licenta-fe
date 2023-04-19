@@ -1,21 +1,25 @@
-  <div class="container flex flex-col w-4/5 h-fit">
-    <quill-editor [(ngModel)]="laboratory!.content" [sanitize]="true"></quill-editor>
-    <quill-editor [(ngModel)]="laboratory!.exercise" [sanitize]="true"></quill-editor>
-    <div>
-      <mat-form-field class="mmt-1" appearance="fill">
-        <mat-label>Desired coding language</mat-label>
-        <mat-select>
-          <mat-option *ngFor="let language of languages" [value]="language.id">
-            {{language.name}}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-      <div class="border border-gray-300">
-        <ngx-codemirror [(ngModel)]="laboratory!.codeInput" [options]="codeMirrorOptions"></ngx-codemirror>
-      </div>
-    </div>
-
-    <button class="button !mt-1">
-      test
-    </button>
+<quill-editor [(ngModel)]="laboratory!.content" [sanitize]="true"></quill-editor>
+<quill-editor [(ngModel)]="laboratory!.exercise" [sanitize]="true"></quill-editor>
+<div>
+  <mat-form-field class="mt-1" appearance="fill">
+    <mat-label>Desired coding language</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let language of languages" [value]="language.id" (onSelectionChange)="onSelected(language)">
+        {{language.name}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div class="border">
+    <ngx-codemirror [(ngModel)]="laboratory!.codeInput" [options]="codeMirrorOptions"></ngx-codemirror>
   </div>
+</div>
+
+<div class="flex justify-between">
+  <button class="button mt-1 !ml-0 !border-red-600 !text-red-600 hover:!bg-red-600">
+    Delete laboratory
+  </button>
+
+  <button class="button mt-1 !mr-0 !border-green-600 !text-green-600 hover:!bg-green-600">
+    Save
+  </button>
+</div>

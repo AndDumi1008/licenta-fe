@@ -20,7 +20,7 @@ export class CourseService {
 
   getCourses(): Observable<ICourseSummary[]> {
     console.log('Header: ', this.header.getHeaderOptions())
-    return this.http.get<ICourseSummary[]>(`${this.apiUrl}/course`, {headers: this.header.getHeaderOptions()})
+    return this.http.get<ICourseSummary[]>(`${this.apiUrl}/course`, {headers: this.header.getBaseHeaderOptions()})
   }
 
   getCourse(id?: string): Observable<ICourseDetails> {

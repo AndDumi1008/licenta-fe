@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, ViewEncapsulation} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, ViewEncapsulation} from '@angular/core';
 import {Judge0Service} from "../../_services/judge0.service";
 import {environment} from "../../../environments/environment";
 import {ILaboratory} from "../../_interfaces/ILaboratory";
@@ -15,7 +15,7 @@ import {IAnswer} from "../../_interfaces/IAnswer";
   styleUrls: ['./code-input.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class CodeInputComponent implements OnChanges {
+export class CodeInputComponent implements OnChanges, OnInit {
 
   codeMirrorOptions = environment.codeMirrorOptions
 
@@ -25,7 +25,6 @@ export class CodeInputComponent implements OnChanges {
     gutters: false
   }
 
-  // TODO: Terminal output after Test/Submit
   readOnlyArea: string = "Code output...";
 
   // @Input() code: string = "";
@@ -37,13 +36,14 @@ export class CodeInputComponent implements OnChanges {
               private courseService: CourseService,
               private labService: LaboratoryService,
               private globalVariables: GlobalVariableService
-  ) {
+  ) { }
+
+  ngOnInit() {
+    // TODO: change highlight based on Lab Specification
+    this.codeMirrorOptions.mode = this.laboratory.codeLanguage
   }
 
   ngOnChanges() {
-    // TODO: change highlight based on Lab Specification
-    // this.codeMirrorOptions.mode = this.laboratory.codeLanguage
-
     this.checkIfAnswerExist();
   }
 
@@ -104,5 +104,4 @@ export class CodeInputComponent implements OnChanges {
     }
     this.labService.putAnswer(answer).subscribe();
   }
-
 }

@@ -31,4 +31,10 @@ export class LaboratoryService {
       answerObject,
       {headers: this.header.getHeaderOptions()})
   }
+
+  putLaboratory(laboratory: ILaboratory) {
+    return this.http.put<boolean>(`${this.apiUrl}/lab/saveAnswer`,
+      laboratory,
+      {headers: this.header.getHeaderOptions()})
+  }
 }
