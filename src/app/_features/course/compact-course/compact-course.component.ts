@@ -32,4 +32,11 @@ export class CompactCourseComponent implements OnInit {
     this.userService.redirectTo('/coursePage/' + id);
   }
 
+  addCourse() {
+    if(this.id === 'create_new_course') {
+      console.log("Add new course modal opened");
+    }
+    return null;
+  }
+
 }

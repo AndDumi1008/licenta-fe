@@ -1,16 +1,18 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
 import {ILaboratorySummary} from "../../_interfaces/ILaboratorySummary";
 import {ActivatedRoute, Router} from "@angular/router";
 import {CourseService} from "../../_services/course.service";
 import {LaboratoryService} from "../../_services/laboratory.service";
 import {UserService} from "../../_services/user.service";
+import {Subscription} from "rxjs";
+import {ContentService} from "../../_services/content.service";
 
 @Component({
   selector: 'app-sidenav-course-tree',
   templateUrl: './sidenav-course-tree.component.html',
   styleUrls: ['./sidenav-course-tree.component.css']
 })
-export class SidenavCourseTreeComponent implements OnInit {
+export class SidenavCourseTreeComponent implements OnInit, OnDestroy {
 
   labs?: ILaboratorySummary[];
   id?: string;
@@ -18,12 +20,15 @@ export class SidenavCourseTreeComponent implements OnInit {
   courseAuthor: string = "";
   @Output() emitterEdit = new EventEmitter<boolean>();
   @Input() isEditing?: boolean;
+  extractedContent: string[] = [];
+  private extractedContentSubscription: Subscription | undefined;
 
   constructor(private readonly laboratoryService: LaboratoryService,
               private readonly route: ActivatedRoute,
               public userService: UserService,
               private router: Router,
-              private readonly courseService: CourseService) {
+              private readonly courseService: CourseService,
+              private contentService: ContentService) {
   }
 
   ngOnInit(): void {
@@ -32,6 +37,11 @@ export class SidenavCourseTreeComponent implements OnInit {
       this.labs = data;
     });
     this.getCourseName(this.id);
+  }
+
+  ngOnDestroy() {
+    if (this.extractedContentSubscription)
+      this.extractedContentSubscription.unsubscribe();
   }
 
   getCourseName(courseId?: string) {
@@ -48,5 +58,17 @@ export class SidenavCourseTreeComponent implements OnInit {
 
   checkAuthor() {
     return localStorage.getItem("name") == this.courseAuthor;
+  }
+
+  onContentChange(lab: ILaboratorySummary, i: number) {
+    this.extractedContentSubscription = this.contentService.getExtractedContentObservable(lab.id).subscribe(content => {
+      this.extractedContent[i] = content;
+    });
+
+    this.userService.redirectTo('coursePage/' + this.id + '/lab/' + lab.id);
+  }
+
+  addLab() {
+    console.log('Add new lab modal opened');
   }
 }

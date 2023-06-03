@@ -1,4 +1,4 @@
-<quill-editor [(ngModel)]="laboratory!.content" [sanitize]="true"></quill-editor>
+<quill-editor [(ngModel)]="laboratory!.content" [sanitize]="true" (ngModelChange)="onContentChange()"></quill-editor>
 <quill-editor [(ngModel)]="laboratory!.exercise" [sanitize]="true"></quill-editor>
 <div>
   <mat-form-field class="mt-1" appearance="fill">
