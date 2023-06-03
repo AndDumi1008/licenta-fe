@@ -15,16 +15,20 @@ export class CompactCourseComponent implements OnInit {
 
   authorName?: string
   authorPhoto?: string
-  constructor(private userService: UserService) { }
+
+  constructor(private userService: UserService) {
+  }
 
   ngOnInit(): void {
+    if(!this.uid) return
     this.userService.getUser(this.uid!).subscribe((data) => {
+      // console.log({data})
       this.authorName = data.name;
       this.authorPhoto = data.photoURL;
     })
   }
 
-  redirectTo(id:any) {
+  redirectTo(id: any) {
     this.userService.redirectTo('/coursePage/' + id);
   }
 

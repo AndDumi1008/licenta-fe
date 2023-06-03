@@ -18,7 +18,7 @@ export class RegisterPageComponent implements OnInit {
     password: new FormControl(''),
     confirmPassword: new FormControl(''),
     uid: new FormControl(''),
-    userRole: new FormControl('Student'),
+    userRole: new FormControl(''),
   });
 
 

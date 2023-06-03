@@ -27,7 +27,7 @@ export class CourseService {
     return this.http.get<ICourseDetails>(`${this.apiUrl}/course/${id}`, {headers: this.header.getHeaderOptions()})
   }
 
-  getAnswer(userId?: string, labId?: string) {
-    return this.http.get<IAnswer>(`${this.apiUrl}/lab=${labId}/${userId}`, {headers: this.header.getHeaderOptions()})
+  getAnswer(labId?: string, userId?: string) {
+    return this.http.get<IAnswer>(`${this.apiUrl}/lab/${labId}/${userId}`, {headers: this.header.getHeaderOptions()})
   }
 }

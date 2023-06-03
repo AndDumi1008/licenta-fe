@@ -29,7 +29,7 @@ export class TopBarComponent implements OnInit {
   }
 
   getUserState() {
-    return this.userService.getLocalStorage('isLoggedin') == 'true';
+    return this.userService.getLocalStorage('isLogged') == 'true';
   }
 
   logout() {

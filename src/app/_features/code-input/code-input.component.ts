@@ -79,7 +79,7 @@ export class CodeInputComponent implements OnChanges, OnInit {
   }
 
   checkIfAnswerExist() {
-    this.courseService.getAnswer(this.globalVariables.getUId()!, this.laboratory.id)
+    this.courseService.getAnswer(this.laboratory.id, this.globalVariables.getUId()!)
       .subscribe((answer) => {
         if (answer) {
           this.codeInput = answer.content

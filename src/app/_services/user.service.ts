@@ -14,6 +14,7 @@ import {FormGroup} from "@angular/forms";
 export class UserService {
 
   private readonly apiUrl = environment.apiUrl;
+  private userInfo: any = {};
 
   constructor(private afAuth: AngularFireAuth,
               private http: HttpClient,
@@ -28,10 +29,10 @@ export class UserService {
         // code to handle successful login
         this.afAuth.authState.subscribe((user) => {
           if (user) {
-            user.getIdToken().then(accesToken => {
-              localStorage.setItem('access_token', accesToken);
+            user.getIdToken().then(accessToken => {
+              localStorage.setItem('access_token', accessToken);
               localStorage.setItem('refresh_token', user.refreshToken);
-              localStorage.setItem('isLoggedin', "true");
+              localStorage.setItem('isLogged', "true");
               this.globalVariable.setUId(user.uid);
 
               this.getUser(user.uid).subscribe((userData: IUser) => {
@@ -60,26 +61,31 @@ export class UserService {
     await this.afAuth.createUserWithEmailAndPassword(registerForm.value.email, registerForm.value.password)
       .then(() => {
         // code to handle successful register
-        this.userLogin(registerForm.value.email, registerForm.value.password);
         this.afAuth.currentUser.then((user) => {
           registerForm.value.uid = user?.uid;
           uid = registerForm.value.uid
           name = registerForm.value.name
-          userRole = registerForm.value.userRole
+          userRole = "User"
+
+          console.log(user?.uid)
 
           user?.getIdToken().then(token => {
             localStorage.setItem('access_token', token);
             this.saveUser({
-              uniqueId: uid,
+              uniqueId: '7',
               name: name,
               userRole: userRole,
               photoURL: '',
-            }).subscribe(() => {
-              // console.log(data)
-            })
+              courseArr: [{
+                id: "1",
+                title: 'testing',
+                author: 'test',
+                img: ''
+              }]
+            }).subscribe()
           })
-
         })
+        this.userLogin(registerForm.value.email, registerForm.value.password);
       }).catch(() => {
         ok = false;
       });
@@ -88,13 +94,11 @@ export class UserService {
   }
 
   userLogout() {
-    this.afAuth.signOut();
-    localStorage.clear();
+    this.afAuth.signOut().then(() => localStorage.clear());
   }
 
   getCurrentUser() {
     const uid = this.globalVariable.getUId();
-
     if (uid != null) {
       return this.http.get<IUser>(`${this.apiUrl}/user/${uid}`, {headers: this.header.getHeaderOptions()})
     }
@@ -102,7 +106,11 @@ export class UserService {
   }
 
   getUser(uid: string): Observable<IUser> {
-    return this.http.get<IUser>(`${this.apiUrl}/user/${uid}`, {headers: this.header.getHeaderOptions()})
+    if (!this.userInfo[uid]) {
+      const userInfo = this.http.get<IUser>(`${this.apiUrl}/user/${uid}`, {headers: this.header.getHeaderOptions()})
+      this.userInfo[uid] = userInfo
+    }
+    return this.userInfo[uid];
   }
 
   refreshUserToken() {

@@ -3,5 +3,4 @@ export interface ICourseSummary {
   title: string,
   author: string,
   img: string
-
 }
