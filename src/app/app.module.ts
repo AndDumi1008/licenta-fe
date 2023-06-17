@@ -41,6 +41,7 @@ import {MatSelectModule} from "@angular/material/select";
 import { BrowsePageComponent } from './_pages/browse-page/browse-page.component';
 import { EditCourseComponent } from './_features/edit-course/edit-course.component';
 import { CreateCoursePageComponent } from './_pages/create-course-page/create-course-page.component';
+import { CreateNewLabComponent } from './_components/create-new-lab-component/create-new-lab.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,8 @@ import { CreateCoursePageComponent } from './_pages/create-course-page/create-co
     BrowsePageComponent,
     EditCourseComponent,
     CreateCoursePageComponent,
+    CreateNewLabComponent,
+
   ],
     imports: [
         BrowserModule,

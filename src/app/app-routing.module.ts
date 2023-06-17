@@ -9,6 +9,9 @@ import {SidenavUserProfileComponent} from "./_components/sidenav-user-profile/si
 import {HomePageComponent} from "./_pages/home-page/home.component";
 import {BrowsePageComponent} from "./_pages/browse-page/browse-page.component";
 import {CreateCoursePageComponent} from "./_pages/create-course-page/create-course-page.component";
+import {
+  CreateNewLabComponent
+} from "./_components/create-new-lab-component/create-new-lab.component";
 
 const routes: Routes = [
 
@@ -22,6 +25,10 @@ const routes: Routes = [
       {
         path: '',
         component: CoursePageComponent
+      },
+      {
+        path: 'lab/new',
+        component: CreateNewLabComponent
       },
       {
         path: 'lab/:labId',

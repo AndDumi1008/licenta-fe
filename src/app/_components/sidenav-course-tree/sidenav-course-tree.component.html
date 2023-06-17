@@ -12,7 +12,8 @@
   </ng-container>
 
   <mat-divider></mat-divider>
-  <div (click)="addLab()" class="text-base py-1 pl-8 text-white bg-green-500">
+
+  <div *ngIf="this.isEditing" (click)="addLab()" class="text-base py-1 pl-8 text-white bg-green-500">
     <button>+ Add new laboratory</button>
   </div>
 

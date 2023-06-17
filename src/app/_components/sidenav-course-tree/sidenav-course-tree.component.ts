@@ -69,6 +69,6 @@ export class SidenavCourseTreeComponent implements OnInit, OnDestroy {
   }
 
   addLab() {
-    console.log('Add new laboratory modal opened');
+    this.userService.redirectTo(`coursePage/${this.id}/lab/new` )
   }
 }

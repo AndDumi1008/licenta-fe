@@ -6,7 +6,28 @@
 .logo {
   @apply flex;
   align-items: center;
+  gap: .5rem;
+}
 
+.top-nav--search {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.top-nav-search-icon {
+  height: 100%;
+  margin-right: .5rem;
+  position: absolute;
+  right: 0;
+}
+
+.top-nav--search-results {
+  background-color: white;
+  position: absolute;
+  top: 125%;
+  left: -100%;
+  right: 0;
 }
 
 .top-nav a {
