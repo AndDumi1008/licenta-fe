@@ -4,7 +4,7 @@
 
     <a href="/browse" class="text-lg !text-white80 hover:!text-white transition duration-200 ">Browse</a>
   </div>
-  <div class="top-nav flex pr-4 text-lg" *ngIf="getUserState() == true">
+  <div class="top-nav flex pr-4 text-lg" *ngIf="getUserState()">
     <div class="top-nav--search">
       <input class="px-3 rounded" placeholder="Search" [(ngModel)]="searchValue" (keydown.enter)="onSearch()"/>
       <button (click)="onSearch()" class="top-nav-search-icon">
@@ -23,7 +23,7 @@
     <a href="/" (click)="logout()" class="text-lg !text-white80 hover:!text-white transition duration-200 ">Logout</a>
   </div>
 
-  <div class="top-nav pr-3 text-lg" *ngIf="getUserState() == false">
+  <div class="top-nav pr-3 text-lg" *ngIf="!getUserState()">
     <a href="/" class="text-lg !text-white80 hover:!text-white transition duration-200 ">About</a>
     <a href="/login" class="text-lg !text-white80 hover:!text-white transition duration-200 ">Login</a>
   </div>

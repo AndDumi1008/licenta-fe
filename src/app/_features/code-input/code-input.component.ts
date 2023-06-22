@@ -79,7 +79,7 @@ export class CodeInputComponent implements OnChanges, OnInit {
   }
 
   checkIfAnswerExist() {
-    this.courseService.getAnswer(this.laboratory.id, this.globalVariables.getUId()!)
+    this.courseService.getAnswer(this.laboratory.id!, this.globalVariables.getUId()!)
       .subscribe((answer) => {
         if (answer) {
           this.codeInput = answer.content
@@ -100,7 +100,7 @@ export class CodeInputComponent implements OnChanges, OnInit {
       id: null,
       user: this.globalVariables.getUId()!,
       content: this.codeInput,
-      lab: this.laboratory.id,
+      lab: this.laboratory.id!,
     }
     this.labService.putAnswer(answer).subscribe();
   }

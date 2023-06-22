@@ -2,6 +2,10 @@
   <mat-label>Title</mat-label>
   <input matInput class="!font-bold !text-xl" [(ngModel)]="laboratory!.title"/>
 </mat-form-field>
+<mat-form-field appearance="outline" class="text-base">
+  <mat-label>Position in side list</mat-label>
+  <input matInput type="number" class="!font-bold !text-xl" [(ngModel)]="labPriority"/>
+</mat-form-field>
 <div>
   <label class="font-semibold text-base mb-1">Content</label>
   <quill-editor [(ngModel)]="laboratory!.content" [sanitize]="true" (ngModelChange)="onContentChange()"></quill-editor>
@@ -19,17 +23,22 @@
       </mat-option>
     </mat-select>
   </mat-form-field>
-  <div class="border">
-    <ngx-codemirror [(ngModel)]="laboratory!.codeInput" [options]="codeMirrorOptions"></ngx-codemirror>
+  <div id="consoleSpace">
+    <label class="font-semibold text-base mb-1"> Default starting code and expected output </label>
+    <div class="grid grid-cols-2 divide-x border">
+      <ngx-codemirror [(ngModel)]="laboratory!.codeInput" [options]="codeMirrorOptions"></ngx-codemirror>
+      <div class="output-area">
+        <ngx-codemirror
+          [options]="codeMirrorOptions2"
+          [(ngModel)]="laboratory!.codeOutput">
+        </ngx-codemirror>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="flex justify-between">
-  <button class="button mt-1 !ml-0 !border-red-600 !text-red-600 hover:!bg-red-600">
-    Delete laboratory
-  </button>
+  <button class="button mt-1 !ml-0 !border-red-600 !text-red-600 hover:!bg-red-600" (click)="deleteLab()"> Delete laboratory </button>
 
-  <button class="button mt-1 !mr-0 !border-green-600 !text-green-600 hover:!bg-green-600">
-    Save
-  </button>
+  <button class="button mt-1 !mr-0 !border-green-600 !text-green-600 hover:!bg-green-600" (click)="saveLab()"> Save </button>
 </div>
