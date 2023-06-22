@@ -1,0 +1,11 @@
+<div>
+  <div class="flex flex-row">
+    <div class="bg-gray-200" id="sidenav">
+      <app-sidenav-course-tree [isEditing]="true" ></app-sidenav-course-tree>
+    </div>
+
+    <div class="flex pl-80 pr-10 mx-auto h-full">
+      <app-edit-course class="container flex flex-col w-4/5 h-fit gap-4" [laboratory]="this.newLab"></app-edit-course>
+    </div>
+  </div>
+</div>

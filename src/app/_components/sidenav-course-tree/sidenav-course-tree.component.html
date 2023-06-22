@@ -3,15 +3,23 @@
     <p class="text-xl text-black"> {{ this.title }} </p>
   </div>
 
-  <ng-container *ngFor="let lab of labs">
-    <button class="lab text-left" (click)="this.userService.redirectTo('coursePage/' + this.id + '/lab/' + lab.id)" routerLinkActive="active-link">
+  <ng-container *ngFor="let lab of labs;let i=index">
+    <button class="lab text-left" (click)="onContentChange(lab, i)" routerLinkActive="active-link">
       <mat-divider></mat-divider>
-      <p class="text-base py-1 pl-8 text-slate-700" routerLink="/coursePage/{{this.id}}/lab/{{lab.id}}">{{ lab.title }}</p>
+      <p class="text-base py-1 pl-8 text-slate-700"
+         routerLink="/coursePage/{{this.id}}/lab/{{lab.id}}">{{ this.extractedContent[i] || lab.title }}</p>
     </button>
   </ng-container>
 
+  <mat-divider></mat-divider>
+
+  <div *ngIf="this.isEditing" (click)="addLab()" class="text-base py-1 pl-8 text-white bg-green-500">
+    <button>+ Add new laboratory</button>
+  </div>
+
   <div class="flex fixed bottom-1 left-0 h-20 w-72" *ngIf="checkAuthor()">
-    <button class="button mx-auto my-auto" *ngIf="isEditing == false; else newEditingState" (click)="this.changeEditingState()" #newEditingState>
+    <button class="button mx-auto my-auto" *ngIf="isEditing == false; else newEditingState"
+            (click)="this.changeEditingState()" #newEditingState>
       Enter edit mode
     </button>
   </div>
@@ -19,7 +27,8 @@
 
 
 <ng-template #newEditingState>
-  <button class="button mx-auto my-auto !border-rose-600 !text-rose-600 hover:!bg-rose-600"  *ngIf="isEditing == true" (click)="this.changeEditingState()" #newEditingState>
+  <button class="button mx-auto my-auto !border-rose-600 !text-rose-600 hover:!bg-rose-600" *ngIf="isEditing == true"
+          (click)="this.changeEditingState()" #newEditingState>
     Exit without change
   </button>
 </ng-template>

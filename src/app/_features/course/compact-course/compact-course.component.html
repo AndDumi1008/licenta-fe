@@ -1,7 +1,7 @@
 <div class="course-card ">
   <div class="justify-between gap-2">
     <div class="items-center" *ngIf="img!; else noCoursePhoto">
-      <img class="course-img" alt="Course image" [src]="img">
+      <img (click)="addCourse()" class="course-img" alt="Course image" [src]="img">
     </div>
 
     <h2>{{ title }}</h2>
@@ -12,7 +12,7 @@
       <a>{{ authorName }}</a>
     </div>
   </div>
-  <button class="button " (click)="this.redirectTo(id)"> Continue</button>
+  <button *ngIf="id !== 'create_new_course'" class="button " (click)="this.redirectTo(id)"> Continue</button>
 </div>
 
 <ng-template #noAuthorPhoto>

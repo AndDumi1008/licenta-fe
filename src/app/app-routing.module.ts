@@ -8,15 +8,27 @@ import {ProfilePageComponent} from "./_pages/profile-page/profile-page.component
 import {SidenavUserProfileComponent} from "./_components/sidenav-user-profile/sidenav-user-profile.component";
 import {HomePageComponent} from "./_pages/home-page/home.component";
 import {BrowsePageComponent} from "./_pages/browse-page/browse-page.component";
+import {CreateCoursePageComponent} from "./_pages/create-course-page/create-course-page.component";
+import {
+  CreateNewLabComponent
+} from "./_components/create-new-lab-component/create-new-lab.component";
 
 const routes: Routes = [
 
+  {
+    path: 'coursePage/create_new_course',
+    component: CreateCoursePageComponent
+  },
   {
     path: 'coursePage/:id',
     children: [
       {
         path: '',
-        component: CoursePageComponent,
+        component: CoursePageComponent
+      },
+      {
+        path: 'lab/new',
+        component: CreateNewLabComponent
       },
       {
         path: 'lab/:labId',

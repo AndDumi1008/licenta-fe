@@ -13,9 +13,9 @@ import {TopBarComponent} from './_components/top-bar/top-bar.component';
 import {AppRoutingModule} from './app-routing.module';
 import {CourseviewPageComponent} from './_pages/courseview-page/courseview-page.component';
 import {MatSidenavModule} from "@angular/material/sidenav";
-import {UserFeedComponent} from './_components/user-feed/user-feed.component';
-import {MediumCourseComponent} from './_components/course/medium-course/medium-course.component';
-import {CompactCourseComponent} from './_components/course/compact-course/compact-course.component';
+import {UserFeedComponent} from './_features/user-feed/user-feed.component';
+import {MediumCourseComponent} from './_features/course/medium-course/medium-course.component';
+import {CompactCourseComponent} from './_features/course/compact-course/compact-course.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import {SidenavCourseTreeComponent} from './_components/sidenav-course-tree/sidenav-course-tree.component';
 import {HttpClientModule} from "@angular/common/http";
@@ -40,7 +40,8 @@ import {QuillModule} from "ngx-quill";
 import {MatSelectModule} from "@angular/material/select";
 import { BrowsePageComponent } from './_pages/browse-page/browse-page.component';
 import { EditCourseComponent } from './_features/edit-course/edit-course.component';
-
+import { CreateCoursePageComponent } from './_pages/create-course-page/create-course-page.component';
+import { CreateNewLabComponent } from './_components/create-new-lab-component/create-new-lab.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,9 @@ import { EditCourseComponent } from './_features/edit-course/edit-course.compone
     HomePageComponent,
     BrowsePageComponent,
     EditCourseComponent,
+    CreateCoursePageComponent,
+    CreateNewLabComponent,
+
   ],
     imports: [
         BrowserModule,

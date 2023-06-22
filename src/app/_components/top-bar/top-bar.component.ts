@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {UserService} from "../../_services/user.service";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
@@ -8,13 +8,24 @@ import {MatSnackBar} from "@angular/material/snack-bar";
   styleUrls: ['./top-bar.component.css']
 })
 export class TopBarComponent implements OnInit {
+  public isMenuOpen = false;
+  public searchValue = '';
+  public searchResults: any = [];
+
+  @ViewChild('top-nav--search-results') searchResultsList?: ElementRef;
 
   constructor(public userService: UserService,
-              private _snackBar: MatSnackBar) {
+              private _snackBar: MatSnackBar,
+              private renderer: Renderer2) {
+    this.renderer.listen('window', 'click', (e: Event) => {
+      if (e.target !== this.searchResultsList?.nativeElement) {
+        this.isMenuOpen = false;
+      }
+    });
   }
 
   ngOnInit(): void {
-    if(this.getUserState()) {
+    if (this.getUserState()) {
       this.userService.getUser(localStorage.getItem('uid')!).subscribe((user) => {
           if (user.uniqueId != null) {
             this.userService.refreshUserToken();
@@ -29,10 +40,28 @@ export class TopBarComponent implements OnInit {
   }
 
   getUserState() {
-    return this.userService.getLocalStorage('isLoggedin') == 'true';
+    return this.userService.getLocalStorage('isLogged') == 'true';
   }
 
   logout() {
     this.userService.userLogout();
   }
+
+  onSearch() {
+    this.isMenuOpen = true;
+    console.log('BE post with debounce and store result in this.searchResults', this.searchValue, this.isMenuOpen)
+    this.searchResults = [
+      {id: 'test', title: 'Test'},
+      {id: 'test1', title: 'Test1'},
+      {id: 'test1', title: 'Test1'},
+      {id: 'test1', title: 'Test1'},
+      {id: 'test1', title: 'Test1'}, {id: 'test', title: 'Test'},
+      {id: 'test1', title: 'Test1'},
+      {id: 'test1', title: 'Test1'},
+      {id: 'test1', title: 'Test1'},
+      {id: 'test1', title: 'Test1'},
+    ]
+  }
+
+  protected readonly onsubmit = onsubmit;
 }

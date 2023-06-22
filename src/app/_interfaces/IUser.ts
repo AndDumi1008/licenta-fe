@@ -5,5 +5,5 @@ export interface IUser {
   photoURL?: string,
   uniqueId: string,
   userRole: string,
-  courseArr?: ICourseSummary[],
+  courseArr: ICourseSummary[],
 }
