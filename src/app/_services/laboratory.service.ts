@@ -6,6 +6,7 @@ import {HttpClient} from "@angular/common/http";
 import {GlobalVariableService} from "./global-variable.service";
 import {environment} from "../../environments/environment";
 import {IAnswer} from "../_interfaces/IAnswer";
+import {ILaboratoryExtended} from "../_interfaces/ILaboratoryExtended";
 
 @Injectable({
   providedIn: 'root'
@@ -32,9 +33,14 @@ export class LaboratoryService {
       {headers: this.header.getHeaderOptions()})
   }
 
-  putLaboratory(laboratory: ILaboratory) {
-    return this.http.put<boolean>(`${this.apiUrl}/lab/saveAnswer`,
+  putLaboratory(laboratory: ILaboratoryExtended) : Observable<ILaboratoryExtended> {
+    return this.http.put<ILaboratoryExtended>(`${this.apiUrl}/lab`,
       laboratory,
+      {headers: this.header.getHeaderOptions()})
+  }
+
+  deleteLaboratory(labId: string) {
+    return this.http.delete(`${this.apiUrl}/lab/${labId}`,
       {headers: this.header.getHeaderOptions()})
   }
 }

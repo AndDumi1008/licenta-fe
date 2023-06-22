@@ -1,5 +1,5 @@
 export interface ILaboratory {
-  id: string,
+  id: string | null,
   title: string,
   content: string,
   exercise: string,
