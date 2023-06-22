@@ -7,6 +7,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {environment} from "../../environments/environment";
 import {GlobalVariableService} from "./global-variable.service";
 import {FormGroup} from "@angular/forms";
+import {IUserExtended} from "../_interfaces/IUserExtended";
 
 @Injectable({
   providedIn: 'root'
@@ -72,7 +73,8 @@ export class UserService {
           user?.getIdToken().then(token => {
             localStorage.setItem('access_token', token);
             this.saveUser({
-              uniqueId: '7',
+              id: null,
+              uniqueId: user?.uid,
               name: name,
               userRole: userRole,
               photoURL: '',
@@ -129,7 +131,7 @@ export class UserService {
       })
   }
 
-  saveUser(user: IUser): Observable<IUser> {
+  saveUser(user: IUserExtended): Observable<IUser> {
     return this.http.post<IUser>(`${this.apiUrl}/user/save`, user, {headers: this.header.getHeaderOptions()})
   }
 
