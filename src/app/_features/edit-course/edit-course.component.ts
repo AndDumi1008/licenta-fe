@@ -62,10 +62,12 @@ export class EditCourseComponent implements OnInit {
   }
 
   deleteLab() {
-    this.laboratoryService
+    this.laboratoryService.deleteLaboratory(this.laboratory.id!).subscribe();
   }
 
   saveLab() {
+
+    var labId = null;
 
     if (this.laboratory.id === "new") {
       // console.log(this.router.url.split("/")[2])
@@ -79,7 +81,7 @@ export class EditCourseComponent implements OnInit {
         codeLanguage: this.language,
         course: this.router.url.split("/")[2],
         priority: this.labPriority!
-      }).subscribe()
+      }).subscribe(data => labId = data.id)
     } else if (this.laboratory.id != null) {
       this.laboratoryService.putLaboratory({
         id: this.laboratory.id,
@@ -91,7 +93,14 @@ export class EditCourseComponent implements OnInit {
         codeLanguage: this.language,
         course: this.router.url.split("/")[2],
         priority: this.labPriority!
-      }).subscribe()
+      }).subscribe(data => labId = data.id)
     }
+
+    console.log(labId)
+
+    if (labId != null) {
+      this.router.navigate(["/coursePage/637e739a207dbcaeefdebbea/lab"], labId)
+    }
+
   }
 }

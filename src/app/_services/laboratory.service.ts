@@ -33,9 +33,14 @@ export class LaboratoryService {
       {headers: this.header.getHeaderOptions()})
   }
 
-  putLaboratory(laboratory: ILaboratoryExtended) {
-    return this.http.put<boolean>(`${this.apiUrl}/lab`,
+  putLaboratory(laboratory: ILaboratoryExtended) : Observable<ILaboratoryExtended> {
+    return this.http.put<ILaboratoryExtended>(`${this.apiUrl}/lab`,
       laboratory,
+      {headers: this.header.getHeaderOptions()})
+  }
+
+  deleteLaboratory(labId: string) {
+    return this.http.delete(`${this.apiUrl}/lab/${labId}`,
       {headers: this.header.getHeaderOptions()})
   }
 }
