@@ -1,5 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../../../_services/user.service";
+import {MatDialog} from "@angular/material/dialog";
+import {CreateCoursePageComponent} from "../../../_pages/create-course-page/create-course-page.component";
 
 @Component({
   selector: 'app-compact-course',
@@ -8,15 +10,15 @@ import {UserService} from "../../../_services/user.service";
 })
 export class CompactCourseComponent implements OnInit {
 
-  @Input() title?: string
-  @Input() uid?: string
-  @Input() img?: string
-  @Input() id?: string
+  @Input() title?: string | null | undefined
+  @Input() uid?: string | null | undefined
+  @Input() img?: string | null | undefined
+  @Input() id?: string | null | undefined
 
   authorName?: string
   authorPhoto?: string
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -34,7 +36,7 @@ export class CompactCourseComponent implements OnInit {
 
   addCourse() {
     if(this.id === 'create_new_course') {
-      console.log("Add new course modal opened");
+      this.dialog.open(CreateCoursePageComponent);
     }
     return null;
   }

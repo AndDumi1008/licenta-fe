@@ -8,10 +8,10 @@ import {UserService} from "../../../_services/user.service";
 })
 export class MediumCourseComponent implements OnInit {
 
-  @Input() title?: string
-  @Input() uid?: string
-  @Input() id?: string
-  @Input() img?: string
+  @Input() title?:  string | null | undefined
+  @Input() uid?:  string | null | undefined
+  @Input() id?:  string | null | undefined
+  @Input() img?:  string | null | undefined
   authorName?: string;
   authorPhoto?: string;
 

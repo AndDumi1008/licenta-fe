@@ -30,4 +30,10 @@ export class CourseService {
   getAnswer(labId?: string, userId?: string) {
     return this.http.get<IAnswer>(`${this.apiUrl}/lab/${labId}/${userId}`, {headers: this.header.getHeaderOptions()})
   }
+
+  addCourse(course: ICourseSummary) {
+    return this.http.put<ICourseSummary>(`${this.apiUrl}/course`, course).subscribe(res => {
+      console.log(res);
+    });
+  }
 }
