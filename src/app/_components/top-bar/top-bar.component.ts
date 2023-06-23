@@ -50,7 +50,7 @@ export class TopBarComponent implements OnInit {
   }
 
   onSearch() {
-    if(this.searchValue.length > 3) {
+    if(this.searchValue.length >= 3) {
       this.courseService.searchCourse(this.searchValue).subscribe((data) => {
         this.isMenuOpen = true;
         this.searchResults = data;
