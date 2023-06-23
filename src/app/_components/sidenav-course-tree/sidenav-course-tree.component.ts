@@ -33,9 +33,8 @@ export class SidenavCourseTreeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
-    this.laboratoryService.getLabList(this.id).subscribe((data) => {
-      this.labs = data;
-    });
+    this.laboratoryService.getLabList(this.id)
+    this.laboratoryService.labsSubject.subscribe(data => this.labs = data)
     this.getCourseName(this.id);
   }
 

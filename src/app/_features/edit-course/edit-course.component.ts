@@ -62,45 +62,29 @@ export class EditCourseComponent implements OnInit {
   }
 
   deleteLab() {
-    this.laboratoryService.deleteLaboratory(this.laboratory.id!).subscribe();
+    this.laboratoryService.deleteLaboratory(this.laboratory.id!).subscribe(data => {
+      if(data) {
+        const deletedLabIndex = this.laboratoryService.labs.findIndex(lab =>lab.id === this.laboratory.id)
+        const course = this.router.url.split("/")[2];
+        const id = this.laboratoryService.labs[deletedLabIndex-1].id;
+        this.router.navigate([`/coursePage/${course}/lab/${id}`] )
+
+        this.laboratoryService.getLabList(course)
+      }
+    });
   }
 
   saveLab() {
-
-    let labId = null;
-
-    if (this.laboratory.id === "new") {
-      // console.log(this.router.url.split("/")[2])
-      this.laboratoryService.putLaboratory({
-        id: null,
-        title: this.laboratory.title,
-        content: this.laboratory.content,
-        exercise: this.laboratory.exercise,
-        codeInput: this.laboratory.codeInput,
-        codeOutput: this.laboratory.codeOutput,
-        codeLanguage: this.language,
-        course: this.router.url.split("/")[2],
-        priority: this.labPriority!
-      }).subscribe(data => labId = data.id)
-    } else if (this.laboratory.id != null) {
-      this.laboratoryService.putLaboratory({
-        id: this.laboratory.id,
-        title: this.laboratory.title,
-        content: this.laboratory.content,
-        exercise: this.laboratory.exercise,
-        codeInput: this.laboratory.codeInput,
-        codeOutput: this.laboratory.codeOutput,
-        codeLanguage: this.language,
-        course: this.router.url.split("/")[2],
-        priority: this.labPriority!
-      }).subscribe(data => labId = data.id)
-    }
-
-    console.log(labId)
-
-    if (labId != null) {
-      this.router.navigate(["/coursePage/637e739a207dbcaeefdebbea/lab"], labId)
-    }
-
+    this.laboratoryService.putLaboratory({
+      id: this.laboratory.id === "new"? null: this.laboratory.id ,
+      title: this.laboratory.title,
+      content: this.laboratory.content,
+      exercise: this.laboratory.exercise,
+      codeInput: this.laboratory.codeInput,
+      codeOutput: this.laboratory.codeOutput,
+      codeLanguage: this.language,
+      course: this.router.url.split("/")[2],
+      priority: this.labPriority!
+    }).subscribe(({course, id}) => this.router.navigate([`/coursePage/${course}/lab/${id}`] ))
   }
 }
