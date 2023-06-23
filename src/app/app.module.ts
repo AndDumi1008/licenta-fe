@@ -42,6 +42,7 @@ import { BrowsePageComponent } from './_pages/browse-page/browse-page.component'
 import { EditCourseComponent } from './_features/edit-course/edit-course.component';
 import { CreateCoursePageComponent } from './_pages/create-course-page/create-course-page.component';
 import { CreateNewLabComponent } from './_components/create-new-lab-component/create-new-lab.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { CreateNewLabComponent } from './_components/create-new-lab-component/cr
         BrowserAnimationsModule,
         MatInputModule,
         FormsModule,
+        MatDialogModule,
         MatCardModule,
         CommonModule,
         CodemirrorModule,

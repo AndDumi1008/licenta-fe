@@ -8,6 +8,7 @@ import {environment} from "../../environments/environment";
 import {IAnswer} from "../_interfaces/IAnswer";
 import {ILaboratoryExtended} from "../_interfaces/ILaboratoryExtended";
 
+
 @Injectable({
   providedIn: 'root'
 })

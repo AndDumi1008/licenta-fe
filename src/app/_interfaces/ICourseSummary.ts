@@ -1,6 +1,6 @@
 export interface ICourseSummary {
-  id: string,
-  title: string,
-  author: string,
-  img: string
+  id?: string | null,
+  title?: string | null,
+  author?: string | null,
+  img?: string | null
 }
