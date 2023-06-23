@@ -15,7 +15,7 @@ export class CoursePageComponent implements OnInit {
 
   course?: ICourseDetails;
 
-  labs?: ILaboratorySummary[];
+  labs?: ILaboratorySummary[] = [];
 
   id?: string;
   author?: string;
@@ -35,8 +35,9 @@ export class CoursePageComponent implements OnInit {
       this.userService.getUser(course.author).subscribe(user => this.author = user.name);
     });
 
-    this.labService.getLabList(this.id).subscribe(data => this.labs = data);
+    this.labService.getLabList(this.id);
 
+    this.labService.labsSubject.subscribe(data => this.labs = data);
   }
 
   goToPage(labId: string) {
