@@ -62,7 +62,7 @@ export class CodeInputComponent implements OnChanges, OnInit {
       this.judge0.getSubmision(jsonToken.token).subscribe((data: any) => {
         jsonOutput = data
 
-        console.log(data)
+        // console.log(data)
         if (jsonOutput.stdout != null) {
           this.readOnlyArea = new buffer.Buffer(jsonOutput.stdout!, "base64").toString()
           if (new buffer.Buffer(jsonOutput.stdout!, "base64").toString().trim() == this.laboratory.codeOutput) {

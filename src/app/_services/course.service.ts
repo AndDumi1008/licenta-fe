@@ -19,7 +19,7 @@ export class CourseService {
   }
 
   getCourses(): Observable<ICourseSummary[]> {
-    console.log('Header: ', this.header.getHeaderOptions())
+    // console.log('Header: ', this.header.getHeaderOptions())
     return this.http.get<ICourseSummary[]>(`${this.apiUrl}/course`, {headers: this.header.getBaseHeaderOptions()})
   }
 
@@ -32,8 +32,6 @@ export class CourseService {
   }
 
   addCourse(course: ICourseSummary) {
-    return this.http.put<ICourseSummary>(`${this.apiUrl}/course`, course).subscribe(res => {
-      console.log(res);
-    });
+    return this.http.put<ICourseSummary>(`${this.apiUrl}/course`, course)
   }
 }

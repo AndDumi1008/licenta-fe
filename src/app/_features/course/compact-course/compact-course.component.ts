@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {UserService} from "../../../_services/user.service";
 import {MatDialog} from "@angular/material/dialog";
 import {CreateCoursePageComponent} from "../../../_pages/create-course-page/create-course-page.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-compact-course',
@@ -18,19 +19,21 @@ export class CompactCourseComponent implements OnInit {
   authorName?: string
   authorPhoto?: string
 
-  constructor(private userService: UserService, private dialog: MatDialog) {
+  constructor(private userService: UserService,
+              private dialog: MatDialog,
+              private router: Router) {
   }
 
   ngOnInit(): void {
     if(!this.uid) return
     this.userService.getUser(this.uid!).subscribe((data) => {
-      // console.log({data})
       this.authorName = data.name;
       this.authorPhoto = data.photoURL;
     })
   }
 
   redirectTo(id: any) {
+    if(this.router.url.split("/")[1] == "browse") this.addCourseToUser()
     this.userService.redirectTo('/coursePage/' + id);
   }
 
@@ -39,6 +42,11 @@ export class CompactCourseComponent implements OnInit {
       this.dialog.open(CreateCoursePageComponent);
     }
     return null;
+  }
+
+  addCourseToUser() {
+    // console.log(this.id)
+    this.userService.addCourseToUser(this.id!).subscribe()
   }
 
 }

@@ -30,7 +30,7 @@ export class CreateCoursePageComponent implements OnInit {
       ...this.courseForm.value,
       id: null
     }
-    console.log(course);
+    // console.log(course);
     this.courseService.addCourse(course);
   }
 

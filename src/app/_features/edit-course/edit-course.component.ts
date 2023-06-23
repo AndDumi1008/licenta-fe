@@ -57,7 +57,6 @@ export class EditCourseComponent implements OnInit {
 
   onSelected(value: any) {
     this.codeMirrorOptions.mode = value.language
-    // console.log(this.codeMirrorOptions.mode)
     this.language = this.codeMirrorOptions.mode
   }
 

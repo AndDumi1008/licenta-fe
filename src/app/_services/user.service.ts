@@ -68,7 +68,7 @@ export class UserService {
           name = registerForm.value.name
           userRole = "User"
 
-          console.log(user?.uid)
+          // console.log(user?.uid)
 
           user?.getIdToken().then(token => {
             localStorage.setItem('access_token', token);
@@ -78,12 +78,7 @@ export class UserService {
               name: name,
               userRole: userRole,
               photoURL: '',
-              courseArr: [{
-                id: "1",
-                title: 'testing',
-                author: 'test',
-                img: ''
-              }]
+              courseArr: [{}]
             }).subscribe()
           })
         })
@@ -123,7 +118,6 @@ export class UserService {
       },
       {headers: new HttpHeaders({"Content-Type": "application/json"})}).toPromise()
       .then(res => {
-        // console.log("res: ", res)
         if (res != undefined) {
           // Value [0] should stand for access token
           localStorage.setItem('access_token', Object.values(res)[0])
@@ -137,6 +131,10 @@ export class UserService {
 
   redirectTo(url: string) {
     this.router.navigate([url]);
+  }
+
+  addCourseToUser(courseId: string) {
+    return this.http.put<IUser>(`${this.apiUrl}/user/${courseId}`, localStorage.getItem("uid"))
   }
 
   getLocalStorage(keyValue: string) {
