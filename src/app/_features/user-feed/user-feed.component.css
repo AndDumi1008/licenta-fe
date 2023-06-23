@@ -4,3 +4,8 @@ h1 {
   line-height: 32px;
 }
 
+.courses {
+  /* 20 rem = 18rem (left menu) + 2rem container padding */
+  max-width: calc(100vw - 20rem);
+  width: 100%;
+}

@@ -1,0 +1,13 @@
+.search-img {
+  width: 100px;
+  height: 60px;
+  border-radius: 8px;
+  min-width: 100px;
+}
+
+.search-prof-img {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  min-width: 100%;
+}

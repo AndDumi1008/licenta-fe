@@ -1,0 +1,23 @@
+<div class="flex gap-4">
+  <div class="items-center" *ngIf="img!; else noCoursePhoto">
+    <img  class="search-img" alt="Course image" [src]="img">
+  </div>
+
+  <div class="flex flex-col gap-2">
+    <h2 class="!text-base">{{ title }}</h2>
+    <div class="flex gap-2">
+      <div *ngIf="authorPhoto!; else noAuthorPhoto">
+        <img class="search-prof-img" alt="Profile image" [src]="authorPhoto">
+      </div>
+      <p class="text-base">{{ authorName }}</p>
+    </div>
+  </div>
+</div>
+
+<ng-template #noAuthorPhoto>
+  <div class="prof no-img"></div>
+</ng-template>
+
+<ng-template #noCoursePhoto>
+  <div class="search-img no-img items-center"></div>
+</ng-template>

@@ -43,6 +43,7 @@ import { EditCourseComponent } from './_features/edit-course/edit-course.compone
 import { CreateCoursePageComponent } from './_pages/create-course-page/create-course-page.component';
 import { CreateNewLabComponent } from './_components/create-new-lab-component/create-new-lab.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { TopBarSearchResultComponent } from './_components/top-bar-search-result/top-bar-search-result.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import {MatDialogModule} from "@angular/material/dialog";
     EditCourseComponent,
     CreateCoursePageComponent,
     CreateNewLabComponent,
+    TopBarSearchResultComponent,
 
   ],
     imports: [

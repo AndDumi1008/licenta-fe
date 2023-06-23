@@ -16,7 +16,18 @@
       <div class="top-nav--search-results shadow rounded py-3" *ngIf="isMenuOpen">
         <a *ngFor="let result of searchResults; let last = last" href="coursePage/{{result.id}}"
            class="m-0 p-3 block border-top border-gray-500 text-lg !text-black hover:bg-gray-100 transition duration-200"
-           [ngClass]="{'border-bottom': last}">{{result.title}}</a>
+           [ngClass]="{'border-bottom': last}">
+          <app-top-bar-search-result
+            [title]="result.title"
+            [uid]="result.author"
+            [img]="result.img"
+            [id]="result.id"
+          ></app-top-bar-search-result>
+        </a>
+
+        <p *ngIf="searchResults.length === 0" class="text-center">
+          No data available
+        </p>
       </div>
     </div>
     <a href="/profile/dashboard" class="text-lg !text-white80 hover:!text-white transition duration-200 ">Profile</a>
