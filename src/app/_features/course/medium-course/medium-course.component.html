@@ -2,7 +2,7 @@
 
   <div class="flex justify-content-evenly items-center gap-2 ">
     <div *ngIf="img!; else noCoursePhoto">
-      <img class="course-img" [src]="img">
+      <img class="course-img" [src]="img" (click)="redirectTo(id)">
     </div>
 
     <div class="flex flex-col gap-3">
@@ -19,7 +19,7 @@
   </div>
 
   <div class="grid place-content-center">
-    <button class="button" (click)="this.userService.redirectTo('/coursePage/' + this.id)">Continue course</button>
+    <button class="button" (click)="redirectTo(id)"> Continue course </button>
   </div>
 </div>
 

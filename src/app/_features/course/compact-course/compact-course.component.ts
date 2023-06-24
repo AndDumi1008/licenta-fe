@@ -33,20 +33,16 @@ export class CompactCourseComponent implements OnInit {
   }
 
   redirectTo(id: any) {
-    if(this.router.url.split("/")[1] == "browse") this.addCourseToUser()
+    if(this.router.url.split("/")[1] == "browse") this.userService.addCourseToUser(this.id!).subscribe()
     this.userService.redirectTo('/coursePage/' + id);
   }
 
   addCourse() {
     if(this.id === 'create_new_course') {
       this.dialog.open(CreateCoursePageComponent);
+    } else {
+      this.redirectTo(this.id)
     }
-    return null;
-  }
-
-  addCourseToUser() {
-    // console.log(this.id)
-    this.userService.addCourseToUser(this.id!).subscribe()
   }
 
 }
