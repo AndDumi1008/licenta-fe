@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UserService} from "../../_services/user.service";
 import {FormControl, FormGroup} from "@angular/forms";
+import {CanActivate, Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -18,10 +19,13 @@ export class LoginComponent implements OnInit {
   });
 
 
-  constructor(public userService: UserService
-  ) {}
+  constructor(public userService: UserService, public router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    if(Object.keys(this.userService.userInfo).length>0) {
+      this.router.navigate(['/profile/dashboard'])
+    }
+  }
 
   async login() {
     const isLoginSuccess = await this.userService.userLogin(this.loginForm.value.email!, this.loginForm.value.password!)

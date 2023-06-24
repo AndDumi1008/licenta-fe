@@ -15,7 +15,7 @@ import {IUserExtended} from "../_interfaces/IUserExtended";
 export class UserService {
 
   private readonly apiUrl = environment.apiUrl;
-  private userInfo: any = {};
+  public userInfo: any = {};
 
   constructor(private afAuth: AngularFireAuth,
               private http: HttpClient,
@@ -26,28 +26,34 @@ export class UserService {
 
   async userLogin(username: string, password: string): Promise<boolean> {
     return await this.afAuth.signInWithEmailAndPassword(username, password)
-      .then(() => {
+      .then(async () => {
         // code to handle successful login
-        this.afAuth.authState.subscribe((user) => {
-          if (user) {
-            user.getIdToken().then(accessToken => {
-              localStorage.setItem('access_token', accessToken);
-              localStorage.setItem('refresh_token', user.refreshToken);
-              localStorage.setItem('isLogged', "true");
-              this.globalVariable.setUId(user.uid);
+        return await new Promise<boolean>((resolve) => {
+          this.afAuth.authState.subscribe((user) => {
+            if (user) {
+              user.getIdToken().then(accessToken => {
+                localStorage.setItem('access_token', accessToken);
+                localStorage.setItem('refresh_token', user.refreshToken);
+                localStorage.setItem('isLogged', "true");
+                this.globalVariable.setUId(user.uid);
 
-              this.getUser(user.uid).subscribe((userData: IUser) => {
-                localStorage.setItem("photoUrl", userData.photoURL!);
-                localStorage.setItem("USER_ROLE", userData.userRole);
-                localStorage.setItem("name", userData.name);
+                this.getUser(user.uid).subscribe((userData: IUser) => {
+                  localStorage.setItem("photoUrl", userData.photoURL!);
+                  localStorage.setItem("USER_ROLE", userData.userRole);
+                  localStorage.setItem("name", userData.name);
+                })
+
+              }).then(() => {
+                this.router.navigate(['/profile/dashboard']);
+                resolve(true);
+              }).catch(() => {
+                resolve(false)
               })
+            }
+            resolve(false)
+          })
 
-            }).then(() => {
-              this.router.navigate(['/profile/dashboard']);
-            })
-          }
-        })
-        return true;
+        });
       })
       .catch(() => {
         return false;
@@ -91,7 +97,10 @@ export class UserService {
   }
 
   userLogout() {
-    this.afAuth.signOut().then(() => localStorage.clear());
+    this.afAuth.signOut().then(() => {
+      this.userInfo = {};
+      localStorage.clear()
+    });
   }
 
   getCurrentUser() {
@@ -103,6 +112,7 @@ export class UserService {
   }
 
   getUser(uid: string): Observable<IUser> {
+    if(!uid) return {} as Observable<IUser>;
     if (!this.userInfo[uid]) {
       const userInfo = this.http.get<IUser>(`${this.apiUrl}/user/${uid}`, {headers: this.header.getHeaderOptions()})
       this.userInfo[uid] = userInfo

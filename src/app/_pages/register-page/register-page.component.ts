@@ -30,6 +30,9 @@ export class RegisterPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.isError = false;
+    if(Object.keys(this.userService.userInfo).length>0) {
+      this.router.navigate(['/profile/dashboard'])
+    }
   }
 
   register() {
