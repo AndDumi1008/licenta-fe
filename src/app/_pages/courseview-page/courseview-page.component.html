@@ -4,8 +4,8 @@
       <app-sidenav-course-tree [isEditing]="isEditing" (emitterEdit)="enterEdit(!isEditing)"></app-sidenav-course-tree>
     </div>
 
-    <ng-container *ngIf="isEditing != true; else editingContainer">
-      <div class="flex pl-80 pr-10 mx-auto h-full">
+    <ng-container *ngIf="!isEditing; else editingContainer">
+      <div class="flex px-10 mx-auto h-full">
         <div class="container flex flex-col w-4/5 h-fit">
           <div class="gap-32" style="color:#212121">
             <div [innerHTML]="laboratory!.content"></div>
@@ -22,7 +22,7 @@
 </div>
 
 <ng-template #editingContainer>
-  <div class="flex pl-80 pr-10 mx-auto h-full">
+  <div class="flex px-10 mx-auto h-full">
     <app-edit-course class="container flex flex-col w-4/5 h-fit" [laboratory]="this.laboratory!"></app-edit-course>
   </div>
 </ng-template>
