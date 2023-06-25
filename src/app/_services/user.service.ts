@@ -74,8 +74,6 @@ export class UserService {
           name = registerForm.value.name
           userRole = "User"
 
-          // console.log(user?.uid)
-
           user?.getIdToken().then(token => {
             localStorage.setItem('access_token', token);
             this.saveUser({
