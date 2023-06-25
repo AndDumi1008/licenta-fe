@@ -42,7 +42,6 @@ export class UserService {
                   localStorage.setItem("USER_ROLE", userData.userRole);
                   localStorage.setItem("name", userData.name);
                 })
-
               }).then(() => {
                 this.router.navigate(['/profile/dashboard']);
                 resolve(true);
@@ -52,7 +51,6 @@ export class UserService {
             }
             resolve(false)
           })
-
         });
       })
       .catch(() => {
@@ -62,7 +60,6 @@ export class UserService {
 
   async userRegister(registerForm: FormGroup): Promise<boolean> {
     let ok: boolean = true;
-
     let uid: any, name: any, userRole: any;
 
     await this.afAuth.createUserWithEmailAndPassword(registerForm.value.email, registerForm.value.password)
@@ -90,7 +87,6 @@ export class UserService {
       }).catch(() => {
         ok = false;
       });
-
     return ok;
   }
 
@@ -110,7 +106,7 @@ export class UserService {
   }
 
   getUser(uid: string): Observable<IUser> {
-    if(!uid) return {} as Observable<IUser>;
+    if (!uid) return {} as Observable<IUser>;
     if (!this.userInfo[uid]) {
       this.userInfo[uid] = this.http.get<IUser>(`${this.apiUrl}/user/${uid}`, {headers: this.header.getBaseHeaderOptions()})
     }
@@ -141,7 +137,8 @@ export class UserService {
   }
 
   addCourseToUser(courseId: string) {
-    return this.http.put<IUser>(`${this.apiUrl}/user/${courseId}`, localStorage.getItem("uid"))
+    console.log(localStorage.getItem("uid"))
+    return this.http.put<IUser>(`${this.apiUrl}/user/${courseId}`, localStorage.getItem("uid"), {headers: this.header.getHeaderOptions()})
   }
 
   getLocalStorage(keyValue: string) {
