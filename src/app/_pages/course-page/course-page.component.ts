@@ -28,20 +28,16 @@ export class CoursePageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if(Object.keys(this.userService.userInfo).length === 0) {
-      this.router.navigate(['/login'])
-    }else {
-      this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['id'];
 
-      this.courseService.getCourse(this.id).subscribe(course => {
-        this.course = course
-        this.userService.getUser(course.author).subscribe(user => this.author = user.name);
-      });
+    this.courseService.getCourse(this.id).subscribe(course => {
+      this.course = course
+      this.userService.getUser(course.author).subscribe(user => this.author = user.name);
+    });
 
-      this.labService.getLabList(this.id);
+    this.labService.getLabList(this.id);
 
-      this.labService.labsSubject.subscribe(data => this.labs = data);
-    }
+    this.labService.labsSubject.subscribe(data => this.labs = data);
   }
 
   goToPage(labId: string) {

@@ -23,11 +23,11 @@ export class LaboratoryService {
   }
 
   getLab(labId?: string): Observable<ILaboratory> {
-    return this.http.get<ILaboratory>(`${this.apiUrl}/lab/${labId}`, {headers: this.header.getHeaderOptions()})
+    return this.http.get<ILaboratory>(`${this.apiUrl}/lab/${labId}`, {headers: this.header.getBaseHeaderOptions()})
   }
 
   getLabList(courseId?: string) {
-    this.http.get<ILaboratorySummary[]>(`${this.apiUrl}/lab/course=${courseId}`, {headers: this.header.getHeaderOptions()})
+    this.http.get<ILaboratorySummary[]>(`${this.apiUrl}/lab/course=${courseId}`, {headers: this.header.getBaseHeaderOptions()})
       .subscribe(data => {
         this.labs = data;
         this.labsSubject.next(data)
