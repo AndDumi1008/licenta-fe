@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from "@angular/forms";
 import {CourseService} from "../../_services/course.service";
 import {AngularFireStorage} from '@angular/fire/compat/storage';
 import {finalize} from 'rxjs/operators';
+import {GlobalVariableService} from "../../_services/global-variable.service";
 
 @Component({
   selector: 'app-create-course-page',
@@ -16,11 +17,12 @@ export class CreateCoursePageComponent implements OnInit {
   public courseForm = new FormGroup({
     title: new FormControl<string>(''),
     img: new FormControl<string>(''),
-    author: new FormControl<string>(''),
     description: new FormControl<string>(''),
   })
 
-  constructor(private courseService: CourseService, private storage: AngularFireStorage) {
+  constructor(private courseService: CourseService,
+              private storage: AngularFireStorage,
+              private global: GlobalVariableService) {
   }
 
   ngOnInit(): void {
@@ -29,7 +31,8 @@ export class CreateCoursePageComponent implements OnInit {
   add() {
     const course = {
       ...this.courseForm.value,
-      id: null
+      id: null,
+      author: this.global.getUId()
     }
     this.courseService.addCourse(course);
   }
