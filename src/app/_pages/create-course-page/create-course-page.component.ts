@@ -31,7 +31,6 @@ export class CreateCoursePageComponent implements OnInit {
       ...this.courseForm.value,
       id: null
     }
-    // console.log(course);
     this.courseService.addCourse(course);
   }
 
@@ -48,7 +47,7 @@ export class CreateCoursePageComponent implements OnInit {
     uploadTask.snapshotChanges().pipe(
       finalize(() => {
         storageRef.getDownloadURL().subscribe(downloadURL => {
-          console.log('File available at: ', downloadURL);
+          // console.log('File available at: ', downloadURL);
           this.courseForm.patchValue({
             img: downloadURL
           })

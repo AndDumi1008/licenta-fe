@@ -74,8 +74,6 @@ export class UserService {
           name = registerForm.value.name
           userRole = "User"
 
-          // console.log(user?.uid)
-
           user?.getIdToken().then(token => {
             localStorage.setItem('access_token', token);
             this.saveUser({
@@ -114,8 +112,7 @@ export class UserService {
   getUser(uid: string): Observable<IUser> {
     if(!uid) return {} as Observable<IUser>;
     if (!this.userInfo[uid]) {
-      const userInfo = this.http.get<IUser>(`${this.apiUrl}/user/${uid}`, {headers: this.header.getHeaderOptions()})
-      this.userInfo[uid] = userInfo
+      this.userInfo[uid] = this.http.get<IUser>(`${this.apiUrl}/user/${uid}`, {headers: this.header.getBaseHeaderOptions()})
     }
     return this.userInfo[uid];
   }

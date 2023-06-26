@@ -12,8 +12,7 @@
             <div class="p-4" [innerHTML]="laboratory!.exercise"></div>
           </div>
 
-<!--          <app-code-input [code]="laboratory!.codeInput"></app-code-input>-->
-          <app-code-input [laboratory]="laboratory!"></app-code-input>
+          <app-code-input *ngIf="isLoggedIn; else noSandboxContainer" [laboratory]="laboratory!"></app-code-input>
         </div>
       </div>
     </ng-container>
@@ -32,3 +31,5 @@
     <mat-spinner class="place-self-center"></mat-spinner>
   </div>
 </ng-template>
+
+<ng-template #noSandboxContainer></ng-template>
