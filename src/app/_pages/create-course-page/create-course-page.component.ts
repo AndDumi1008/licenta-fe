@@ -11,6 +11,7 @@ import {finalize} from 'rxjs/operators';
 })
 export class CreateCoursePageComponent implements OnInit {
   selectedImage: string = '';
+  description: string = '';
 
   public courseForm = new FormGroup({
     title: new FormControl<string>(''),
@@ -64,5 +65,8 @@ export class CreateCoursePageComponent implements OnInit {
     };
     reader.readAsDataURL(file);
     this.uploadImage(file!);
+  }
+
+  onDescriptionChange(){
   }
 }

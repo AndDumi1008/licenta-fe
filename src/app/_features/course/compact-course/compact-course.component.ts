@@ -39,7 +39,7 @@ export class CompactCourseComponent implements OnInit {
 
   addCourse() {
     if(this.id === 'create_new_course') {
-      this.dialog.open(CreateCoursePageComponent);
+      this.dialog.open(CreateCoursePageComponent, {minHeight: '75vh'});
     } else {
       this.redirectTo(this.id)
     }
