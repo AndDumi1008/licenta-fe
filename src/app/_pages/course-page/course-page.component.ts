@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {LaboratoryService} from "../../_services/laboratory.service";
 import {ILaboratorySummary} from "../../_interfaces/ILaboratorySummary";
 import {UserService} from "../../_services/user.service";
+import {GlobalVariableService} from "../../_services/global-variable.service";
 
 @Component({
   selector: 'app-course-page',
@@ -19,10 +20,12 @@ export class CoursePageComponent implements OnInit {
 
   id?: string;
   author?: string;
+  hasNoLabs?: boolean = false;
 
   constructor(private readonly courseService: CourseService,
               private readonly labService: LaboratoryService,
               private route: ActivatedRoute,
+              public global: GlobalVariableService,
               public userService: UserService,
               private router: Router) {
   }
@@ -34,10 +37,6 @@ export class CoursePageComponent implements OnInit {
       this.course = course
       this.userService.getUser(course.author).subscribe(user => this.author = user.name);
     });
-
-    this.labService.getLabList(this.id);
-
-    this.labService.labsSubject.subscribe(data => this.labs = data);
   }
 
   goToPage(labId: string) {

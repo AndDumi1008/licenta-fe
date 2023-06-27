@@ -9,7 +9,7 @@
       <h3>By {{ author }}</h3>
     </div>
 
-    <p>{{ this.course?.description }}</p>
+    <div [innerHTML]="this.course?.description"></div>
 
     <h2>Courses:</h2>
 
@@ -17,5 +17,8 @@
       <button class="button rounded-full flex justify-center w-full" (click)="this.userService.redirectTo('coursePage/'+ this.id +'/lab/' + this.lab.id)">{{ lab.title }}</button>
     </ng-container>
 
+    <ng-container *ngIf="this.labs?.length === 0 && this.course?.author === this.global.getUId()">
+      <button class="button rounded-full flex justify-center w-full" (click)="this.userService.redirectTo('coursePage/'+ this.id +'/lab/new')">Create new lab</button>
+    </ng-container>
   </div>
 </div>
