@@ -2,7 +2,7 @@
 <mat-dialog-content class="mat-typography flex-1 mt-3">
   <form class="row" [formGroup]="courseForm">
     <img class="h-[200px] !w-min object-fit-cover mb-2" *ngIf="selectedImage" [src]="selectedImage" alt="Image Preview">
-    <input type="file" class="mb-3" (change)="onFileSelected($event)" #file hidden="true">
+    <input type="file" class="mb-3" (change)="onFileSelected($event)" #file hidden="true" formControlName="img">
     <button class="!w-max !h-max !m-4 | button" (click)="file.click()">Chose a file</button>
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Title</mat-label>
@@ -10,10 +10,10 @@
     </mat-form-field>
 
     <label class="font-semibold text-base mb-1">Description</label>
-    <quill-editor [sanitize]="true" [(ngModel)]="description" ></quill-editor>
+    <quill-editor [sanitize]="true" formControlName="description"></quill-editor>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end" class="flex space-x-4">
-  <button class="button !mr-0 !border-rose-600 !text-rose-600 hover:!bg-rose-600" mat-button mat-dialog-close>Cancel</button>
-  <button class="button" (click)="add()"  [mat-dialog-close]="true" cdkFocusInitial>Submit</button>
+  <button class="button !mr-0 !border-rose-600 !text-rose-600 hover:!bg-rose-600" mat-button [mat-dialog-close]="true">Cancel</button>
+  <button class="button" (click)="add()"  >Submit</button>
 </mat-dialog-actions>

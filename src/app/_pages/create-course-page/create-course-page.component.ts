@@ -4,6 +4,8 @@ import {CourseService} from "../../_services/course.service";
 import {AngularFireStorage} from '@angular/fire/compat/storage';
 import {finalize} from 'rxjs/operators';
 import {GlobalVariableService} from "../../_services/global-variable.service";
+import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-create-course-page',
@@ -12,7 +14,6 @@ import {GlobalVariableService} from "../../_services/global-variable.service";
 })
 export class CreateCoursePageComponent implements OnInit {
   selectedImage: string = '';
-  description: string = '';
 
   public courseForm = new FormGroup({
     title: new FormControl<string>(''),
@@ -21,8 +22,10 @@ export class CreateCoursePageComponent implements OnInit {
   })
 
   constructor(private courseService: CourseService,
+              private router: Router,
               private storage: AngularFireStorage,
-              private global: GlobalVariableService) {
+              private global: GlobalVariableService,
+              private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -34,7 +37,10 @@ export class CreateCoursePageComponent implements OnInit {
       id: null,
       author: this.global.getUId()
     }
-    this.courseService.addCourse(course);
+    this.courseService.addCourse(course).subscribe(({id}) => {
+      this.dialog.closeAll()
+      this.router.navigate([`/coursePage/${id}/lab/new`])
+    });
   }
 
   uploadImage(file: File) {

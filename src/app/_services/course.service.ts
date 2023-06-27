@@ -31,7 +31,7 @@ export class CourseService {
   }
 
   addCourse(course: ICourseSummary) {
-    return this.http.put<ICourseSummary>(`${this.apiUrl}/course`, course)
+    return this.http.put<ICourseSummary>(`${this.apiUrl}/course`, course,{headers: this.header.getHeaderOptions()})
   }
 
   searchCourse(searchText: string) {
