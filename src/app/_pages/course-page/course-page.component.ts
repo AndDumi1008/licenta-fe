@@ -20,7 +20,6 @@ export class CoursePageComponent implements OnInit {
 
   id?: string;
   author?: string;
-  hasNoLabs?: boolean = false;
 
   constructor(private readonly courseService: CourseService,
               private readonly labService: LaboratoryService,
@@ -36,6 +35,9 @@ export class CoursePageComponent implements OnInit {
     this.courseService.getCourse(this.id).subscribe(course => {
       this.course = course
       this.userService.getUser(course.author).subscribe(user => this.author = user.name);
+
+      this.labService.getLabList(this.id);
+      this.labService.labsSubject.subscribe(data => this.labs = data);
     });
   }
 
